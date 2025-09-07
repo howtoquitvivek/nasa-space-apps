@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi Dataset Map Viewer</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Leaflet CSS/JS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <!-- Annotate -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-draw/dist/leaflet.draw.css"/>
+  <script src="https://unpkg.com/leaflet-draw/dist/leaflet.draw.js"></script>
+
+  <style>
+    #map { height: 100vh; width: 100%; }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <!-- Navbar -->
+  <div class="w-full bg-gray-900 text-white px-4 py-2 flex justify-between items-center">
+    <h1 class="text-lg font-semibold">🗺️ Multi-Dataset Map Viewer</h1>
+    <div class="flex space-x-2">
+      <select id="datasetSelect" class="text-black px-2 py-1 rounded">
+        <option value="mars">Mars</option>
+        <option value="earth">Earth</option>
+        <option value="hubble">Hubble</option>
+      </select>
+      <button id="resetView" class="bg-blue-600 hover:bg-blue-700 px-3 py-1 rounded">Reset View</button>
+    </div>
+  </div>
+
+  <!-- Map -->
+  <div id="map"></div>
+
+  <!-- Script -->
+  <script src="map.js"></script>
+</body>
+</html>
