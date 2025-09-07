@@ -1,13 +1,22 @@
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Body
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi import Body
 from pydantic import BaseModel
-import os, json
+import os, json, math
+from typing import List
+from PIL import Image
+import torch
+import torch.nn as nn
+import torchvision.models as models
+import torchvision.transforms as transforms
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 
 app = FastAPI()
 
-# Allow frontend (localhost:5500) to access
+# -------------------------------
+# CORS
+# -------------------------------
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -16,19 +25,69 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Tiles path
+# -------------------------------
+# Paths and Config
+# -------------------------------
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TILES_ROOT = os.path.join(BASE_DIR, "data")
-
 ANNOTATIONS_FILE = os.path.join(BASE_DIR, "annotations.json")
+FIXED_ZOOM = 4
 
+# -------------------------------
+# PyTorch ResNet18 Feature Extractor
+# -------------------------------
+device = "cpu"  # CPU only for now
+resnet = models.resnet18(pretrained=True)
+resnet = nn.Sequential(*list(resnet.children())[:-1])  # remove classifier
+resnet.eval().to(device)
+
+transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize(
+        mean=[0.485, 0.456, 0.406], 
+        std=[0.229, 0.224, 0.225]
+    )
+])
+
+def extract_features(image: Image.Image):
+    img_t = transform(image).unsqueeze(0).to(device)
+    with torch.no_grad():
+        feat = resnet(img_t).squeeze().cpu().numpy()
+    return feat
+
+# -------------------------------
+# Helper Functions
+# -------------------------------
+def load_annotations():
+    if not os.path.exists(ANNOTATIONS_FILE):
+        return []
+    with open(ANNOTATIONS_FILE, "r") as f:
+        return json.load(f)
+
+def save_annotations(data):
+    with open(ANNOTATIONS_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+def latlng_to_tilexy(lat, lng, zoom):
+    n = 2 ** zoom
+    x = int((lng + 180.0) / 360.0 * n)
+    y = int((1.0 - math.log(math.tan(math.radians(lat)) + 1 / math.cos(math.radians(lat))) / math.pi) / 2.0 * n)
+    return x, y
+
+# -------------------------------
+# Annotation Model
+# -------------------------------
 class Annotation(BaseModel):
     id: str
     dataset: str
     geojson: dict
     label: str
+    embedding: List[float] = []
 
-# --- Tile Serving ---
+# -------------------------------
+# Tiles API
+# -------------------------------
 @app.get("/tiles/{dataset}/{z}/{x}/{y}.webp")
 def get_tile(dataset: str, z: int, x: int, y: int):
     path = os.path.join(TILES_ROOT, dataset, str(z), str(x), f"{y}.webp")
@@ -36,54 +95,81 @@ def get_tile(dataset: str, z: int, x: int, y: int):
         raise HTTPException(status_code=404, detail=f"Tile not found: {path}")
     return FileResponse(path, media_type="image/webp")
 
-# --- Annotations API ---
+# -------------------------------
+# CRUD for Annotations
+# -------------------------------
 @app.get("/annotations")
 def get_annotations():
-    if not os.path.exists(ANNOTATIONS_FILE):
-        return []
-    with open(ANNOTATIONS_FILE, "r") as f:
-        return json.load(f)
+    return load_annotations()
 
 @app.post("/annotations")
 def save_annotation(annotation: Annotation):
-    data = []
-    if os.path.exists(ANNOTATIONS_FILE):
-        with open(ANNOTATIONS_FILE, "r") as f:
-            data = json.load(f)
+    # Compute centroid crop
+    coords = annotation.geojson["geometry"]["coordinates"][0]  # polygon
+    lats = [pt[1] for pt in coords]
+    lngs = [pt[0] for pt in coords]
+    centroid_lat = sum(lats) / len(lats)
+    centroid_lng = sum(lngs) / len(lngs)
+
+    tx, ty = latlng_to_tilexy(centroid_lat, centroid_lng, FIXED_ZOOM)
+    tile_path = os.path.join(TILES_ROOT, annotation.dataset, str(FIXED_ZOOM), str(tx), f"{ty}.webp")
+    if not os.path.exists(tile_path):
+        raise HTTPException(status_code=404, detail="Tile not found for crop")
+
+    img = Image.open(tile_path).convert("RGB")
+    annotation.embedding = extract_features(img).tolist()
+
+    data = load_annotations()
     data.append(annotation.dict())
-    with open(ANNOTATIONS_FILE, "w") as f:
-        json.dump(data, f, indent=2)
+    save_annotations(data)
     return {"status": "saved"}
 
 @app.put("/annotations/{annotation_id}")
 def update_annotation(annotation_id: str, annotation: dict = Body(...)):
-    """
-    Update an annotation by ID. Expects a JSON body with the fields to update,
-    e.g., {"label": "New label"}.
-    """
-    if not os.path.exists(ANNOTATIONS_FILE):
-        raise HTTPException(status_code=404, detail="No annotations found")
-
-    with open(ANNOTATIONS_FILE, "r") as f:
-        data = json.load(f)
-
+    data = load_annotations()
     for i, a in enumerate(data):
         if a["id"] == annotation_id:
-            # Update only the fields provided in request body
             data[i].update(annotation)
-            with open(ANNOTATIONS_FILE, "w") as f:
-                json.dump(data, f, indent=2)
+            save_annotations(data)
             return {"status": "updated", "annotation": data[i]}
-
     raise HTTPException(status_code=404, detail="Annotation not found")
 
 @app.delete("/annotations/{annotation_id}")
 def delete_annotation(annotation_id: str):
-    if not os.path.exists(ANNOTATIONS_FILE):
-        return {"status": "not_found"}
-    with open(ANNOTATIONS_FILE, "r") as f:
-        data = json.load(f)
+    data = load_annotations()
     new_data = [a for a in data if a["id"] != annotation_id]
-    with open(ANNOTATIONS_FILE, "w") as f:
-        json.dump(new_data, f, indent=2)
+    save_annotations(new_data)
     return {"status": "deleted"}
+
+# -------------------------------
+# Similarity Search
+# -------------------------------
+@app.get("/annotations/{annotation_id}/similar")
+def find_similar(annotation_id: str, top_k: int = 5):
+    data = load_annotations()
+    query = next((a for a in data if a["id"] == annotation_id), None)
+    if query is None:
+        raise HTTPException(status_code=404, detail="Annotation not found")
+    if not query.get("embedding"):
+        raise HTTPException(status_code=400, detail="Annotation has no embedding")
+
+    embeddings = np.array([a["embedding"] for a in data if a.get("embedding") is not None])
+    ids = [a["id"] for a in data if a.get("embedding") is not None]
+    idx = ids.index(annotation_id)
+    query_vec = embeddings[idx].reshape(1, -1)
+    others_vecs = np.delete(embeddings, idx, axis=0)
+    others_ids = ids[:idx] + ids[idx+1:]
+
+    scores = cosine_similarity(query_vec, others_vecs)[0]
+    results = []
+    for oid, score in zip(others_ids, scores):
+        ann = next(a for a in data if a["id"] == oid)
+        results.append({
+            "id": oid,
+            "dataset": ann["dataset"],
+            "label": ann.get("label", ""),
+            "score": float(score)
+        })
+
+    results.sort(key=lambda x: x["score"], reverse=True)
+    return {"query_id": annotation_id, "similar": results[:top_k]}
