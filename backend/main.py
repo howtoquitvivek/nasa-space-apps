@@ -1,6 +1,7 @@
 from fastapi import FastAPI, HTTPException, Body
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import os, json, math
 from typing import List
@@ -12,6 +13,9 @@ import torchvision.transforms as transforms
 from sklearn.metrics.pairwise import cosine_similarity
 
 app = FastAPI()
+
+# Mount static folder
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # -------------------------------
 # CORS
@@ -105,6 +109,13 @@ class Annotation(BaseModel):
     geojson: dict
     label: str
     embedding: List[float] = []
+
+# -------------------------------
+# API
+# -------------------------------
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to my API 🚀"}
 
 # -------------------------------
 # Tiles API
