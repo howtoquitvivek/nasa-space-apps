@@ -1,21 +1,17 @@
 from fastapi import FastAPI, HTTPException, Body
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse,  Response
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 import os, json, math
 from typing import List
 from PIL import Image
 import torch
 import torch.nn as nn
-import torchvision.models as models
+from torchvision.models import resnet18, ResNet18_Weights
 import torchvision.transforms as transforms
 from sklearn.metrics.pairwise import cosine_similarity
 
 app = FastAPI()
-
-# Mount static folder
-app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # -------------------------------
 # CORS
@@ -41,7 +37,8 @@ TOP_K = 5  # default top-K similar tiles
 # PyTorch ResNet18 Feature Extractor
 # -------------------------------
 device = "cpu"  # CPU only for now
-resnet = models.resnet18(pretrained=True)
+weights = ResNet18_Weights.DEFAULT
+resnet = resnet18(weights=weights)
 resnet = nn.Sequential(*list(resnet.children())[:-1])  # remove classifier
 resnet.eval().to(device)
 
@@ -116,6 +113,10 @@ class Annotation(BaseModel):
 @app.get("/")
 def read_root():
     return {"message": "Welcome to my API 🚀"}
+
+@app.get("/favicon.ico")
+async def favicon():
+    return Response(content=b"", media_type="image/x-icon")
 
 # -------------------------------
 # Tiles API
