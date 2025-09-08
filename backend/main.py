@@ -10,7 +10,6 @@ import torch.nn as nn
 import torchvision.models as models
 import torchvision.transforms as transforms
 from sklearn.metrics.pairwise import cosine_similarity
-import numpy as np
 
 app = FastAPI()
 
@@ -32,6 +31,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TILES_ROOT = os.path.join(BASE_DIR, "data")
 ANNOTATIONS_FILE = os.path.join(BASE_DIR, "annotations.json")
 FIXED_ZOOM = 4
+TOP_K = 5  # default top-K similar tiles
 
 # -------------------------------
 # PyTorch ResNet18 Feature Extractor
@@ -55,6 +55,27 @@ def extract_features(image: Image.Image):
     with torch.no_grad():
         feat = resnet(img_t).squeeze().cpu().numpy()
     return feat
+
+# -------------------------------
+# Tile embedding cache
+# -------------------------------
+tile_embeddings_cache = {}  # { zoom_level: { (x, y): embedding } }
+
+def get_tile_embedding(dataset: str, z: int, x: int, y: int):
+    if z not in tile_embeddings_cache:
+        tile_embeddings_cache[z] = {}
+    key = (x, y)
+    if key in tile_embeddings_cache[z]:
+        return tile_embeddings_cache[z][key]
+
+    tile_path = os.path.join(TILES_ROOT, dataset, str(z), str(x), f"{y}.webp")
+    if not os.path.exists(tile_path):
+        return None
+
+    img = Image.open(tile_path).convert("RGB")
+    emb = extract_features(img)
+    tile_embeddings_cache[z][key] = emb
+    return emb
 
 # -------------------------------
 # Helper Functions
@@ -142,34 +163,41 @@ def delete_annotation(annotation_id: str):
     return {"status": "deleted"}
 
 # -------------------------------
-# Similarity Search
+# Tile similarity search via GET
 # -------------------------------
-@app.get("/annotations/{annotation_id}/similar")
-def find_similar(annotation_id: str, top_k: int = 5):
-    data = load_annotations()
-    query = next((a for a in data if a["id"] == annotation_id), None)
-    if query is None:
-        raise HTTPException(status_code=404, detail="Annotation not found")
-    if not query.get("embedding"):
-        raise HTTPException(status_code=400, detail="Annotation has no embedding")
+@app.get("/tiles/{dataset}/similar")
+def find_similar_tile(
+    dataset: str,
+    lat: float,
+    lng: float,
+    zoom: int = FIXED_ZOOM,
+    top_k: int = TOP_K
+):
+    tx, ty = latlng_to_tilexy(lat, lng, zoom)
+    query_emb = get_tile_embedding(dataset, zoom, tx, ty)
+    if query_emb is None:
+        raise HTTPException(status_code=404, detail="Tile not found at given location")
 
-    embeddings = np.array([a["embedding"] for a in data if a.get("embedding") is not None])
-    ids = [a["id"] for a in data if a.get("embedding") is not None]
-    idx = ids.index(annotation_id)
-    query_vec = embeddings[idx].reshape(1, -1)
-    others_vecs = np.delete(embeddings, idx, axis=0)
-    others_ids = ids[:idx] + ids[idx+1:]
+    # Compare against all tiles at this zoom level
+    similar_tiles = []
+    zoom_dir = os.path.join(TILES_ROOT, dataset, str(zoom))
+    if not os.path.exists(zoom_dir):
+        raise HTTPException(status_code=404, detail="No tiles found for this zoom level")
 
-    scores = cosine_similarity(query_vec, others_vecs)[0]
-    results = []
-    for oid, score in zip(others_ids, scores):
-        ann = next(a for a in data if a["id"] == oid)
-        results.append({
-            "id": oid,
-            "dataset": ann["dataset"],
-            "label": ann.get("label", ""),
-            "score": float(score)
-        })
+    for x_str in os.listdir(zoom_dir):
+        x_path = os.path.join(zoom_dir, x_str)
+        if not os.path.isdir(x_path):
+            continue
+        for y_file in os.listdir(x_path):
+            if not y_file.endswith(".webp"):
+                continue
+            y = int(y_file.split(".")[0])
+            x = int(x_str)
+            emb = get_tile_embedding(dataset, zoom, x, y)
+            if emb is None:
+                continue
+            score = cosine_similarity(query_emb.reshape(1, -1), emb.reshape(1, -1))[0][0]
+            similar_tiles.append({"z": zoom, "x": x, "y": y, "score": float(score)})
 
-    results.sort(key=lambda x: x["score"], reverse=True)
-    return {"query_id": annotation_id, "similar": results[:top_k]}
+    similar_tiles.sort(key=lambda t: t["score"], reverse=True)
+    return {"lat": lat, "lng": lng, "zoom": zoom, "similar_tiles": similar_tiles[:top_k]}
