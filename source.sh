@@ -1,9 +1,5 @@
 #!/bin/bash
-
-echo "Synchronizing Python environment with uv..."
 uv sync
-
-echo "Activating virtual environment..."
-source .venv/bin/activate
-
-echo "Virtual environment activated."
+echo "uv synced..."
+echo "Activate venv by below command before running start.sh."
+echo ".venv/bin/activate"
