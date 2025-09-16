@@ -18,7 +18,8 @@ import rasterio
 from rasterio.transform import from_bounds
 from rasterio.transform import from_bounds as transform_from_bounds
 from rasterio.windows import from_bounds as window_from_bounds
-
+from rasterio.transform import from_origin
+from rasterio.features import rasterize
 from shapely.geometry import shape, box
 
 app = FastAPI()
@@ -146,6 +147,8 @@ def extract_features(image: Image.Image):
         feat = model(img_t).squeeze().cpu().numpy()
     return feat
 
+    
+
 # -------------------------------
 # Helper Functions
 # -------------------------------
@@ -176,55 +179,56 @@ class MercatorProjection:
         n = math.pi - (2.0 * math.pi * y) / (2**z)
         return (180.0 / math.pi) * math.atan(math.sinh(n))
 
-    # REVISED: Corrected method using Shapely and Rasterio
-    def get_pixel_bbox_on_tile(self, geojson, z, tile_x, tile_y):
+    def get_pixel_bbox_on_tile(self, geojson, z, tile_x, tile_y, out_size=256):
+        """
+        Rasterize the clipped polygon into an out_size x out_size mask and return
+        the tight pixel bbox (xmin, ymin, xmax, ymax) in pixel coordinates.
+        Returns None if the geometry doesn't overlap the tile.
+        """
         feature_shape = shape(geojson['geometry'])
 
-        # Get the WGS84 latitude/longitude bounds of the tile
+        # Tile WGS84 bounds
         tile_lng_min = self.tileXToLng(tile_x, z)
         tile_lat_max = self.tileYToLat(tile_y, z)
         tile_lng_max = self.tileXToLng(tile_x + 1, z)
         tile_lat_min = self.tileYToLat(tile_y + 1, z)
 
-        # Create a Shapely box for the tile's geometry
+        # Clip geometry to the tile bbox
         tile_bbox_geom = box(tile_lng_min, tile_lat_min, tile_lng_max, tile_lat_max)
-        
-        # FIX: Clip the annotation's geometry to the tile's boundaries before processing
         clipped_shape = feature_shape.intersection(tile_bbox_geom)
 
-        # If the annotation doesn't overlap this tile at all, return None
         if clipped_shape.is_empty:
             return None
 
-        # Create the affine transformation matrix for this specific tile
-        tile_transform = transform_from_bounds(
-            tile_lng_min,  # left
-            tile_lat_min,  # bottom
-            tile_lng_max,  # right
-            tile_lat_max,  # top
-            256,           # width
-            256            # height
+        # Create transform that maps pixel centers -> lon/lat (use from_bounds)
+        tile_transform = from_bounds(
+            tile_lng_min, tile_lat_min, tile_lng_max, tile_lat_max, out_size, out_size
         )
 
+        # Rasterize clipped geometry into mask of shape (out_size, out_size)
         try:
-            from rasterio.windows import from_bounds as window_from_bounds
-            # Get the pixel window for the *clipped* shape's bounds
-            window = window_from_bounds(*clipped_shape.bounds, transform=tile_transform)
-
-            col_start, col_stop = window.col_off, window.col_off + window.width
-            row_start, row_stop = window.row_off, window.row_off + window.height
-
-            # Clamp the pixel coordinates to the tile's dimensions (0-256)
-            local_x_min = max(0, int(col_start))
-            local_y_min = max(0, int(row_start))
-            local_x_max = min(256, int(col_stop))
-            local_y_max = min(256, int(row_stop))
-
-            return (local_x_min, local_y_min, local_x_max, local_y_max)
-
+            mask = rasterize(
+                [(clipped_shape, 1)],
+                out_shape=(out_size, out_size),
+                transform=tile_transform,
+                fill=0,
+                dtype='uint8',
+                all_touched=False
+            )
         except Exception as e:
-            print(f"Error calculating pixel bbox: {e}")
-            raise HTTPException(status_code=500, detail="Failed to calculate image crop.")
+            print("Rasterize error:", e)
+            raise HTTPException(status_code=500, detail="Failed to rasterize geometry.")
+
+        rows, cols = np.where(mask == 1)
+        if rows.size == 0 or cols.size == 0:
+            return None
+
+        y_min, y_max = int(rows.min()), int(rows.max())
+        x_min, x_max = int(cols.min()), int(cols.max())
+
+        # return bbox in PIL crop coords: (left, upper, right, lower)
+        # note PIL crop expects (left, upper, right, lower) where right/ lower are exclusive
+        return (x_min, y_min, x_max + 1, y_max + 1)
 
 projection = MercatorProjection()
 
