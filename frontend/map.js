@@ -25,11 +25,6 @@ const map = L.map("map", {
   zoomControl: false
 });
 
-map.on("zoomend moveend", () => {
-  localStorage.setItem("mapZoom", map.getZoom());
-  localStorage.setItem("mapCenter", JSON.stringify(map.getCenter()));
-});
-
 // Save zoom and center on move or zoom
 map.on("zoomend moveend", () => {
   localStorage.setItem("mapZoom", map.getZoom());
@@ -39,22 +34,35 @@ map.on("zoomend moveend", () => {
 // ========================================================
 // TILE LAYER LOADING
 // ========================================================
-
-function loadDataset(dataset) {
+async function loadDataset(dataset) {
   if (currentLayer) map.removeLayer(currentLayer);
 
-  currentLayer = L.tileLayer(`${API_BASE}/tiles/${dataset}/{z}/{x}/{y}.webp?ts=${Date.now()}`, {
+  const res = await fetch(`${API_BASE}/datasets/${dataset}/bounds`);
+  if (!res.ok) {
+    alert("Failed to load dataset bounds");
+    return;
+  }
+  const { bounds } = await res.json();
+
+  currentLayer = L.tileLayer(`${API_BASE}/tiles/${dataset}/{z}/{x}/{y}.webp`, {
     attribution: `&copy; ${dataset} dataset`,
-    noWrap: true
+    noWrap: true,
+    bounds: bounds,
+    errorTileUrl: ""
   }).addTo(map);
 
+  map.setMaxBounds(bounds);
+
   // Only fit bounds if no saved zoom/center
+  const savedZoom = localStorage.getItem("mapZoom");
+  const savedCenter = JSON.parse(localStorage.getItem("mapCenter"));
   if (!savedZoom || !savedCenter) {
-    map.fitBounds([[-90, -180], [90, 180]]);
+    map.fitBounds(bounds);
   }
 
   localStorage.setItem("currentDataset", dataset);
 }
+
 
 // ========================================================
 // ANNOTATION SETUP
@@ -93,8 +101,10 @@ function tileYToLat(y, zoom) {
 // ========================================================
 
 async function loadAnnotations() {
-  const res = await fetch(`${API_BASE}/annotations`);
+  // cache-busting to avoid stale results
+  const res = await fetch(`${API_BASE}/annotations?ts=${Date.now()}`);
   const data = await res.json();
+
   drawnItems.clearLayers();
 
   data.filter(a => a.dataset === currentDataset).forEach(a => {
@@ -146,25 +156,36 @@ drawnItems.on("click", async (e) => {
   if (findSimilarMode) {
     findSimilarMode = false;
 
+    document.body.style.cursor = 'wait';
+    alert("Searching for similar tiles...");
+
     const geo = layer.toGeoJSON();
     const centroid = geo.geometry.type === "Point"
       ? geo.geometry.coordinates
-      : geo.geometry.coordinates[0].reduce((acc, c) => [acc[0]+c[0], acc[1]+c[1]], [0,0]).map(v=>v/geo.geometry.coordinates[0].length);
+      : geo.geometry.coordinates[0].reduce((acc, c) => [acc[0] + c[0], acc[1] + c[1]], [0, 0]).map(v => v / geo.geometry.coordinates[0].length);
 
     try {
       const url = `${API_BASE}/tiles/${currentDataset}/similar?lat=${centroid[1]}&lng=${centroid[0]}&zoom=${map.getZoom()}&top_k=${TOP_K}`;
       const res = await fetch(url);
-      if (!res.ok) throw new Error("Fetch failed");
-      const data = await res.json();
 
+      if (res.status === 404) {
+        const errorData = await res.json();
+        alert(`Error: ${errorData.detail}`);
+        return;
+      }
+
+      if (!res.ok) {
+        throw new Error("Generic fetch failed");
+      }
+
+      const data = await res.json();
       highlightLayer.clearLayers();
 
       data.similar_tiles.forEach(tile => {
         const bounds = [
-          [tileYToLat(tile.y+1, tile.z), tileXToLng(tile.x, tile.z)],
-          [tileYToLat(tile.y, tile.z), tileXToLng(tile.x+1, tile.z)]
+          [tileYToLat(tile.y + 1, tile.z), tileXToLng(tile.x, tile.z)],
+          [tileYToLat(tile.y, tile.z), tileXToLng(tile.x + 1, tile.z)]
         ];
-
         const rect = L.rectangle(bounds, { color: "red", weight: 2, fillOpacity: 0.3 });
         rect.bindTooltip(`Score: ${tile.score.toFixed(3)}`, { permanent: true, direction: "top" }).openTooltip();
         highlightLayer.addLayer(rect);
@@ -173,19 +194,21 @@ drawnItems.on("click", async (e) => {
       if (highlightLayer.getLayers().length) {
         map.fitBounds(highlightLayer.getBounds().pad(0.5));
       }
-
     } catch (err) {
       console.error(err);
-      alert("Error fetching similar tiles.");
+      alert("An unexpected error occurred while fetching similar tiles.");
+    } finally {
+      document.body.style.cursor = 'default';
     }
 
   } else {
+    // Editing annotation label
     const newLabel = prompt("Edit label:", layer._label || "");
     if (newLabel !== null) {
       layer._label = newLabel;
       layer.bindTooltip(newLabel, { permanent: true, direction: "top" }).openTooltip();
       if (layer._annotationId) {
-        fetch(`${API_BASE}/annotations/${layer._annotationId}`, {
+        await fetch(`${API_BASE}/annotations/${layer._annotationId}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ label: newLabel })
@@ -211,12 +234,11 @@ map.on("draw:deleted", async (e) => {
 // UI CONTROLS
 // ========================================================
 
-// Set dropdown to persisted dataset
 document.getElementById("datasetSelect").value = currentDataset;
 
 document.getElementById("datasetSelect").addEventListener("change", (e) => {
   currentDataset = e.target.value;
-  localStorage.setItem("currentDataset", currentDataset); // persist
+  localStorage.setItem("currentDataset", currentDataset);
   loadDataset(currentDataset);
   loadAnnotations();
 });
