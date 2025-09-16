@@ -5,7 +5,7 @@
 const API_BASE = "http://localhost:8000";
 let currentDataset;
 let currentLayer;
-const TOP_K = 5; // top similar tiles
+const TOP_K = 2; // top similar tiles
 
 // ========================================================
 // Load map with persistent zoom/center
@@ -25,11 +25,23 @@ const map = L.map("map", {
   zoomControl: false
 });
 
+// Add zoom control to bottom right
+L.control.zoom({ position: 'bottomright' }).addTo(map);
+
 // Save zoom and center on move or zoom
 map.on("zoomend moveend", () => {
   localStorage.setItem("mapZoom", map.getZoom());
   localStorage.setItem("mapCenter", JSON.stringify(map.getCenter()));
+  updateZoomInfo(); // Update zoom display
 });
+
+// Update zoom info display
+function updateZoomInfo() {
+  const zoomInfo = document.getElementById("zoomInfo");
+  if (zoomInfo) {
+    zoomInfo.textContent = `Zoom: ${map.getZoom()} | Dataset: ${currentDataset}`;
+  }
+}
 
 // ========================================================
 // TILE LAYER LOADING
@@ -42,7 +54,8 @@ async function loadDataset(dataset) {
     alert("Failed to load dataset bounds");
     return;
   }
-  const { bounds } = await res.json();
+  const data = await res.json();
+  const { bounds } = data;
 
   currentLayer = L.tileLayer(`${API_BASE}/tiles/${dataset}/{z}/{x}/{y}.webp`, {
     attribution: `&copy; ${dataset} dataset`,
@@ -61,8 +74,13 @@ async function loadDataset(dataset) {
   }
 
   localStorage.setItem("currentDataset", dataset);
+  updateZoomInfo(); // Update zoom display
+  
+  // Log available zoom levels
+  if (data.available_zooms) {
+    console.log(`Available zoom levels for ${dataset}:`, data.available_zooms);
+  }
 }
-
 
 // ========================================================
 // ANNOTATION SETUP
@@ -121,12 +139,15 @@ async function loadAnnotations() {
 }
 
 // ========================================================
-// CREATE ANNOTATION
+// CREATE ANNOTATION - ENHANCED WITH ZOOM INFO
 // ========================================================
 
 map.on(L.Draw.Event.CREATED, async (e) => {
   const layer = e.layer;
-  const label = prompt("Enter label for this annotation:");
+  const currentZoom = map.getZoom();
+  
+  // Show current zoom in the prompt
+  const label = prompt(`Enter label for this annotation:\n(Current zoom level: ${currentZoom})`);
   if (label) {
     layer._label = label;
     layer.bindTooltip(label, { permanent: true, direction: "center" }).openTooltip();
@@ -135,87 +156,142 @@ map.on(L.Draw.Event.CREATED, async (e) => {
   drawnItems.addLayer(layer);
 
   const geojson = layer.toGeoJSON();
-  const annotation = { id: String(Date.now()), dataset: currentDataset, geojson, label };
+  const annotation = { 
+    id: String(Date.now()), 
+    dataset: currentDataset, 
+    geojson, 
+    label,
+    zoom_created: currentZoom  // Track zoom level when annotation was created
+  };
 
-  await fetch(`${API_BASE}/annotations`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(annotation)
-  });
+  try {
+    const response = await fetch(`${API_BASE}/annotations`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(annotation)
+    });
+    
+    const result = await response.json();
+    if (result.zoom_used) {
+      console.log(`Annotation saved using zoom level: ${result.zoom_used}`);
+    }
+  } catch (error) {
+    console.error("Failed to save annotation:", error);
+    alert("Failed to save annotation. Please try again.");
+  }
 
   layer._annotationId = annotation.id;
 });
 
 // ========================================================
-// FIND SIMILAR TILES
+// LOADING INDICATOR HELPERS
+// ========================================================
+
+function showLoading(show) {
+  const loadingIndicator = document.getElementById("loadingIndicator");
+  if (loadingIndicator) {
+    loadingIndicator.style.display = show ? "block" : "none";
+  }
+  document.body.style.cursor = show ? 'wait' : 'default';
+}
+
+// ========================================================
+// FIND SIMILAR TILES - ENHANCED WITH FEATURE-LEVEL MATCHING
 // ========================================================
 
 drawnItems.on("click", async (e) => {
-  const layer = e.layer || e.target;
-
-  if (findSimilarMode) {
-    findSimilarMode = false;
-
-    document.body.style.cursor = 'wait';
-    alert("Searching for similar tiles...");
-
-    const geo = layer.toGeoJSON();
-    const centroid = geo.geometry.type === "Point"
-      ? geo.geometry.coordinates
-      : geo.geometry.coordinates[0].reduce((acc, c) => [acc[0] + c[0], acc[1] + c[1]], [0, 0]).map(v => v / geo.geometry.coordinates[0].length);
-
-    try {
-      const url = `${API_BASE}/tiles/${currentDataset}/similar?lat=${centroid[1]}&lng=${centroid[0]}&zoom=${map.getZoom()}&top_k=${TOP_K}`;
-      const res = await fetch(url);
-
-      if (res.status === 404) {
-        const errorData = await res.json();
-        alert(`Error: ${errorData.detail}`);
+    const layer = e.layer || e.target;
+    
+    // Check if the clicked layer has a valid annotation ID
+    if (!layer._annotationId) {
+        console.warn("Clicked layer does not have an annotation ID. Skipping similarity search.");
         return;
-      }
-
-      if (!res.ok) {
-        throw new Error("Generic fetch failed");
-      }
-
-      const data = await res.json();
-      highlightLayer.clearLayers();
-
-      data.similar_tiles.forEach(tile => {
-        const bounds = [
-          [tileYToLat(tile.y + 1, tile.z), tileXToLng(tile.x, tile.z)],
-          [tileYToLat(tile.y, tile.z), tileXToLng(tile.x + 1, tile.z)]
-        ];
-        const rect = L.rectangle(bounds, { color: "red", weight: 2, fillOpacity: 0.3 });
-        rect.bindTooltip(`Score: ${tile.score.toFixed(3)}`, { permanent: true, direction: "top" }).openTooltip();
-        highlightLayer.addLayer(rect);
-      });
-
-      if (highlightLayer.getLayers().length) {
-        map.fitBounds(highlightLayer.getBounds().pad(0.5));
-      }
-    } catch (err) {
-      console.error(err);
-      alert("An unexpected error occurred while fetching similar tiles.");
-    } finally {
-      document.body.style.cursor = 'default';
     }
 
-  } else {
-    // Editing annotation label
-    const newLabel = prompt("Edit label:", layer._label || "");
-    if (newLabel !== null) {
-      layer._label = newLabel;
-      layer.bindTooltip(newLabel, { permanent: true, direction: "top" }).openTooltip();
-      if (layer._annotationId) {
-        await fetch(`${API_BASE}/annotations/${layer._annotationId}`, {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ label: newLabel })
-        });
-      }
+    if (findSimilarMode) {
+        findSimilarMode = false;
+        
+        showLoading(true);
+        const currentZoom = map.getZoom();
+
+        const geojson = layer.toGeoJSON();
+
+        console.log("GeoJSON object being sent to backend:", JSON.stringify(geojson, null, 2));
+        
+        try {
+            // New endpoint and POST request to send the full geojson
+            const url = `${API_BASE}/annotations/similar?top_k=${TOP_K}&zoom=${currentZoom}`;
+            console.log(`Searching for similar features using annotation ID: ${layer._annotationId}`);
+            
+            const res = await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    annotation_id: layer._annotationId,
+                    dataset: currentDataset,
+                    geojson: geojson
+                })
+            });
+
+            if (res.status === 404) {
+                const errorData = await res.json();
+                alert(`Error: ${errorData.detail}`);
+                return;
+            }
+
+            if (!res.ok) {
+                throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+            }
+
+            const data = await res.json();
+            highlightLayer.clearLayers();
+
+            console.log(`Found ${data.similar_tiles.length} similar tiles:`, data);
+
+            data.similar_tiles.forEach(tile => {
+                const bounds = [
+                    [tileYToLat(tile.y + 1, tile.z), tileXToLng(tile.x, tile.z)],
+                    [tileYToLat(tile.y, tile.z), tileXToLng(tile.x + 1, tile.z)]
+                ];
+                const rect = L.rectangle(bounds, { color: "red", weight: 2, fillOpacity: 0.3 });
+                
+                const tooltipText = `Score: ${tile.score.toFixed(3)}\nZoom: ${tile.z}\nTile: (${tile.x}, ${tile.y})`;
+                rect.bindTooltip(tooltipText, { permanent: true, direction: "top" }).openTooltip();
+                highlightLayer.addLayer(rect);
+            });
+
+            if (highlightLayer.getLayers().length > 0) {
+                map.fitBounds(highlightLayer.getBounds().pad(0.1));
+                
+                setTimeout(() => {
+                    alert(`Found ${data.similar_tiles.length} similar tiles at zoom level ${currentZoom}!`);
+                }, 500);
+            } else {
+                alert(`No similar tiles found at zoom level ${currentZoom}. Try a different zoom level or location.`);
+            }
+
+        } catch (err) {
+            console.error("Similarity search error:", err);
+            alert(`An unexpected error occurred while fetching similar tiles:\n${err.message}`);
+        } finally {
+            showLoading(false);
+        }
+
+    } else {
+        // ... (existing edit label logic remains here)
+        const newLabel = prompt("Edit label:", layer._label || "");
+        if (newLabel !== null) {
+            layer._label = newLabel;
+            layer.bindTooltip(newLabel, { permanent: true, direction: "top" }).openTooltip();
+            if (layer._annotationId) {
+                await fetch(`${API_BASE}/annotations/${layer._annotationId}`, {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ label: newLabel })
+                });
+            }
+        }
     }
-  }
 });
 
 // ========================================================
@@ -231,7 +307,7 @@ map.on("draw:deleted", async (e) => {
 });
 
 // ========================================================
-// UI CONTROLS
+// UI CONTROLS - ENHANCED
 // ========================================================
 
 document.getElementById("datasetSelect").value = currentDataset;
@@ -241,15 +317,43 @@ document.getElementById("datasetSelect").addEventListener("change", (e) => {
   localStorage.setItem("currentDataset", currentDataset);
   loadDataset(currentDataset);
   loadAnnotations();
+  highlightLayer.clearLayers(); // Clear highlights when switching datasets
 });
 
 document.getElementById("resetView").addEventListener("click", () => {
   map.setZoom(2);
+  map.setView([0, 0], 2);
 });
 
 document.getElementById("findSimilar").addEventListener("click", () => {
   findSimilarMode = true;
-  alert("Click on an annotation to find similar tiles.");
+  const currentZoom = map.getZoom();
+  alert(`Find Similar Mode Activated!\n\nCurrent zoom: ${currentZoom}\nClick on an annotation to find similar tiles at this zoom level.`);
+});
+
+// Clear highlights button (if it exists)
+const clearHighlightsBtn = document.getElementById("clearHighlights");
+if (clearHighlightsBtn) {
+  clearHighlightsBtn.addEventListener("click", () => {
+    highlightLayer.clearLayers();
+    console.log("Cleared all similarity highlights");
+  });
+}
+
+// ========================================================
+// KEYBOARD SHORTCUTS
+// ========================================================
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === 'Escape') {
+    findSimilarMode = false;
+    showLoading(false);
+    console.log("Find similar mode cancelled");
+  }
+  if (e.key === 'c' && e.ctrlKey) {
+    highlightLayer.clearLayers();
+    console.log("Cleared highlights (Ctrl+C)");
+  }
 });
 
 // ========================================================
@@ -258,3 +362,11 @@ document.getElementById("findSimilar").addEventListener("click", () => {
 
 loadDataset(currentDataset);
 loadAnnotations();
+updateZoomInfo(); // Initialize zoom display
+
+// Log initial state
+console.log("Map initialized with:", {
+  dataset: currentDataset,
+  zoom: map.getZoom(),
+  center: map.getCenter()
+});

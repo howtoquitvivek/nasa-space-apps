@@ -11,15 +11,8 @@ fi
 
 # --- Part 2: Run the backend with uvicorn ---
 echo "Starting FastAPI backend with uvicorn..."
-uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000 &
-BACKEND_PID=$!
+uvicorn backend.main:app --reload
 echo "Backend process started with PID: $BACKEND_PID"
 
-# --- Part 3: Run the frontend ---
-echo "Starting frontend..."
-python -m http.server 9000 --directory frontend &
-FRONTEND_PID=$!
-echo "Frontend process started with PID: $FRONTEND_PID"
+echo "Backend is running on port 8000"
 
-echo "Backend is running on http://0.0.0.0:8000"
-echo "Frontend is running on http://0.0.0.0:9000"
