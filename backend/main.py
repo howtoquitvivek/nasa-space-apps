@@ -16,14 +16,12 @@ from pyproj import Transformer
 import tempfile
 import rasterio
 from rasterio.transform import from_bounds
-from rasterio.transform import from_bounds as transform_from_bounds
-from rasterio.windows import from_bounds as window_from_bounds
-from rasterio.transform import from_origin
-from rasterio.features import rasterize
 from shapely.geometry import shape, box
 
 app = FastAPI()
 
+# ... (CORS, Paths, FaissIndex class, save/load functions remain the same) ...
+# <editor-fold desc="CORS, Paths, FaissIndex, Save/Load">
 # -------------------------------
 # CORS
 # -------------------------------
@@ -127,28 +125,58 @@ def load_faiss_index(dataset: str, zoom: int):
         fi.embeddings = embeddings
         return fi
     return None
+# </editor-fold>
 
-# -------------------------------
-# PyTorch EfficientNet Feature Extractor
-# -------------------------------
+# ===================================================================
+# START OF MODIFIED CODE: Multi-Layer Feature Extraction
+# ===================================================================
 device = "cpu"
 model_name = "efficientnet_b0"
 
 model = timm.create_model(model_name, pretrained=True)
 config = resolve_model_data_config(model)
 transform = create_transform(**config)
-model = nn.Sequential(*list(model.children())[:-1])
 model.eval().to(device)
+
+# Global variable to store the outputs from our hooks
+features = {}
+
+def get_features_hook(name):
+    def hook(model, input, output):
+        features[name] = output.detach()
+    return hook
+
+# Register hooks on multiple layers
+handle3 = model.blocks[3].register_forward_hook(get_features_hook('blocks[3]'))
+handle5 = model.blocks[5].register_forward_hook(get_features_hook('blocks[5]'))
 
 def extract_features(image: Image.Image):
     rgb_image = image.convert("RGB")
     img_t = transform(rgb_image).unsqueeze(0).to(device)
     with torch.no_grad():
-        feat = model(img_t).squeeze().cpu().numpy()
-    return feat
+        # A forward pass triggers all registered hooks
+        _ = model(img_t)
+        
+        # Get features from both layers
+        features_b3 = features['blocks[3]']
+        features_b5 = features['blocks[5]']
 
-    
+        # Pool each feature map down to a vector
+        pool = nn.AdaptiveAvgPool2d((1, 1))
+        pooled_b3 = pool(features_b3).squeeze().cpu().numpy()
+        pooled_b5 = pool(features_b5).squeeze().cpu().numpy()
+        
+        # Concatenate the two vectors into a single, richer feature vector
+        concatenated_features = np.concatenate((pooled_b3, pooled_b5))
+        
+    return concatenated_features
+# ===================================================================
+# END OF MODIFIED CODE
+# ===================================================================
 
+
+# ... (Helper functions, MercatorProjection, Models, and basic endpoints remain the same) ...
+# <editor-fold desc="Helpers, Projections, Models, Basic Endpoints">
 # -------------------------------
 # Helper Functions
 # -------------------------------
@@ -169,7 +197,6 @@ class MercatorProjection:
     def __init__(self, tile_size=256):
         self.tile_size = tile_size
 
-    # FIX: Made these helper functions staticmethods so they can be called correctly
     @staticmethod
     def tileXToLng(x, z):
         return (x / 2**z) * 360.0 - 180.0
@@ -179,56 +206,33 @@ class MercatorProjection:
         n = math.pi - (2.0 * math.pi * y) / (2**z)
         return (180.0 / math.pi) * math.atan(math.sinh(n))
 
-    def get_pixel_bbox_on_tile(self, geojson, z, tile_x, tile_y, out_size=256):
-        """
-        Rasterize the clipped polygon into an out_size x out_size mask and return
-        the tight pixel bbox (xmin, ymin, xmax, ymax) in pixel coordinates.
-        Returns None if the geometry doesn't overlap the tile.
-        """
+    def get_pixel_bbox_on_tile(self, geojson, z, tile_x, tile_y):
         feature_shape = shape(geojson['geometry'])
-
-        # Tile WGS84 bounds
         tile_lng_min = self.tileXToLng(tile_x, z)
         tile_lat_max = self.tileYToLat(tile_y, z)
         tile_lng_max = self.tileXToLng(tile_x + 1, z)
         tile_lat_min = self.tileYToLat(tile_y + 1, z)
-
-        # Clip geometry to the tile bbox
+        
         tile_bbox_geom = box(tile_lng_min, tile_lat_min, tile_lng_max, tile_lat_max)
         clipped_shape = feature_shape.intersection(tile_bbox_geom)
 
         if clipped_shape.is_empty:
             return None
 
-        # Create transform that maps pixel centers -> lon/lat (use from_bounds)
         tile_transform = from_bounds(
-            tile_lng_min, tile_lat_min, tile_lng_max, tile_lat_max, out_size, out_size
+            tile_lng_min, tile_lat_min, tile_lng_max, tile_lat_max, 256, 256
         )
-
-        # Rasterize clipped geometry into mask of shape (out_size, out_size)
+        
         try:
-            mask = rasterize(
-                [(clipped_shape, 1)],
-                out_shape=(out_size, out_size),
-                transform=tile_transform,
-                fill=0,
-                dtype='uint8',
-                all_touched=False
-            )
+            from rasterio.windows import from_bounds as window_from_bounds
+            window = window_from_bounds(*clipped_shape.bounds, transform=tile_transform)
+            col_start, col_stop = window.col_off, window.col_off + window.width
+            row_start, row_stop = window.row_off, window.row_off + window.height
+            
+            return (max(0, int(col_start)), max(0, int(row_start)), min(256, int(col_stop)), min(256, int(row_stop)))
         except Exception as e:
-            print("Rasterize error:", e)
-            raise HTTPException(status_code=500, detail="Failed to rasterize geometry.")
-
-        rows, cols = np.where(mask == 1)
-        if rows.size == 0 or cols.size == 0:
+            print(f"Error calculating pixel bbox: {e}")
             return None
-
-        y_min, y_max = int(rows.min()), int(rows.max())
-        x_min, x_max = int(cols.min()), int(cols.max())
-
-        # return bbox in PIL crop coords: (left, upper, right, lower)
-        # note PIL crop expects (left, upper, right, lower) where right/ lower are exclusive
-        return (x_min, y_min, x_max + 1, y_max + 1)
 
 projection = MercatorProjection()
 
@@ -271,7 +275,10 @@ def get_tile(dataset: str, z: int, x: int, y: int):
 @app.get("/annotations")
 def get_annotations():
     return load_annotations()
+# </editor-fold>
 
+# ... (POST /annotations, PUT/DELETE /annotations/{id}, and startup event remain the same) ...
+# <editor-fold desc="Annotation CRUD and Startup Event">
 @app.post("/annotations")
 def save_annotation(annotation: Annotation):
     coords = annotation.geojson["geometry"]["coordinates"]
@@ -284,19 +291,15 @@ def save_annotation(annotation: Annotation):
         lat = sum(lats) / len(lats)
         lng = sum(lngs) / len(lngs)
     
-    zoom_found = None
-    tile_path = None
-    tx, ty = None, None
+    zoom_found, tile_path, tx, ty = None, None, None, None
     
-    for test_zoom in range(1, 8): # Increased zoom check range
+    for test_zoom in range(1, 8):
         temp_tx, temp_ty = latlng_to_tilexy(lat, lng, test_zoom)
         test_path = os.path.join(
             TILES_ROOT, annotation.dataset, str(test_zoom), str(temp_tx), f"{temp_ty}.webp"
         )
         if os.path.exists(test_path):
-            zoom_found = test_zoom
-            tile_path = test_path
-            tx, ty = temp_tx, temp_ty
+            zoom_found, tile_path, tx, ty = test_zoom, test_path, temp_tx, temp_ty
             break
     
     if not tile_path:
@@ -397,7 +400,11 @@ async def startup_event():
                 print(f"Faiss index built & saved for dataset '{dataset}' at zoom {zoom} with {fi.index.ntotal} vectors ✅")
             else:
                 print(f"No tiles found to build Faiss index for '{dataset}' at zoom {zoom} ❌")
+# </editor-fold>
 
+# ===================================================================
+# START OF MODIFIED CODE: Reverted to Single-Zoom Search
+# ===================================================================
 @app.post("/annotations/similar")
 def find_similar_by_feature(
     req: SimilarRequest,
@@ -405,84 +412,85 @@ def find_similar_by_feature(
     top_k: int
 ):
     global faiss_indexes
-
+    # Reverted to single-zoom: use the zoom level from the user's viewport
     index_key = (req.dataset, zoom)
 
     if index_key not in faiss_indexes:
-        raise HTTPException(status_code=404, detail=f"No Faiss index found for dataset '{req.dataset}' at zoom level {zoom}.")
+        raise HTTPException(status_code=404, detail=f"No Faiss index for dataset '{req.dataset}' at zoom {zoom}.")
     
     faiss_index = faiss_indexes[index_key]
+    feature_shape = shape(req.geojson['geometry'])
+    
+    # Stitch the query image from the user's current zoom level
+    min_lng, min_lat, max_lng, max_lat = feature_shape.bounds
+    min_tx, min_ty = latlng_to_tilexy(max_lat, min_lng, zoom)
+    max_tx, max_ty = latlng_to_tilexy(min_lat, max_lng, zoom)
 
-    coords = req.geojson["geometry"]["coordinates"]
-    if req.geojson['geometry']['type'] == "Point":
-        lng, lat = coords
-    else:
-        all_coords = [p for poly in coords for p in poly]
-        lats = [pt[1] for pt in all_coords]
-        lngs = [pt[0] for pt in all_coords]
-        lat = sum(lats) / len(lats)
-        lng = sum(lngs) / len(lngs)
-    
-    tx, ty = latlng_to_tilexy(lat, lng, zoom)
-    
-    tile_path = os.path.join(TILES_ROOT, req.dataset, str(zoom), str(tx), f"{ty}.webp")
-    if not os.path.exists(tile_path):
-        raise HTTPException(
-            status_code=404,
-            detail=f"Tile not found for the annotation at zoom {zoom}. Coords: ({tx}, {ty})"
-        )
-    
-    img = Image.open(tile_path).convert("L")
-    
-    bbox = projection.get_pixel_bbox_on_tile(req.geojson, zoom, tx, ty)
-    
-    if bbox is None:
-        raise HTTPException(status_code=400, detail="Annotation does not overlap with the target tile.")
+    cropped_pieces = []
+    for tx in range(min_tx, max_tx + 1):
+        for ty in range(min_ty, max_ty + 1):
+            tile_path = os.path.join(TILES_ROOT, req.dataset, str(zoom), str(tx), f"{ty}.webp")
+            if not os.path.exists(tile_path):
+                continue
+            bbox = projection.get_pixel_bbox_on_tile(req.geojson, zoom, tx, ty)
+            if bbox is None:
+                continue
+            tile_img = Image.open(tile_path)
+            cropped_piece = tile_img.crop(bbox)
+            relative_x, relative_y = (tx - min_tx) * 256, (ty - min_ty) * 256
+            cropped_pieces.append({
+                "image": cropped_piece, "paste_x": relative_x + bbox[0], "paste_y": relative_y + bbox[1]
+            })
 
-    buffer = 10
-    bbox_buffered = (
-        max(0, bbox[0] - buffer),
-        max(0, bbox[1] - buffer),
-        min(256, bbox[2] + buffer),
-        min(256, bbox[3] + buffer)
-    )
+    if not cropped_pieces:
+        raise HTTPException(status_code=404, detail="Could not find any tiles overlapping the annotation.")
 
-    cropped_img = img.crop(bbox_buffered)
+    min_paste_x = min(p['paste_x'] for p in cropped_pieces)
+    min_paste_y = min(p['paste_y'] for p in cropped_pieces)
+    max_paste_x = max(p['paste_x'] + p['image'].width for p in cropped_pieces)
+    max_paste_y = max(p['paste_y'] + p['image'].height for p in cropped_pieces)
+    composite_width, composite_height = max_paste_x - min_paste_x, max_paste_y - min_paste_y
 
-    if cropped_img.size[0] == 0 or cropped_img.size[1] == 0:
-        raise HTTPException(
-            status_code=400, 
-            detail="Cropped image is empty. Bounding box may be invalid."
-        )
+    if composite_width <= 0 or composite_height <= 0:
+        raise HTTPException(status_code=400, detail="Composite image has invalid dimensions.")
+
+    composite_img = Image.new("RGB", (composite_width, composite_height))
+    for p in cropped_pieces:
+        composite_img.paste(p['image'], (p['paste_x'] - min_paste_x, p['paste_y'] - min_paste_y))
 
     model_input_size = config['input_size'][1:]
-    
-    cropped_img.thumbnail(model_input_size, Image.LANCZOS)
-    
-    padded_img = Image.new("L", model_input_size, color=128)
-    paste_x = (model_input_size[0] - cropped_img.size[0]) // 2
-    paste_y = (model_input_size[1] - cropped_img.size[1]) // 2
-    padded_img.paste(cropped_img, (paste_x, paste_y))
+    padded_img = ImageOps.pad(composite_img, model_input_size, color='gray')
 
     with tempfile.NamedTemporaryFile(suffix=".webp", delete=False) as tmp_file:
         padded_img.save(tmp_file.name)
-        print(f"Saved pre-processed query image to: {tmp_file.name}")
+        print(f"Saved stitched query image to: {tmp_file.name}")
 
     query_emb = extract_features(padded_img)
-    
-    similar_tiles = faiss_index.search(query_emb, top_k + 1)
-    
-    query_tile_info = {"dataset": req.dataset, "z": zoom, "x": tx, "y": ty}
-    similar_tiles = [
-        t for t in similar_tiles 
-        if not (t["dataset"] == req.dataset and t["z"] == zoom and t["x"] == tx and t["y"] == ty)
-    ]
 
+    # Perform a wider search and apply thresholding
+    initial_search_k = max(50, top_k * 5)
+    initial_results = faiss_index.search(query_emb, initial_search_k)
+
+    high_confidence_results = []
+    medium_confidence_results = []
+    for res in initial_results:
+        if res["score"] > 0.75:
+            high_confidence_results.append(res)
+        elif res["score"] > 0.55:
+            medium_confidence_results.append(res)
+    
+    final_results = high_confidence_results + medium_confidence_results[:top_k]
+    
     return {
-        "query_tile": query_tile_info,
-        "similar_tiles": similar_tiles[:top_k],
+        "query_feature_bounds": [min_lng, min_lat, max_lng, max_lat],
+        "similar_tiles": final_results,
     }
+# ===================================================================
+# END OF MODIFIED CODE
+# ===================================================================
 
+# ... (GET /datasets/{dataset}/bounds remains the same) ...
+# <editor-fold desc="Get Dataset Bounds">
 @app.get("/datasets/{dataset}/bounds")
 def get_dataset_bounds(dataset: str):
     dataset_path = os.path.join(TILES_ROOT, dataset)
@@ -497,9 +505,7 @@ def get_dataset_bounds(dataset: str):
             parts = root.split(os.sep)
             y_file = os.path.splitext(file)[0]
             try:
-                z = int(parts[-2])
-                x = int(parts[-1])
-                y = int(y_file)
+                z, x, y = int(parts[-2]), int(parts[-1]), int(y_file)
             except (ValueError, IndexError):
                 continue
 
@@ -527,3 +533,4 @@ def get_dataset_bounds(dataset: str):
         "bounds": [[south, west], [north, east]],
         "available_zooms": sorted(zoom_levels.keys())
     }
+# </editor-fold>
