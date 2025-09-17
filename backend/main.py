@@ -20,7 +20,6 @@ from shapely.geometry import shape, box
 
 app = FastAPI()
 
-# ... (CORS, Paths, FaissIndex class, save/load functions remain the same) ...
 # <editor-fold desc="CORS, Paths, FaissIndex, Save/Load">
 # -------------------------------
 # CORS
@@ -128,7 +127,7 @@ def load_faiss_index(dataset: str, zoom: int):
 # </editor-fold>
 
 # ===================================================================
-# START OF MODIFIED CODE: Multi-Layer Feature Extraction
+# Multi-Layer Feature Extraction
 # ===================================================================
 device = "cpu"
 model_name = "efficientnet_b0"
@@ -138,7 +137,6 @@ config = resolve_model_data_config(model)
 transform = create_transform(**config)
 model.eval().to(device)
 
-# Global variable to store the outputs from our hooks
 features = {}
 
 def get_features_hook(name):
@@ -146,7 +144,6 @@ def get_features_hook(name):
         features[name] = output.detach()
     return hook
 
-# Register hooks on multiple layers
 handle3 = model.blocks[3].register_forward_hook(get_features_hook('blocks[3]'))
 handle5 = model.blocks[5].register_forward_hook(get_features_hook('blocks[5]'))
 
@@ -154,28 +151,19 @@ def extract_features(image: Image.Image):
     rgb_image = image.convert("RGB")
     img_t = transform(rgb_image).unsqueeze(0).to(device)
     with torch.no_grad():
-        # A forward pass triggers all registered hooks
         _ = model(img_t)
         
-        # Get features from both layers
         features_b3 = features['blocks[3]']
         features_b5 = features['blocks[5]']
 
-        # Pool each feature map down to a vector
         pool = nn.AdaptiveAvgPool2d((1, 1))
         pooled_b3 = pool(features_b3).squeeze().cpu().numpy()
         pooled_b5 = pool(features_b5).squeeze().cpu().numpy()
         
-        # Concatenate the two vectors into a single, richer feature vector
         concatenated_features = np.concatenate((pooled_b3, pooled_b5))
         
     return concatenated_features
-# ===================================================================
-# END OF MODIFIED CODE
-# ===================================================================
 
-
-# ... (Helper functions, MercatorProjection, Models, and basic endpoints remain the same) ...
 # <editor-fold desc="Helpers, Projections, Models, Basic Endpoints">
 # -------------------------------
 # Helper Functions
@@ -248,6 +236,12 @@ class SimilarRequest(BaseModel):
     dataset: str
     geojson: dict
 
+class SimilarMoreRequest(BaseModel):
+    annotation_id: str
+    dataset: str
+    geojson: dict
+    exclude_zooms: List[int] # New field to specify which zooms to skip
+
 def latlng_to_tilexy(lat, lng, zoom):
     n = 2**zoom
     x = int((lng + 180.0) / 360.0 * n)
@@ -277,7 +271,6 @@ def get_annotations():
     return load_annotations()
 # </editor-fold>
 
-# ... (POST /annotations, PUT/DELETE /annotations/{id}, and startup event remain the same) ...
 # <editor-fold desc="Annotation CRUD and Startup Event">
 @app.post("/annotations")
 def save_annotation(annotation: Annotation):
@@ -403,7 +396,7 @@ async def startup_event():
 # </editor-fold>
 
 # ===================================================================
-# START OF MODIFIED CODE: Reverted to Single-Zoom Search
+# Final Search Endpoint: Multi-Layer Features + Single-Zoom Search
 # ===================================================================
 @app.post("/annotations/similar")
 def find_similar_by_feature(
@@ -465,6 +458,7 @@ def find_similar_by_feature(
         padded_img.save(tmp_file.name)
         print(f"Saved stitched query image to: {tmp_file.name}")
 
+    # Use the multi-layer feature extractor
     query_emb = extract_features(padded_img)
 
     # Perform a wider search and apply thresholding
@@ -476,7 +470,7 @@ def find_similar_by_feature(
     for res in initial_results:
         if res["score"] > 0.75:
             high_confidence_results.append(res)
-        elif res["score"] > 0.55:
+        elif res["score"] > 0.70:
             medium_confidence_results.append(res)
     
     final_results = high_confidence_results + medium_confidence_results[:top_k]
@@ -485,11 +479,84 @@ def find_similar_by_feature(
         "query_feature_bounds": [min_lng, min_lat, max_lng, max_lat],
         "similar_tiles": final_results,
     }
-# ===================================================================
-# END OF MODIFIED CODE
-# ===================================================================
 
-# ... (GET /datasets/{dataset}/bounds remains the same) ...
+
+@app.post("/annotations/similar/more")
+def find_similar_by_feature_more(
+    req: SimilarMoreRequest, # Use the new request model
+    top_k: int
+):
+    global faiss_indexes
+    
+    # Create the query vector using the same robust method as before
+    QUERY_ZOOM_LEVEL = 5 
+    feature_shape = shape(req.geojson['geometry'])
+    min_lng, min_lat, max_lng, max_lat = feature_shape.bounds
+    min_tx, min_ty = latlng_to_tilexy(max_lat, min_lng, QUERY_ZOOM_LEVEL)
+    max_tx, max_ty = latlng_to_tilexy(min_lat, max_lng, QUERY_ZOOM_LEVEL)
+
+    # ... (The entire stitching logic to create the query image is the same) ...
+    # <editor-fold desc="Stitching Logic">
+    cropped_pieces = []
+    for tx in range(min_tx, max_tx + 1):
+        for ty in range(min_ty, max_ty + 1):
+            tile_path = os.path.join(TILES_ROOT, req.dataset, str(QUERY_ZOOM_LEVEL), str(tx), f"{ty}.webp")
+            if not os.path.exists(tile_path):
+                continue
+            bbox = projection.get_pixel_bbox_on_tile(req.geojson, QUERY_ZOOM_LEVEL, tx, ty)
+            if bbox is None:
+                continue
+            tile_img = Image.open(tile_path)
+            cropped_piece = tile_img.crop(bbox)
+            relative_x, relative_y = (tx - min_tx) * 256, (ty - min_ty) * 256
+            cropped_pieces.append({
+                "image": cropped_piece, "paste_x": relative_x + bbox[0], "paste_y": relative_y + bbox[1]
+            })
+    if not cropped_pieces:
+        raise HTTPException(status_code=404, detail=f"Could not find tiles for query at zoom {QUERY_ZOOM_LEVEL}.")
+    min_paste_x = min(p['paste_x'] for p in cropped_pieces)
+    min_paste_y = min(p['paste_y'] for p in cropped_pieces)
+    max_paste_x = max(p['paste_x'] + p['image'].width for p in cropped_pieces)
+    max_paste_y = max(p['paste_y'] + p['image'].height for p in cropped_pieces)
+    composite_width, composite_height = max_paste_x - min_paste_x, max_paste_y - min_paste_y
+    if composite_width <= 0 or composite_height <= 0:
+        raise HTTPException(status_code=400, detail="Composite image has invalid dimensions.")
+    composite_img = Image.new("RGB", (composite_width, composite_height))
+    for p in cropped_pieces:
+        composite_img.paste(p['image'], (p['paste_x'] - min_paste_x, p['paste_y'] - min_paste_y))
+    model_input_size = config['input_size'][1:]
+    padded_img = ImageOps.pad(composite_img, model_input_size, color='gray')
+    # </editor-fold>
+    
+    query_emb = extract_features(padded_img)
+
+    # Search all zoom levels, but EXCLUDE the ones specified by the frontend
+    all_results = []
+    initial_search_k = max(50, top_k * 5)
+
+    for index_key, faiss_index in faiss_indexes.items():
+        dataset_name, zoom_level = index_key
+        # THE KEY CHANGE: Skip zooms that have already been searched
+        if dataset_name == req.dataset and zoom_level not in req.exclude_zooms:
+            print(f"Searching deeper in index for zoom level {zoom_level}...")
+            results_from_zoom = faiss_index.search(query_emb, initial_search_k)
+            all_results.extend(results_from_zoom)
+    
+    # Sort and filter the new results
+    all_results.sort(key=lambda x: x["score"], reverse=True)
+
+    high_confidence_results = []
+    medium_confidence_results = []
+    for res in all_results:
+        if res["score"] > 0.75:
+            high_confidence_results.append(res)
+        elif res["score"] > 0.65:
+            medium_confidence_results.append(res)
+    
+    final_results = high_confidence_results + medium_confidence_results[:top_k]
+    
+    return {"similar_tiles": final_results}
+
 # <editor-fold desc="Get Dataset Bounds">
 @app.get("/datasets/{dataset}/bounds")
 def get_dataset_bounds(dataset: str):

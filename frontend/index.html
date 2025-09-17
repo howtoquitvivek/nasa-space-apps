@@ -5,10 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Multi Dataset Map Viewer</title>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   
-  <!-- Custom Tailwind Config -->
   <script>
     tailwind.config = {
       theme: {
@@ -29,14 +27,12 @@
   
   <link rel="stylesheet" href="style.css">
 
-  <!-- Leaflet CSS & JS -->
   <link
     rel="stylesheet"
     href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
   />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
-  <!-- Leaflet.draw CSS & JS -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"
@@ -44,15 +40,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
 
 
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gradient-to-br from-slate-50 to-blue-50 font-inter">
-  <!-- Navbar -->
   <nav class="navbar fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 border-b border-white/20 shadow-lg">
     <div class="max-w-full mx-auto px-6 py-4">
       <div class="flex justify-between items-center">
-        <!-- Logo/Title -->
         <div class="flex items-center space-x-3">
           <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center text-white text-lg font-bold shadow-lg">
             🗺️
@@ -62,9 +55,7 @@
           </h1>
         </div>
 
-        <!-- Controls -->
-         <div class="flex items-center space-x-4">
-            <!-- Dataset Selector -->
+        <div class="flex items-center space-x-4">
             <div class="relative flex-shrink-0">
               <select id="datasetSelect" class="dataset-select appearance-none bg-white/80 backdrop-blur-sm border border-gray-200 rounded-xl px-4 py-2.5 pr-10 text-gray-700 font-medium shadow-sm hover:shadow-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 cursor-pointer">
                 <option value="mars">🔴 Mars Dataset</option>
@@ -78,7 +69,6 @@
               </div>
             </div>
 
-            <!-- Reset Button -->
             <div class="flex-shrink-0">
               <button id="resetView" class="reset-btn bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
                 <span class="flex items-center space-x-2">
@@ -90,56 +80,43 @@
               </button>
             </div>
 
-            <!-- Find Similar Button -->
             <div class="flex-shrink-0">
               <button id="findSimilar" class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
                 <span class="flex items-center space-x-2">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                  </svg>
+                   <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                   <span>Find Similar</span>
                 </span>
               </button>
             </div>
             
-            <!-- New Button -->
             <div class="flex-shrink-0">
-              <button id="ID" class="bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2">
+              <button id="searchDeeper" class="bg-gradient-to-r from-teal-500 to-teal-600 hover:from-teal-600 hover:to-teal-700 text-white font-medium px-5 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2" style="display: none;">
                 <span class="flex items-center space-x-2">
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
-                  </svg>
-                  <span>Button</span>
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>
+                  <span>Search Deeper</span>
                 </span>
               </button>
             </div>
-            <div id="zoomInfo" 
-                style="position:absolute; top:10px; left:10px; background:white; padding:5px; border:1px solid #ccc; border-radius:5px; font-family:Arial; font-size:14px; z-index:1000;">
-            </div>
-
-
-
           </div>
       </div>
     </div>
   </nav>
 
-  <!-- Map Container -->
   <div class="map-container">
     <div id="map" class="rounded-xl shadow-2xl"></div>
   </div>
 
-  <div id="annotation-list" class="p-2 bg-white shadow max-h-60 overflow-y-auto"></div>
+  <div id="zoomInfo" 
+       style="position:fixed; bottom:20px; right:20px; background:white; padding:5px 10px; border:1px solid #ccc; border-radius:5px; font-family:Arial; font-size:14px; z-index:1000; box-shadow: 0 2px 10px rgba(0,0,0,0.2);">
+  </div>
 
-  <!-- Loading Overlay -->
-  <div id="loading" class="loading-overlay">
+  <div id="loadingIndicator" class="loading-overlay" style="display: none;">
     <div class="loading-spinner">
       <div class="spinner"></div>
-      <p class="text-gray-600 mt-4 font-medium">Loading map data...</p>
+      <p class="text-gray-600 mt-4 font-medium">Searching...</p>
     </div>
   </div>
 
-  <!-- Script -->
   <script src="map.js"></script>
 </body>
 </html>

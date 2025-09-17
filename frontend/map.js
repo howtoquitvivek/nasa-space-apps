@@ -5,7 +5,11 @@
 const API_BASE = "http://localhost:8000";
 let currentDataset;
 let currentLayer;
-const TOP_K = 2; // top similar tiles
+const TOP_K = 5; // Adjusted for potentially more results
+
+// NEW: State variables for the two-stage search
+let searchedZooms = [];
+let currentQueryLayer = null;
 
 // ========================================================
 // Load map with persistent zoom/center
@@ -21,21 +25,18 @@ const map = L.map("map", {
   center: savedCenter,
   zoom: savedZoom ? parseInt(savedZoom) : 2,
   minZoom: 1,
-  maxZoom: 5,
+  maxZoom: 5, // Make sure this matches the max zoom of your data
   zoomControl: false
 });
 
-// Add zoom control to bottom right
 L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-// Save zoom and center on move or zoom
 map.on("zoomend moveend", () => {
   localStorage.setItem("mapZoom", map.getZoom());
   localStorage.setItem("mapCenter", JSON.stringify(map.getCenter()));
-  updateZoomInfo(); // Update zoom display
+  updateZoomInfo();
 });
 
-// Update zoom info display
 function updateZoomInfo() {
   const zoomInfo = document.getElementById("zoomInfo");
   if (zoomInfo) {
@@ -43,9 +44,8 @@ function updateZoomInfo() {
   }
 }
 
-// ========================================================
-// TILE LAYER LOADING
-// ========================================================
+// ... (loadDataset, annotation setup, helpers, load/create annotations are the same) ...
+// <editor-fold desc="Unchanged Setup Code">
 async function loadDataset(dataset) {
   if (currentLayer) map.removeLayer(currentLayer);
 
@@ -66,7 +66,6 @@ async function loadDataset(dataset) {
 
   map.setMaxBounds(bounds);
 
-  // Only fit bounds if no saved zoom/center
   const savedZoom = localStorage.getItem("mapZoom");
   const savedCenter = JSON.parse(localStorage.getItem("mapCenter"));
   if (!savedZoom || !savedCenter) {
@@ -74,22 +73,17 @@ async function loadDataset(dataset) {
   }
 
   localStorage.setItem("currentDataset", dataset);
-  updateZoomInfo(); // Update zoom display
+  updateZoomInfo();
   
-  // Log available zoom levels
   if (data.available_zooms) {
     console.log(`Available zoom levels for ${dataset}:`, data.available_zooms);
+    window.availableZooms = data.available_zooms; // Store globally for later
   }
 }
-
-// ========================================================
-// ANNOTATION SETUP
-// ========================================================
 
 const drawnItems = new L.FeatureGroup();
 map.addLayer(drawnItems);
 
-// Highlight Layer for Similar Tiles
 let highlightLayer = new L.FeatureGroup();
 map.addLayer(highlightLayer);
 
@@ -101,10 +95,6 @@ const drawControl = new L.Control.Draw({
 });
 map.addControl(drawControl);
 
-// ========================================================
-// TILE <-> LATLNG HELPERS
-// ========================================================
-
 function tileXToLng(x, zoom) {
   return (x / Math.pow(2, zoom)) * 360 - 180;
 }
@@ -114,190 +104,206 @@ function tileYToLat(y, zoom) {
   return (180 / Math.PI) * Math.atan(0.5 * (Math.exp(n) - Math.exp(-n)));
 }
 
-// ========================================================
-// LOAD ANNOTATIONS
-// ========================================================
-
 async function loadAnnotations() {
-  // cache-busting to avoid stale results
   const res = await fetch(`${API_BASE}/annotations?ts=${Date.now()}`);
   const data = await res.json();
-
   drawnItems.clearLayers();
-
   data.filter(a => a.dataset === currentDataset).forEach(a => {
     const layer = L.geoJSON(a.geojson).getLayers()[0];
-
     if (a.label) {
       layer._label = a.label;
       layer.bindTooltip(a.label, { permanent: true, direction: "top" }).openTooltip();
     }
-
     layer._annotationId = a.id;
     drawnItems.addLayer(layer);
   });
 }
 
-// ========================================================
-// CREATE ANNOTATION - ENHANCED WITH ZOOM INFO
-// ========================================================
-
 map.on(L.Draw.Event.CREATED, async (e) => {
   const layer = e.layer;
   const currentZoom = map.getZoom();
-  
-  // Show current zoom in the prompt
   const label = prompt(`Enter label for this annotation:\n(Current zoom level: ${currentZoom})`);
   if (label) {
     layer._label = label;
     layer.bindTooltip(label, { permanent: true, direction: "center" }).openTooltip();
   }
-
   drawnItems.addLayer(layer);
-
   const geojson = layer.toGeoJSON();
   const annotation = { 
     id: String(Date.now()), 
     dataset: currentDataset, 
     geojson, 
     label,
-    zoom_created: currentZoom  // Track zoom level when annotation was created
+    zoom_created: currentZoom
   };
-
   try {
-    const response = await fetch(`${API_BASE}/annotations`, {
+    await fetch(`${API_BASE}/annotations`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(annotation)
     });
-    
-    const result = await response.json();
-    if (result.zoom_used) {
-      console.log(`Annotation saved using zoom level: ${result.zoom_used}`);
-    }
   } catch (error) {
     console.error("Failed to save annotation:", error);
-    alert("Failed to save annotation. Please try again.");
   }
-
   layer._annotationId = annotation.id;
 });
-
-// ========================================================
-// LOADING INDICATOR HELPERS
-// ========================================================
 
 function showLoading(show) {
   const loadingIndicator = document.getElementById("loadingIndicator");
   if (loadingIndicator) {
-    loadingIndicator.style.display = show ? "block" : "none";
+    loadingIndicator.style.display = show ? "flex" : "none";
   }
   document.body.style.cursor = show ? 'wait' : 'default';
 }
+// </editor-fold>
 
 // ========================================================
-// FIND SIMILAR TILES - ENHANCED WITH FEATURE-LEVEL MATCHING
+// FIND SIMILAR TILES - MODIFIED FOR TWO-STAGE SEARCH
 // ========================================================
+
+// Helper function to draw results on the map
+function drawResults(data, clearFirst = false) {
+    if (clearFirst) {
+        highlightLayer.clearLayers();
+    }
+    
+    data.similar_tiles.forEach(tile => {
+        const bounds = [
+            [tileYToLat(tile.y + 1, tile.z), tileXToLng(tile.x, tile.z)],
+            [tileYToLat(tile.y, tile.z), tileXToLng(tile.x + 1, tile.z)]
+        ];
+        const rect = L.rectangle(bounds, { color: "red", weight: 2, fillOpacity: 0.3 });
+        const tooltipText = `Score: ${tile.score.toFixed(3)}\nZoom: ${tile.z}`;
+        rect.bindTooltip(tooltipText, { permanent: true, direction: "top" }).openTooltip();
+        highlightLayer.addLayer(rect);
+    });
+}
 
 drawnItems.on("click", async (e) => {
-    const layer = e.layer || e.target;
+  const layer = e.layer || e.target;
+  if (!layer._annotationId) return;
+
+  if (findSimilarMode) {
+    findSimilarMode = false;
+    showLoading(true);
     
-    // Check if the clicked layer has a valid annotation ID
-    if (!layer._annotationId) {
-        console.warn("Clicked layer does not have an annotation ID. Skipping similarity search.");
+    // Reset state for a new search
+    searchedZooms = [];
+    currentQueryLayer = layer;
+    document.getElementById('searchDeeper').style.display = 'none';
+
+    const currentZoom = map.getZoom();
+    const geojson = layer.toGeoJSON();
+
+    try {
+      const url = `${API_BASE}/annotations/similar?top_k=${TOP_K}&zoom=${currentZoom}`;
+      const res = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          annotation_id: layer._annotationId,
+          dataset: currentDataset,
+          geojson: geojson
+        })
+      });
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        throw new Error(errorData.detail || `HTTP ${res.status}`);
+      }
+      
+      const data = await res.json();
+      drawResults(data, true); // Draw results, clearing previous ones
+      searchedZooms.push(currentZoom); // Mark this zoom as searched
+
+      if (highlightLayer.getLayers().length > 0) {
+        map.fitBounds(highlightLayer.getBounds().pad(0.1));
+      }
+
+      // Show the 'Search Deeper' button if there are other zooms to search
+      if (window.availableZooms && window.availableZooms.length > 1) {
+        document.getElementById('searchDeeper').style.display = 'inline-flex';
+      }
+
+    } catch (err) {
+      console.error("Similarity search error:", err);
+      alert(`An error occurred during search: ${err.message}`);
+    } finally {
+      showLoading(false);
+    }
+  } else {
+    // Edit label logic (unchanged)
+    const newLabel = prompt("Edit label:", layer._label || "");
+    if (newLabel !== null && layer._annotationId) {
+      layer._label = newLabel;
+      layer.bindTooltip(newLabel, { permanent: true, direction: "top" }).openTooltip();
+      await fetch(`${API_BASE}/annotations/${layer._annotationId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ label: newLabel })
+      });
+    }
+  }
+});
+
+
+// ========================================================
+// NEW: "SEARCH DEEPER" BUTTON LOGIC
+// ========================================================
+
+document.getElementById('searchDeeper').addEventListener('click', async () => {
+    if (!currentQueryLayer) {
+        alert("Please perform an initial search first.");
         return;
     }
 
-    if (findSimilarMode) {
-        findSimilarMode = false;
+    showLoading(true);
+    document.getElementById('searchDeeper').style.display = 'none'; // Hide button after click
+
+    const geojson = currentQueryLayer.toGeoJSON();
+
+    try {
+        const url = `${API_BASE}/annotations/similar/more?top_k=${TOP_K}`;
+        const res = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                annotation_id: currentQueryLayer._annotationId,
+                dataset: currentDataset,
+                geojson: geojson,
+                exclude_zooms: searchedZooms // Send zooms we've already searched
+            })
+        });
+
+        if (!res.ok) {
+            const errorData = await res.json();
+            throw new Error(errorData.detail || `HTTP ${res.status}`);
+        }
         
-        showLoading(true);
-        const currentZoom = map.getZoom();
-
-        const geojson = layer.toGeoJSON();
-
-        console.log("GeoJSON object being sent to backend:", JSON.stringify(geojson, null, 2));
+        const data = await res.json();
+        drawResults(data, false); // Add new results without clearing old ones
         
-        try {
-            // New endpoint and POST request to send the full geojson
-            const url = `${API_BASE}/annotations/similar?top_k=${TOP_K}&zoom=${currentZoom}`;
-            console.log(`Searching for similar features using annotation ID: ${layer._annotationId}`);
-            
-            const res = await fetch(url, {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    annotation_id: layer._annotationId,
-                    dataset: currentDataset,
-                    geojson: geojson
-                })
-            });
+        // Update searched zooms to prevent searching again
+        searchedZooms.push(...window.availableZooms.filter(z => !searchedZooms.includes(z)));
 
-            if (res.status === 404) {
-                const errorData = await res.json();
-                alert(`Error: ${errorData.detail}`);
-                return;
-            }
-
-            if (!res.ok) {
-                throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-            }
-
-            const data = await res.json();
-            highlightLayer.clearLayers();
-
-            console.log(`Found ${data.similar_tiles.length} similar tiles:`, data);
-
-            data.similar_tiles.forEach(tile => {
-                const bounds = [
-                    [tileYToLat(tile.y + 1, tile.z), tileXToLng(tile.x, tile.z)],
-                    [tileYToLat(tile.y, tile.z), tileXToLng(tile.x + 1, tile.z)]
-                ];
-                const rect = L.rectangle(bounds, { color: "red", weight: 2, fillOpacity: 0.3 });
-                
-                const tooltipText = `Score: ${tile.score.toFixed(3)}\nZoom: ${tile.z}\nTile: (${tile.x}, ${tile.y})`;
-                rect.bindTooltip(tooltipText, { permanent: true, direction: "top" }).openTooltip();
-                highlightLayer.addLayer(rect);
-            });
-
-            if (highlightLayer.getLayers().length > 0) {
-                map.fitBounds(highlightLayer.getBounds().pad(0.1));
-                
-                setTimeout(() => {
-                    alert(`Found ${data.similar_tiles.length} similar tiles at zoom level ${currentZoom}!`);
-                }, 500);
-            } else {
-                alert(`No similar tiles found at zoom level ${currentZoom}. Try a different zoom level or location.`);
-            }
-
-        } catch (err) {
-            console.error("Similarity search error:", err);
-            alert(`An unexpected error occurred while fetching similar tiles:\n${err.message}`);
-        } finally {
-            showLoading(false);
+        if (highlightLayer.getLayers().length > 0) {
+            map.fitBounds(highlightLayer.getBounds().pad(0.1));
+        } else {
+            alert("No additional similar tiles found in other zoom levels.");
         }
 
-    } else {
-        // ... (existing edit label logic remains here)
-        const newLabel = prompt("Edit label:", layer._label || "");
-        if (newLabel !== null) {
-            layer._label = newLabel;
-            layer.bindTooltip(newLabel, { permanent: true, direction: "top" }).openTooltip();
-            if (layer._annotationId) {
-                await fetch(`${API_BASE}/annotations/${layer._annotationId}`, {
-                    method: "PUT",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ label: newLabel })
-                });
-            }
-        }
+    } catch (err) {
+        console.error("Deeper search error:", err);
+        alert(`An error occurred during deeper search: ${err.message}`);
+        document.getElementById('searchDeeper').style.display = 'inline-flex'; // Show button again on error
+    } finally {
+        showLoading(false);
     }
 });
 
-// ========================================================
-// DELETE ANNOTATIONS
-// ========================================================
 
+// ... (Delete annotations, UI Controls, and Keyboard shortcuts are the same) ...
+// <editor-fold desc="Unchanged UI and Event Handlers">
 map.on("draw:deleted", async (e) => {
   e.layers.eachLayer(async (layer) => {
     if (layer._annotationId) {
@@ -306,18 +312,14 @@ map.on("draw:deleted", async (e) => {
   });
 });
 
-// ========================================================
-// UI CONTROLS - ENHANCED
-// ========================================================
-
 document.getElementById("datasetSelect").value = currentDataset;
-
 document.getElementById("datasetSelect").addEventListener("change", (e) => {
   currentDataset = e.target.value;
   localStorage.setItem("currentDataset", currentDataset);
   loadDataset(currentDataset);
   loadAnnotations();
-  highlightLayer.clearLayers(); // Clear highlights when switching datasets
+  highlightLayer.clearLayers();
+  document.getElementById('searchDeeper').style.display = 'none';
 });
 
 document.getElementById("resetView").addEventListener("click", () => {
@@ -328,10 +330,9 @@ document.getElementById("resetView").addEventListener("click", () => {
 document.getElementById("findSimilar").addEventListener("click", () => {
   findSimilarMode = true;
   const currentZoom = map.getZoom();
-  alert(`Find Similar Mode Activated!\n\nCurrent zoom: ${currentZoom}\nClick on an annotation to find similar tiles at this zoom level.`);
+  alert(`Find Similar Mode Activated!\n\nClick on an annotation to find similar tiles at this zoom level.`);
 });
 
-// Clear highlights button (if it exists)
 const clearHighlightsBtn = document.getElementById("clearHighlights");
 if (clearHighlightsBtn) {
   clearHighlightsBtn.addEventListener("click", () => {
@@ -339,10 +340,6 @@ if (clearHighlightsBtn) {
     console.log("Cleared all similarity highlights");
   });
 }
-
-// ========================================================
-// KEYBOARD SHORTCUTS
-// ========================================================
 
 document.addEventListener("keydown", (e) => {
   if (e.key === 'Escape') {
@@ -356,17 +353,12 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
+// </editor-fold>
+
 // ========================================================
 // INITIAL LOAD
 // ========================================================
 
 loadDataset(currentDataset);
 loadAnnotations();
-updateZoomInfo(); // Initialize zoom display
-
-// Log initial state
-console.log("Map initialized with:", {
-  dataset: currentDataset,
-  zoom: map.getZoom(),
-  center: map.getCenter()
-});
+updateZoomInfo();
