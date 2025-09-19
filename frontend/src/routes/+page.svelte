@@ -1,53 +1,73 @@
-<main class="flex flex-col items-center justify-center text-center p-8 flex-grow">
-  <h1 class="gradient-text text-5xl md:text-7xl font-bold mb-4">
-    Explore Your Universe
-  </h1>
-  <p class="text-lg md:text-xl text-gray-400 max-w-2xl mb-8">
-    The ultimate multi-dataset map viewer for researchers, students, and explorers. Annotate, analyze, and discover like never before.
-  </p>
-  <a href="/home" class="control-button primary">
-    Open Workspace
-  </a>
-</main>
+<script>
+    import { selectedDataset } from '$lib/store.js';
+    import Map from '$lib/components/Map.svelte';
+    import AnalysisControl from '$lib/components/AnalysisControl.svelte'; // Import the new component
+    import { onMount } from 'svelte';
+
+    let mapInstance; // We need a reference to the map instance
+    let isLoading = false;
+    let statusMessage = '';
+
+    // This function will be called by the AnalysisControl component
+    async function handleStartIngestion(event) {
+        const payload = event.detail;
+        console.log("Starting ingestion with payload:", payload);
+        
+        isLoading = true;
+        statusMessage = 'Downloading and indexing new dataset... This may take several minutes.';
+
+        try {
+            const res = await fetch('/ingest', { // Assuming your API is on the same host or proxied
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+
+            if (!res.ok) {
+                const errorData = await res.json();
+                throw new Error(errorData.detail || 'Ingestion failed');
+            }
+
+            const result = await res.json();
+            statusMessage = `Success! New dataset '${result.dataset_id}' is ready. You can now start a new project to analyze it.`;
+
+        } catch (err) {
+            statusMessage = `Error: ${err.message}`;
+            console.error(err);
+        } finally {
+            isLoading = false;
+        }
+    }
+</script>
+
+{#if isLoading}
+    <div class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
+        <div class="text-center text-white">
+            <div class="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-blue-500 mx-auto"></div>
+            <h2 class="text-2xl font-semibold mt-4">Processing Data</h2>
+            <p class="mt-2">{statusMessage}</p>
+        </div>
+    </div>
+{/if}
+
+<div class="workspace-container">
+    {#if $selectedDataset}
+        <AnalysisControl dataset={$selectedDataset} map={mapInstance} on:startIngestion={handleStartIngestion} />
+        <Map dataset={$selectedDataset} bind:map={mapInstance} />
+    {:else}
+        <div class="flex items-center justify-center h-full">
+            <div class="text-center">
+                <h2 class="text-2xl font-semibold text-gray-700">No Project Selected</h2>
+                <p class="text-gray-500 mt-2">Please go to the <a href="/home" class="text-blue-600 hover:underline">Home Dashboard</a> to start a new project.</p>
+            </div>
+        </div>
+    {/if}
+</div>
 
 <style>
-  main {
-    animation: fadeIn 0.6s ease-out;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .flex-grow {
-    flex-grow: 1; /* This makes the main content take up available space */
-  }
-
-  .gradient-text {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    color: transparent;
-  }
-
-  .control-button.primary {
-      padding: var(--space-4) var(--space-8);
-      background: var(--gradient-primary);
-      border: none;
-      color: var(--color-white);
-      border-radius: var(--radius-md);
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: var(--transition-normal);
-      text-decoration: none;
-      box-shadow: var(--shadow-md), var(--glow-accent);
-  }
-
-  .control-button.primary:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg), var(--glow-strong);
-  }
+    .workspace-container {
+        position: relative; /* Needed for the control to be positioned correctly */
+        width: 100%;
+        height: calc(100vh - 80px); /* Adjust height to fit within your layout's footer */
+    }
 </style>
