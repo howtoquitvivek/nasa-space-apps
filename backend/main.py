@@ -419,12 +419,17 @@ def read_root():
 async def favicon():
     return Response(content=b"", media_type="image/x-icon")
 
-@app.get("/tiles/{dataset}/{z}/{x}/{y}.webp")
-def get_tile(dataset: str, z: int, x: int, y: int):
-    path = os.path.join(TILES_ROOT, dataset, str(z), str(x), f"{y}.webp")
+@app.get("/tiles/{dataset}/{footprint}/{z}/{x}/{y}.{ext}")
+def get_tile(dataset: str, footprint: str, z: int, x: int, y: int, ext: str):
+    # Construct the path including footprint and extension
+    path = os.path.join(TILES_ROOT, dataset, footprint, str(z), str(x), f"{y}.{ext}")
+    
     if not os.path.exists(path):
         raise HTTPException(status_code=404, detail=f"Tile not found: {path}")
-    return FileResponse(path, media_type="image/webp")
+    
+    # Set the media type based on extension
+    media_type = f"image/{ext}" if ext in ["png", "jpeg", "jpg", "webp"] else "application/octet-stream"
+    return FileResponse(path, media_type=media_type)
 
 @app.get("/annotations")
 def get_annotations():
@@ -718,13 +723,16 @@ def find_similar_by_feature_more(
     return {"similar_tiles": final_results}
 
 # <editor-fold desc="Get Dataset Bounds">
-@app.get("/datasets/{dataset}/bounds")
-def get_dataset_bounds(dataset: str):
-    dataset_path = os.path.join(TILES_ROOT, dataset)
+@app.get("/datasets/{dataset}/{footprint}/bounds")
+def get_dataset_bounds(dataset: str, footprint: str):
+    # This path now correctly points to the specific footprint's data
+    dataset_path = os.path.join(TILES_ROOT, dataset, footprint)
+    
     if not os.path.exists(dataset_path):
-        raise HTTPException(status_code=404, detail="Dataset not found")
+        raise HTTPException(status_code=404, detail="Dataset or footprint not found")
 
     zoom_levels = {}
+    # The rest of your function logic remains exactly the same...
     for root, dirs, files in os.walk(dataset_path):
         for file in files:
             if not file.endswith(".webp"):
@@ -732,7 +740,19 @@ def get_dataset_bounds(dataset: str):
             parts = root.split(os.sep)
             y_file = os.path.splitext(file)[0]
             try:
-                z, x, y = int(parts[-2]), int(parts[-1]), int(y_file)
+                # This part is complex, ensure your directory structure is
+                # TILES_ROOT/dataset/footprint/z/x/y.webp
+                # The parts indices might need adjustment based on your full TILES_ROOT path
+                z_index = -2
+                x_index = -1
+                
+                # A more robust way to find z and x from the path
+                path_parts = root.replace(dataset_path, '').strip(os.sep).split(os.sep)
+                if len(path_parts) >= 2:
+                    z, x, y = int(path_parts[-2]), int(path_parts[-1]), int(y_file)
+                else:
+                    continue # Skip files not in a z/x directory
+
             except (ValueError, IndexError):
                 continue
 
@@ -745,11 +765,12 @@ def get_dataset_bounds(dataset: str):
                 zoom_levels[z]["max_y"] = max(zoom_levels[z]["max_y"], y)
 
     if not zoom_levels:
-        raise HTTPException(status_code=404, detail="No tiles found")
+        raise HTTPException(status_code=404, detail="No tiles found for this dataset/footprint")
 
     zoom = max(zoom_levels.keys())
     bounds_info = zoom_levels[zoom]
     
+    # Assuming you have a MercatorProjection class with these static methods
     south = MercatorProjection.tileYToLat(bounds_info["max_y"] + 1, zoom)
     north = MercatorProjection.tileYToLat(bounds_info["min_y"], zoom)
     west = MercatorProjection.tileXToLng(bounds_info["min_x"], zoom)
@@ -758,6 +779,6 @@ def get_dataset_bounds(dataset: str):
     return {
         "zoom": zoom, 
         "bounds": [[south, west], [north, east]],
-        "available_zooms": sorted(zoom_levels.keys())
+        "available_zooms": sorted(list(zoom_levels.keys()))
     }
 # </editor-fold>
