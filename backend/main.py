@@ -39,7 +39,7 @@ app.add_middleware(
 # -------------------------------
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TILES_ROOT = os.path.join(BASE_DIR, "data")
-ANNOTATIONS_FILE = os.path.join(BASE_DIR, "annotations.json")
+ANNOTATIONS_DIR = "data/annotations"
 
 FAISS_INDEX_ROOT = os.path.join(BASE_DIR, "faiss_indexes")
 TILE_MAP_ROOT = os.path.join(BASE_DIR, "tile_maps")
@@ -82,9 +82,10 @@ class FaissIndex:
             results.append(
                 {
                     "dataset": tile_info[0],
-                    "z": tile_info[1],
-                    "x": tile_info[2],
-                    "y": tile_info[3],
+                    "footprint": tile_info[1], # Now correctly included
+                    "z": tile_info[2],
+                    "x": tile_info[3],
+                    "y": tile_info[4],
                     "score": float(score),
                 }
             )
@@ -95,22 +96,25 @@ faiss_indexes: Dict[tuple, FaissIndex] = {}
 # -------------------------------
 # Save/Load Faiss Index
 # -------------------------------
-def save_faiss_index(faiss_index: "FaissIndex", dataset: str, zoom: int):
-    index_file = os.path.join(FAISS_INDEX_ROOT, f"{dataset}_{zoom}.index")
-    tile_map_file = os.path.join(TILE_MAP_ROOT, f"{dataset}_{zoom}.json")
-    embeddings_file = os.path.join(EMBEDDINGS_ROOT, f"{dataset}_{zoom}.npy")
-
+def save_faiss_index(faiss_index: "FaissIndex", name: str, zoom: int):
+    # 'name' will now be something like "mars_viking_vis_mro_ctx_acheron_fossae_mosaic"
+    index_file = os.path.join(FAISS_INDEX_ROOT, f"{name}_{zoom}.index")
+    tile_map_file = os.path.join(TILE_MAP_ROOT, f"{name}_{zoom}.json")
+    embeddings_file = os.path.join(EMBEDDINGS_ROOT, f"{name}_{zoom}.npy")
+    # ... (rest of the function is the same) ...
     faiss.write_index(faiss_index.index, index_file)
     with open(tile_map_file, "w") as f:
         json.dump(faiss_index.tile_map, f)
     if faiss_index.embeddings is not None:
         np.save(embeddings_file, faiss_index.embeddings)
 
-def load_faiss_index(dataset: str, zoom: int):
-    index_file = os.path.join(FAISS_INDEX_ROOT, f"{dataset}_{zoom}.index")
-    tile_map_file = os.path.join(TILE_MAP_ROOT, f"{dataset}_{zoom}.json")
-    embeddings_file = os.path.join(EMBEDDINGS_ROOT, f"{dataset}_{zoom}.npy")
-    
+
+def load_faiss_index(name: str, zoom: int):
+    # 'name' will also be the combined dataset_footprint string
+    index_file = os.path.join(FAISS_INDEX_ROOT, f"{name}_{zoom}.index")
+    tile_map_file = os.path.join(TILE_MAP_ROOT, f"{name}_{zoom}.json")
+    embeddings_file = os.path.join(EMBEDDINGS_ROOT, f"{name}_{zoom}.npy")
+    # ... (rest of the function is the same) ...
     if (
         os.path.exists(index_file)
         and os.path.exists(tile_map_file)
@@ -126,7 +130,6 @@ def load_faiss_index(dataset: str, zoom: int):
         fi.embeddings = embeddings
         return fi
     return None
-# </editor-fold>
 
 # ===================================================================
 # Multi-Layer Feature Extraction
@@ -328,17 +331,27 @@ def get_downloaded_footprints():
 # -------------------------------
 # Helper Functions
 # -------------------------------
-def load_annotations():
-    if not os.path.exists(ANNOTATIONS_FILE):
+# --- Helper Functions ---
+def get_annotation_path(dataset: str, footprint: str) -> str:
+    """Generates the file path for a specific footprint's annotations."""
+    return os.path.join(ANNOTATIONS_DIR, dataset, f"{footprint}.json")
+
+def load_annotations(dataset: str, footprint: str) -> List[Dict]:
+    """Loads annotations for a specific dataset and footprint."""
+    filepath = get_annotation_path(dataset, footprint)
+    if not os.path.exists(filepath):
         return []
     try:
-        with open(ANNOTATIONS_FILE, "r") as f:
+        with open(filepath, "r") as f:
             return json.load(f)
-    except Exception:
+    except (json.JSONDecodeError, IOError):
         return []
 
-def save_annotations(data):
-    with open(ANNOTATIONS_FILE, "w") as f:
+def save_annotations(dataset: str, footprint: str, data: List[Dict]):
+    """Saves annotations for a specific dataset and footprint."""
+    filepath = get_annotation_path(dataset, footprint)
+    os.makedirs(os.path.dirname(filepath), exist_ok=True)
+    with open(filepath, "w") as f:
         json.dump(data, f, indent=2)
 
 class MercatorProjection:
@@ -387,6 +400,7 @@ projection = MercatorProjection()
 class Annotation(BaseModel):
     id: str
     dataset: str
+    footprint: str  # Added footprint field
     geojson: dict
     label: str
     embedding: List[float] = []
@@ -394,13 +408,15 @@ class Annotation(BaseModel):
 class SimilarRequest(BaseModel):
     annotation_id: str
     dataset: str
+    footprint: str  # Add this
     geojson: dict
 
 class SimilarMoreRequest(BaseModel):
     annotation_id: str
     dataset: str
+    footprint: str  # Add this
     geojson: dict
-    exclude_zooms: List[int] # New field to specify which zooms to skip
+    exclude_zooms: List[int]
 
 def latlng_to_tilexy(lat, lng, zoom):
     n = 2**zoom
@@ -432,71 +448,82 @@ def get_tile(dataset: str, footprint: str, z: int, x: int, y: int, ext: str):
     return FileResponse(path, media_type=media_type)
 
 @app.get("/annotations")
-def get_annotations():
-    return load_annotations()
-# </editor-fold>
+def get_annotations(dataset: str, footprint: str):
+    """Get all annotations for a specific dataset and footprint."""
+    return load_annotations(dataset, footprint)
 
-# <editor-fold desc="Annotation CRUD and Startup Event">
 @app.post("/annotations")
-def save_annotation(annotation: Annotation):
+def create_annotation(annotation: Annotation):
+    """Create a new annotation and extract its feature embedding."""
+    # This logic now correctly includes the footprint when searching for the tile
+    tile_path = None
+    zoom_found = None
+    
+    # Assuming latlng_to_tilexy and projection helpers exist
     coords = annotation.geojson["geometry"]["coordinates"]
+    # ... (Your logic to get center lat/lng)
     if annotation.geojson['geometry']['type'] == "Point":
-        lng, lat = coords
+      lng, lat = coords
     else:
-        all_coords = [p for poly in coords for p in poly]
-        lats = [pt[1] for pt in all_coords]
-        lngs = [pt[0] for pt in all_coords]
-        lat = sum(lats) / len(lats)
-        lng = sum(lngs) / len(lngs)
-    
-    zoom_found, tile_path, tx, ty = None, None, None, None
-    
-    for test_zoom in range(1, 8):
-        temp_tx, temp_ty = latlng_to_tilexy(lat, lng, test_zoom)
-        test_path = os.path.join(
-            TILES_ROOT, annotation.dataset, str(test_zoom), str(temp_tx), f"{temp_ty}.webp"
-        )
-        if os.path.exists(test_path):
-            zoom_found, tile_path, tx, ty = test_zoom, test_path, temp_tx, temp_ty
-            break
-    
-    if not tile_path:
-        raise HTTPException(status_code=404, detail="No tile found for annotation at any zoom level")
+      all_coords = [p for poly in coords for p in poly]
+      lats = [pt[1] for pt in all_coords]
+      lngs = [pt[0] for pt in all_coords]
+      lat = sum(lats) / len(lats)
+      lng = sum(lngs) / len(lngs)
 
+    # Find the tile this annotation belongs to
+    for z in range(1, 16): # Check a wide range of zooms
+        tx, ty = latlng_to_tilexy(lat, lng, z)
+        path = os.path.join(
+            TILES_ROOT, annotation.dataset, annotation.footprint, str(z), str(tx), f"{ty}.png"
+        )
+        if os.path.exists(path):
+            tile_path = path
+            zoom_found = z
+            break
+
+    if not tile_path:
+        raise HTTPException(status_code=404, detail="No source tile found for this annotation.")
+
+    # --- Feature Extraction (Same as before) ---
     img = Image.open(tile_path).convert("RGB")
-    
     bbox = projection.get_pixel_bbox_on_tile(annotation.geojson, zoom_found, tx, ty)
     if bbox is None:
-        raise HTTPException(status_code=400, detail="Annotation does not appear to be on the calculated tile.")
+        raise HTTPException(status_code=400, detail="Annotation does not overlap with the tile.")
     
     cropped_img = img.crop(bbox)
-    
     if cropped_img.size[0] > 0 and cropped_img.size[1] > 0:
-        model_input_size = config['input_size'][1:]
-        cropped_img = cropped_img.resize(model_input_size, Image.LANCZOS)
+        # Assuming extract_features function exists
         annotation.embedding = extract_features(cropped_img).tolist()
+    # --- End Feature Extraction ---
 
-    data = load_annotations()
-    data.append(annotation.dict())
-    save_annotations(data)
-    return {"status": "saved", "zoom_used": zoom_found}
-
+    annotations = load_annotations(annotation.dataset, annotation.footprint)
+    annotations.append(annotation.dict())
+    save_annotations(annotation.dataset, annotation.footprint, annotations)
+    return {"status": "created", "id": annotation.id}
 
 @app.put("/annotations/{annotation_id}")
-def update_annotation(annotation_id: str, annotation: dict = Body(...)):
-    data = load_annotations()
-    for i, a in enumerate(data):
-        if a["id"] == annotation_id:
-            data[i].update(annotation)
-            save_annotations(data)
-            return {"status": "updated", "annotation": data[i]}
-    raise HTTPException(status_code=404, detail="Annotation not found")
+def update_annotation(annotation_id: str, dataset: str, footprint: str, update_data: dict = Body(...)):
+    """Update an annotation's label (or other fields)."""
+    annotations = load_annotations(dataset, footprint)
+    for i, ann in enumerate(annotations):
+        if ann["id"] == annotation_id:
+            annotations[i].update(update_data)
+            save_annotations(dataset, footprint, annotations)
+            return {"status": "updated", "annotation": annotations[i]}
+    raise HTTPException(status_code=404, detail="Annotation not found in the specified dataset/footprint.")
 
 @app.delete("/annotations/{annotation_id}")
-def delete_annotation(annotation_id: str):
-    data = load_annotations()
-    new_data = [a for a in data if a["id"] != annotation_id]
-    save_annotations(new_data)
+def delete_annotation(annotation_id: str, dataset: str, footprint: str):
+    """Delete an annotation."""
+    annotations = load_annotations(dataset, footprint)
+    initial_count = len(annotations)
+    annotations_to_keep = [ann for ann in annotations if ann["id"] != annotation_id]
+    
+    if len(annotations_to_keep) == initial_count:
+        raise HTTPException(status_code=404, detail="Annotation not found.")
+        
+    save_annotations(dataset, footprint, annotations_to_keep)
     return {"status": "deleted"}
 
 @app.on_event("startup")
@@ -504,82 +531,82 @@ async def startup_event():
     global faiss_indexes
     print("Checking for cached Faiss indexes...")
 
-    for dataset in os.listdir(TILES_ROOT):
-        dataset_path = os.path.join(TILES_ROOT, dataset)
+    # Loop 1: Datasets
+    for dataset_id in os.listdir(TILES_ROOT):
+        dataset_path = os.path.join(TILES_ROOT, dataset_id)
         if not os.path.isdir(dataset_path):
             continue
         
-        for zoom_str in os.listdir(dataset_path):
-            zoom_path = os.path.join(dataset_path, zoom_str)
-            if not os.path.isdir(zoom_path):
-                continue
-            try:
-                zoom = int(zoom_str)
-            except ValueError:
-                continue
-            
-            index_key = (dataset, zoom)
-            fi = load_faiss_index(dataset, zoom)
-            if fi:
-                faiss_indexes[index_key] = fi
-                print(f"Loaded Faiss index for dataset '{dataset}' at zoom {zoom} with {fi.index.ntotal} vectors ✅")
+        # Loop 2: Footprints
+        for footprint_id in os.listdir(dataset_path):
+            footprint_path = os.path.join(dataset_path, footprint_id)
+            if not os.path.isdir(footprint_path):
                 continue
 
-            print(f"No cached index found for '{dataset}' at zoom {zoom}. Building from tiles...")
-            all_embeddings = []
-            all_tile_info = []
-
-            for x_str in os.listdir(zoom_path):
-                x_path = os.path.join(zoom_path, x_str)
-                if not os.path.isdir(x_path):
+            # Loop 3: Zoom levels
+            for zoom_str in os.listdir(footprint_path):
+                zoom_path = os.path.join(footprint_path, zoom_str)
+                if not os.path.isdir(zoom_path) or not zoom_str.isdigit():
                     continue
-                for y_file in os.listdir(x_path):
-                    if not y_file.endswith(".webp"):
-                        continue
-                    try:
-                        y = int(y_file.split(".")[0])
-                        x = int(x_str)
-                        tile_path = os.path.join(zoom_path, x_str, y_file)
+                
+                zoom = int(zoom_str)
+                index_key = (dataset_id, footprint_id, zoom)
+                index_name = f"{dataset_id}_{footprint_id}"
 
-                        img = Image.open(tile_path).convert("RGB")
-                        emb = extract_features(img)
-                        all_embeddings.append(emb)
-                        all_tile_info.append((dataset, zoom, x, y))
-                    except Exception as e:
-                        print(f"Error processing tile {tile_path}: {e}")
-            
-            if all_embeddings:
-                dummy_img = Image.new("RGB", (224, 224), "white")
-                d = extract_features(dummy_img).shape[0]
-                fi = FaissIndex(d)
-                fi.build_index(all_embeddings, all_tile_info)
-                save_faiss_index(fi, dataset, zoom)
-                faiss_indexes[index_key] = fi
-                print(f"Faiss index built & saved for dataset '{dataset}' at zoom {zoom} with {fi.index.ntotal} vectors ✅")
-            else:
-                print(f"No tiles found to build Faiss index for '{dataset}' at zoom {zoom} ❌")
-# </editor-fold>
+                # Try to load a pre-built index
+                fi = load_faiss_index(index_name, zoom)
+                if fi:
+                    faiss_indexes[index_key] = fi
+                    print(f"Loaded Faiss index for '{index_name}' zoom {zoom} with {fi.index.ntotal} vectors ✅")
+                    continue
+
+                # If no index, build it
+                print(f"No cached index for '{index_name}' zoom {zoom}. Building...")
+                all_embeddings = []
+                all_tile_info = []
+
+                for x_str in os.listdir(zoom_path):
+                    x_path = os.path.join(zoom_path, x_str)
+                    if not os.path.isdir(x_path): continue
+                    for y_file in os.listdir(x_path):
+                        try:
+                            tile_path = os.path.join(x_path, y_file)
+                            img = Image.open(tile_path).convert("RGB")
+                            emb = extract_features(img)
+                            all_embeddings.append(emb)
+                            y = int(y_file.split('.')[0])
+                            x = int(x_str)
+                            all_tile_info.append((dataset_id, footprint_id, zoom, x, y))
+                        except Exception as e:
+                            print(f"Warning: Could not process tile {tile_path}. {e}")
+
+                if all_embeddings:
+                    d = all_embeddings[0].shape[0]
+                    fi = FaissIndex(d)
+                    fi.build_index(all_embeddings, all_tile_info)
+                    save_faiss_index(fi, index_name, zoom)
+                    faiss_indexes[index_key] = fi
+                    print(f"Index built & saved for '{index_name}' zoom {zoom} with {len(all_embeddings)} vectors ✅")
 
 # ===================================================================
 # Final Search Endpoint: Multi-Layer Features + Single-Zoom Search
 # ===================================================================
 @app.post("/annotations/similar")
 def find_similar_by_feature(
-    req: SimilarRequest,
+    req: SimilarRequest, # Now includes footprint
     zoom: int,
     top_k: int
 ):
     global faiss_indexes
-    # Reverted to single-zoom: use the zoom level from the user's viewport
-    index_key = (req.dataset, zoom)
+    # CHANGED: The index key now includes the footprint
+    index_key = (req.dataset, req.footprint, zoom)
 
     if index_key not in faiss_indexes:
-        raise HTTPException(status_code=404, detail=f"No Faiss index for dataset '{req.dataset}' at zoom {zoom}.")
+        raise HTTPException(status_code=404, detail=f"No Faiss index for '{req.dataset}/{req.footprint}' at zoom {zoom}.")
     
     faiss_index = faiss_indexes[index_key]
     feature_shape = shape(req.geojson['geometry'])
     
-    # Stitch the query image from the user's current zoom level
     min_lng, min_lat, max_lng, max_lat = feature_shape.bounds
     min_tx, min_ty = latlng_to_tilexy(max_lat, min_lng, zoom)
     max_tx, max_ty = latlng_to_tilexy(min_lat, max_lng, zoom)
@@ -587,58 +614,44 @@ def find_similar_by_feature(
     cropped_pieces = []
     for tx in range(min_tx, max_tx + 1):
         for ty in range(min_ty, max_ty + 1):
-            tile_path = os.path.join(TILES_ROOT, req.dataset, str(zoom), str(tx), f"{ty}.webp")
+            # CHANGED: The tile path now includes the footprint
+            tile_path = os.path.join(TILES_ROOT, req.dataset, req.footprint, str(zoom), str(tx), f"{ty}.png")
             if not os.path.exists(tile_path):
                 continue
+            # ... (rest of stitching logic is the same) ...
             bbox = projection.get_pixel_bbox_on_tile(req.geojson, zoom, tx, ty)
-            if bbox is None:
-                continue
+            if bbox is None: continue
             tile_img = Image.open(tile_path)
             cropped_piece = tile_img.crop(bbox)
             relative_x, relative_y = (tx - min_tx) * 256, (ty - min_ty) * 256
-            cropped_pieces.append({
-                "image": cropped_piece, "paste_x": relative_x + bbox[0], "paste_y": relative_y + bbox[1]
-            })
+            cropped_pieces.append({ "image": cropped_piece, "paste_x": relative_x + bbox[0], "paste_y": relative_y + bbox[1] })
 
+    # ... (The rest of the function for stitching and searching is the same) ...
     if not cropped_pieces:
         raise HTTPException(status_code=404, detail="Could not find any tiles overlapping the annotation.")
-
+    
+    # ... Stitching logic ...
     min_paste_x = min(p['paste_x'] for p in cropped_pieces)
     min_paste_y = min(p['paste_y'] for p in cropped_pieces)
     max_paste_x = max(p['paste_x'] + p['image'].width for p in cropped_pieces)
     max_paste_y = max(p['paste_y'] + p['image'].height for p in cropped_pieces)
     composite_width, composite_height = max_paste_x - min_paste_x, max_paste_y - min_paste_y
-
     if composite_width <= 0 or composite_height <= 0:
         raise HTTPException(status_code=400, detail="Composite image has invalid dimensions.")
-
     composite_img = Image.new("RGB", (composite_width, composite_height))
     for p in cropped_pieces:
         composite_img.paste(p['image'], (p['paste_x'] - min_paste_x, p['paste_y'] - min_paste_y))
-
     model_input_size = config['input_size'][1:]
     padded_img = ImageOps.pad(composite_img, model_input_size, color='gray')
 
-    with tempfile.NamedTemporaryFile(suffix=".webp", delete=False) as tmp_file:
-        padded_img.save(tmp_file.name)
-        print(f"Saved stitched query image to: {tmp_file.name}")
-
-    # Use the multi-layer feature extractor
     query_emb = extract_features(padded_img)
-
-    # Perform a wider search and apply thresholding
     initial_search_k = max(50, top_k * 5)
     initial_results = faiss_index.search(query_emb, initial_search_k)
-
-    high_confidence_results = []
-    medium_confidence_results = []
-    for res in initial_results:
-        if res["score"] > 0.75:
-            high_confidence_results.append(res)
-        elif res["score"] > 0.70:
-            medium_confidence_results.append(res)
     
-    final_results = high_confidence_results + medium_confidence_results[:top_k]
+    # ... Filtering logic ...
+    high_confidence_results = [res for res in initial_results if res["score"] > 0.75]
+    medium_confidence_results = [res for res in initial_results if 0.70 < res["score"] <= 0.75]
+    final_results = (high_confidence_results + medium_confidence_results)[:top_k]
     
     return {
         "query_feature_bounds": [min_lng, min_lat, max_lng, max_lat],
@@ -648,35 +661,29 @@ def find_similar_by_feature(
 
 @app.post("/annotations/similar/more")
 def find_similar_by_feature_more(
-    req: SimilarMoreRequest, # Use the new request model
+    req: SimilarMoreRequest, # Now includes footprint
     top_k: int
 ):
     global faiss_indexes
     
-    # Create the query vector using the same robust method as before
+    # ... (The logic to create the query embedding is the same) ...
+    # <editor-fold desc="Stitching Logic">
     QUERY_ZOOM_LEVEL = 5 
     feature_shape = shape(req.geojson['geometry'])
     min_lng, min_lat, max_lng, max_lat = feature_shape.bounds
     min_tx, min_ty = latlng_to_tilexy(max_lat, min_lng, QUERY_ZOOM_LEVEL)
     max_tx, max_ty = latlng_to_tilexy(min_lat, max_lng, QUERY_ZOOM_LEVEL)
-
-    # ... (The entire stitching logic to create the query image is the same) ...
-    # <editor-fold desc="Stitching Logic">
     cropped_pieces = []
     for tx in range(min_tx, max_tx + 1):
         for ty in range(min_ty, max_ty + 1):
-            tile_path = os.path.join(TILES_ROOT, req.dataset, str(QUERY_ZOOM_LEVEL), str(tx), f"{ty}.webp")
-            if not os.path.exists(tile_path):
-                continue
+            tile_path = os.path.join(TILES_ROOT, req.dataset, req.footprint, str(QUERY_ZOOM_LEVEL), str(tx), f"{ty}.png")
+            if not os.path.exists(tile_path): continue
             bbox = projection.get_pixel_bbox_on_tile(req.geojson, QUERY_ZOOM_LEVEL, tx, ty)
-            if bbox is None:
-                continue
+            if bbox is None: continue
             tile_img = Image.open(tile_path)
             cropped_piece = tile_img.crop(bbox)
             relative_x, relative_y = (tx - min_tx) * 256, (ty - min_ty) * 256
-            cropped_pieces.append({
-                "image": cropped_piece, "paste_x": relative_x + bbox[0], "paste_y": relative_y + bbox[1]
-            })
+            cropped_pieces.append({ "image": cropped_piece, "paste_x": relative_x + bbox[0], "paste_y": relative_y + bbox[1]})
     if not cropped_pieces:
         raise HTTPException(status_code=404, detail=f"Could not find tiles for query at zoom {QUERY_ZOOM_LEVEL}.")
     min_paste_x = min(p['paste_x'] for p in cropped_pieces)
@@ -691,37 +698,32 @@ def find_similar_by_feature_more(
         composite_img.paste(p['image'], (p['paste_x'] - min_paste_x, p['paste_y'] - min_paste_y))
     model_input_size = config['input_size'][1:]
     padded_img = ImageOps.pad(composite_img, model_input_size, color='gray')
-    # </editor-fold>
-    
     query_emb = extract_features(padded_img)
+    # </editor-fold>
 
-    # Search all zoom levels, but EXCLUDE the ones specified by the frontend
     all_results = []
     initial_search_k = max(50, top_k * 5)
 
     for index_key, faiss_index in faiss_indexes.items():
-        dataset_name, zoom_level = index_key
-        # THE KEY CHANGE: Skip zooms that have already been searched
-        if dataset_name == req.dataset and zoom_level not in req.exclude_zooms:
+        # CHANGED: Deconstruct the key to get all parts
+        dataset_name, footprint_name, zoom_level = index_key
+        
+        # Search all indexes for the same dataset/footprint, excluding specified zooms
+        if (dataset_name == req.dataset and 
+            footprint_name == req.footprint and 
+            zoom_level not in req.exclude_zooms):
+            
             print(f"Searching deeper in index for zoom level {zoom_level}...")
             results_from_zoom = faiss_index.search(query_emb, initial_search_k)
             all_results.extend(results_from_zoom)
     
-    # Sort and filter the new results
+    # ... (Sorting and filtering logic is the same) ...
     all_results.sort(key=lambda x: x["score"], reverse=True)
-
-    high_confidence_results = []
-    medium_confidence_results = []
-    for res in all_results:
-        if res["score"] > 0.75:
-            high_confidence_results.append(res)
-        elif res["score"] > 0.65:
-            medium_confidence_results.append(res)
-    
-    final_results = high_confidence_results + medium_confidence_results[:top_k]
+    high_confidence_results = [res for res in all_results if res["score"] > 0.75]
+    medium_confidence_results = [res for res in all_results if 0.65 < res["score"] <= 0.75]
+    final_results = (high_confidence_results + medium_confidence_results)[:top_k]
     
     return {"similar_tiles": final_results}
-
 # <editor-fold desc="Get Dataset Bounds">
 @app.get("/datasets/{dataset}/{footprint}/bounds")
 def get_dataset_bounds(dataset: str, footprint: str):
@@ -735,13 +737,13 @@ def get_dataset_bounds(dataset: str, footprint: str):
     # The rest of your function logic remains exactly the same...
     for root, dirs, files in os.walk(dataset_path):
         for file in files:
-            if not file.endswith(".webp"):
+            if not file.endswith(".png"):
                 continue
             parts = root.split(os.sep)
             y_file = os.path.splitext(file)[0]
             try:
                 # This part is complex, ensure your directory structure is
-                # TILES_ROOT/dataset/footprint/z/x/y.webp
+                # TILES_ROOT/dataset/footprint/z/x/y.png
                 # The parts indices might need adjustment based on your full TILES_ROOT path
                 z_index = -2
                 x_index = -1
@@ -782,3 +784,21 @@ def get_dataset_bounds(dataset: str, footprint: str):
         "available_zooms": sorted(list(zoom_levels.keys()))
     }
 # </editor-fold>
+
+@app.get("/datasets/{dataset_id}/footprints")
+def get_dataset_footprints(dataset_id: str):
+    """
+    Lists all downloaded footprints for a given dataset ID.
+    """
+    dataset_path = os.path.join(TILES_ROOT, dataset_id)
+    if not os.path.exists(dataset_path) or not os.path.isdir(dataset_path):
+        raise HTTPException(status_code=404, detail="Dataset not found.")
+
+    footprints = []
+    for item in os.listdir(dataset_path):
+        item_path = os.path.join(dataset_path, item)
+        # Check if the item is a directory and doesn't look like a zoom level
+        if os.path.isdir(item_path) and not item.isdigit():
+            footprints.append(item)
+            
+    return {"footprints": sorted(footprints)}
