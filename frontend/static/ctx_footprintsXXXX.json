@@ -1,0 +1,6110 @@
+[
+  {
+    "id": "ac224c7d-9737-4be8-b6c1-b6efb5263128",
+    "title": "MRO CTX, 22n048w Mosaic",
+    "bbox": [
+      -48.2423413,
+      21.8892236,
+      -47.6367163,
+      22.6587236
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/b21_017819_2025_xn_22n048w/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/b21_017819_2025_xn_22n048w/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 327680,
+          "readable": "0.33 MB"
+        },
+        "0-6": {
+          "bytes": 720896,
+          "readable": "0.72 MB"
+        },
+        "0-7": {
+          "bytes": 983040,
+          "readable": "0.98 MB"
+        },
+        "0-12": {
+          "bytes": 15007744,
+          "readable": "15.01 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "852a041e-6e1d-4888-8c46-5c8d7d59cd48",
+    "title": "MRO CTX, Acheron Fossae Mosaic",
+    "bbox": [
+      -141.6026047,
+      38.1079779,
+      -137.1973524,
+      41.4921368
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Acheron_Fossae_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Acheron_Fossae_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 720896,
+          "readable": "0.72 MB"
+        },
+        "0-7": {
+          "bytes": 1310720,
+          "readable": "1.31 MB"
+        },
+        "0-12": {
+          "bytes": 354680832,
+          "readable": "354.68 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "81d07af8-12eb-46e1-841a-d3c584a1795f",
+    "title": "MRO CTX, Acidalia Plantia Mosaic",
+    "bbox": [
+      -41.800754,
+      18.3079786,
+      -38.1992173,
+      21.6921376
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Acidalia_Plantia_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Acidalia_Plantia_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 655360,
+          "readable": "0.66 MB"
+        },
+        "0-7": {
+          "bytes": 1048576,
+          "readable": "1.05 MB"
+        },
+        "0-12": {
+          "bytes": 288751616,
+          "readable": "288.75 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "99099b9e-9de6-4a5f-a47d-136bfc38b37a",
+    "title": "MRO CTX, Arabia Terra Mosaic",
+    "bbox": [
+      -9.9921439,
+      -1.2920214,
+      -6.6078162,
+      2.0921376
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arabia_Terra_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arabia_Terra_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-6": {
+          "bytes": 851968,
+          "readable": "0.85 MB"
+        },
+        "0-7": {
+          "bytes": 1245184,
+          "readable": "1.25 MB"
+        },
+        "0-12": {
+          "bytes": 271384576,
+          "readable": "271.38 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "ce503539-5df2-4963-b299-aa01741d02b7",
+    "title": "MRO CTX, Aram Chaos Mosaic",
+    "bbox": [
+      -21.6935908,
+      0.7079787,
+      -18.3063952,
+      4.0921377
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Aram_Chaos_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Aram_Chaos_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 524288,
+          "readable": "0.52 MB"
+        },
+        "0-7": {
+          "bytes": 917504,
+          "readable": "0.92 MB"
+        },
+        "0-12": {
+          "bytes": 268763136,
+          "readable": "268.76 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "7f674b28-eee9-4328-a318-6740c7b94c71",
+    "title": "MRO CTX, Arcadia Mosaic",
+    "bbox": [
+      169.6807093,
+      37.0237318,
+      174.3355609,
+      40.8666014
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arcadia_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arcadia_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-7": {
+          "bytes": 1114112,
+          "readable": "1.11 MB"
+        },
+        "0-12": {
+          "bytes": 418840576,
+          "readable": "418.84 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "1ef9a824-a6d4-453e-b5c6-ceb3aab9eb8d",
+    "title": "MRO CTX, Arcadia Planitia Mosaic",
+    "bbox": [
+      -173.645143,
+      44.5079794,
+      -168.7548608,
+      47.8921384
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arcadia_Planitia_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arcadia_Planitia_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 393216,
+          "readable": "0.39 MB"
+        },
+        "0-6": {
+          "bytes": 851968,
+          "readable": "0.85 MB"
+        },
+        "0-7": {
+          "bytes": 1376256,
+          "readable": "1.38 MB"
+        },
+        "0-12": {
+          "bytes": 384172032,
+          "readable": "384.17 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "e0788a3a-c9a3-4c29-80b4-525c48ff91b1",
+    "title": "MRO CTX, Ausonia Mosaic",
+    "bbox": [
+      94.1612715,
+      -33.914489,
+      98.8963428,
+      -30.148971
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Ausonia_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Ausonia_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 917504,
+          "readable": "0.92 MB"
+        },
+        "0-7": {
+          "bytes": 1703936,
+          "readable": "1.70 MB"
+        },
+        "0-12": {
+          "bytes": 420806656,
+          "readable": "420.81 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "0c4ab9a3-9ce7-411a-89f2-974741b1a51b",
+    "title": "MRO CTX, Cerberus Mosaic",
+    "bbox": [
+      160.1914394,
+      8.2036983,
+      163.8111954,
+      11.7431501
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Cerberus_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Cerberus_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 917504,
+          "readable": "0.92 MB"
+        },
+        "0-7": {
+          "bytes": 1703936,
+          "readable": "1.70 MB"
+        },
+        "0-12": {
+          "bytes": 304873472,
+          "readable": "304.87 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "21ce3c51-af3a-44b6-9dd5-b4e9aae6c44e",
+    "title": "MRO CTX, Columbus Crater Mosaic",
+    "bbox": [
+      -167.9347281,
+      -30.6920214,
+      -164.0652861,
+      -27.3078624
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Columbus_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Columbus_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-7": {
+          "bytes": 983040,
+          "readable": "0.98 MB"
+        },
+        "0-12": {
+          "bytes": 312934400,
+          "readable": "312.93 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "d20cd6de-dbcd-4ca7-a7b2-17aab75133de",
+    "title": "MRO CTX, Copernicus Crater Mosaic",
+    "bbox": [
+      -171.7900514,
+      -50.8920221,
+      -166.6099322,
+      -47.5078632
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Copernicus_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Copernicus_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 983040,
+          "readable": "0.98 MB"
+        },
+        "0-7": {
+          "bytes": 1769472,
+          "readable": "1.77 MB"
+        },
+        "0-12": {
+          "bytes": 418578432,
+          "readable": "418.58 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "d4184872-4311-48ec-a4fa-986fc607c2d1",
+    "title": "MRO CTX, Coprates EMelas Chasm Mosaic",
+    "bbox": [
+      -71.7280511,
+      -13.3920212,
+      -64.8714999,
+      -10.0078622
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Coprates_EMelas_Chasm_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Coprates_EMelas_Chasm_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 1048576,
+          "readable": "1.05 MB"
+        },
+        "0-7": {
+          "bytes": 1638400,
+          "readable": "1.64 MB"
+        },
+        "0-12": {
+          "bytes": 549519360,
+          "readable": "549.52 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "bea6179f-534d-4d03-980e-589fcd915673",
+    "title": "MRO CTX, Curiosity Roving Site Mosaic",
+    "bbox": [
+      136.2768326,
+      -7.2137273,
+      139.3864225,
+      -3.5804738
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/curiosity_ctx_mosaic/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/curiosity_ctx_mosaic/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-7": {
+          "bytes": 1114112,
+          "readable": "1.11 MB"
+        },
+        "0-10": {
+          "bytes": 21430272,
+          "readable": "21.43 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "c211d459-eee7-4633-ae9f-7db7a0db99a6",
+    "title": "MRO CTX, Deuteronilus Mensae Mosaic",
+    "bbox": [
+      19.405687,
+      37.2289685,
+      25.7660719,
+      42.8254527
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Deuteronilus1_2_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Deuteronilus1_2_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 1048576,
+          "readable": "1.05 MB"
+        },
+        "0-7": {
+          "bytes": 2359296,
+          "readable": "2.36 MB"
+        },
+        "0-12": {
+          "bytes": 836501504,
+          "readable": "836.50 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "fd04290b-d443-441a-8d58-f0a05693cfe3",
+    "title": "MRO CTX, Eastern Valles Marineris Mosaic",
+    "bbox": [
+      -36.8964858,
+      -5.7920213,
+      -33.5035541,
+      -2.4078623
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/NE_Marineris_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/NE_Marineris_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 983040,
+          "readable": "0.98 MB"
+        },
+        "0-7": {
+          "bytes": 1769472,
+          "readable": "1.77 MB"
+        },
+        "0-12": {
+          "bytes": 271253504,
+          "readable": "271.25 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "44d61b5d-682c-42ec-9c96-78b113206bca",
+    "title": "MRO CTX, Equatorial Valles Marineries Mosaic",
+    "bbox": [
+      -50.9875215,
+      -20.4920206,
+      -47.4124717,
+      -17.1078616
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/SE_Marineris_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/SE_Marineris_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 655360,
+          "readable": "0.66 MB"
+        },
+        "0-7": {
+          "bytes": 1245184,
+          "readable": "1.25 MB"
+        },
+        "0-12": {
+          "bytes": 295239680,
+          "readable": "295.24 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "8004ff0b-a057-4ddf-9a2e-2168dae1d0a0",
+    "title": "MRO CTX, Erebus Montes Mosaic",
+    "bbox": [
+      -170.0774884,
+      37.3079786,
+      -165.7225105,
+      40.6921376
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Erebus_Montes_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Erebus_Montes_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 851968,
+          "readable": "0.85 MB"
+        },
+        "0-7": {
+          "bytes": 1441792,
+          "readable": "1.44 MB"
+        },
+        "0-12": {
+          "bytes": 351535104,
+          "readable": "351.54 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "22035911-cc4b-4e67-a9cd-a48b9fbb182c",
+    "title": "MRO CTX, Gale Crater Mosaic",
+    "bbox": [
+      135.1842593,
+      -6.5732988,
+      139.2413012,
+      -2.8077809
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Gale_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Gale_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 655360,
+          "readable": "0.66 MB"
+        },
+        "0-7": {
+          "bytes": 1179648,
+          "readable": "1.18 MB"
+        },
+        "0-12": {
+          "bytes": 365297664,
+          "readable": "365.30 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "4ca5fc24-26cb-4692-bccf-964c7bad1ac5",
+    "title": "MRO CTX, Gusev Crater Mosaic",
+    "bbox": [
+      173.2463549,
+      -16.2218451,
+      178.4633349,
+      -10.9930557
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Gusev_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Gusev_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 917504,
+          "readable": "0.92 MB"
+        },
+        "0-7": {
+          "bytes": 1900544,
+          "readable": "1.90 MB"
+        },
+        "0-12": {
+          "bytes": 638910464,
+          "readable": "638.91 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "55ba1fc6-1451-4903-bbdf-34335791b84a",
+    "title": "MRO CTX, Hadriacus Mosaic",
+    "bbox": [
+      75.5853118,
+      -28.5240883,
+      79.4329052,
+      -25.0797866
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hadriacus_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hadriacus_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 983040,
+          "readable": "0.98 MB"
+        },
+        "0-7": {
+          "bytes": 1769472,
+          "readable": "1.77 MB"
+        },
+        "0-12": {
+          "bytes": 320405504,
+          "readable": "320.41 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "d68e444a-5cf2-4bad-bd6e-c40f5682f85b",
+    "title": "MRO CTX, Hale Crater Mosaic",
+    "bbox": [
+      -38.3864506,
+      -37.4920206,
+      -34.2135065,
+      -34.1078616
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hale_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hale_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 524288,
+          "readable": "0.52 MB"
+        },
+        "0-7": {
+          "bytes": 917504,
+          "readable": "0.92 MB"
+        },
+        "0-12": {
+          "bytes": 333381632,
+          "readable": "333.38 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "86588b58-d194-403d-a677-07d45608dfa5",
+    "title": "MRO CTX, Hebrus Valles Mosaic",
+    "bbox": [
+      124.7528509,
+      18.2859829,
+      128.4529109,
+      21.8254348
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hebrus_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hebrus_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 524288,
+          "readable": "0.52 MB"
+        },
+        "0-7": {
+          "bytes": 917504,
+          "readable": "0.92 MB"
+        },
+        "0-12": {
+          "bytes": 310706176,
+          "readable": "310.71 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "de0c6f7e-a317-4385-8480-aacb7b6a959d",
+    "title": "MRO CTX, Hellas Eastern Rim Mosaic",
+    "bbox": [
+      99.6625132,
+      -41.8075384,
+      106.2773911,
+      -37.3150663
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hellas_Hellas2_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hellas_Hellas2_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 851968,
+          "readable": "0.85 MB"
+        },
+        "0-7": {
+          "bytes": 1638400,
+          "readable": "1.64 MB"
+        },
+        "0-12": {
+          "bytes": 700514304,
+          "readable": "700.51 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "5c874d59-0681-4219-b36c-998ca72790fd",
+    "title": "MRO CTX, Hellas Mesopotamia Mosaic",
+    "bbox": [
+      91.7243027,
+      -37.2541428,
+      96.2500099,
+      -33.6135517
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hellas3_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hellas3_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 917504,
+          "readable": "0.92 MB"
+        },
+        "0-7": {
+          "bytes": 1703936,
+          "readable": "1.70 MB"
+        },
+        "0-12": {
+          "bytes": 393674752,
+          "readable": "393.67 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "20f09fc8-3841-4d87-b658-b1643b6c329a",
+    "title": "MRO CTX, Huygens Crater Mosaic",
+    "bbox": [
+      53.7314092,
+      -15.2204292,
+      57.279212,
+      -11.7762119
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Huygens_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Huygens_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 720896,
+          "readable": "0.72 MB"
+        },
+        "0-7": {
+          "bytes": 1114112,
+          "readable": "1.11 MB"
+        },
+        "0-12": {
+          "bytes": 293142528,
+          "readable": "293.14 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "555c77bf-881c-487d-94e3-c4c876a00728",
+    "title": "MRO CTX, Hypanis Delta Mosaic",
+    "bbox": [
+      -47.0279725,
+      10.0079784,
+      -43.5720291,
+      13.3921374
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hypanis_Delta_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hypanis_Delta_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 327680,
+          "readable": "0.33 MB"
+        },
+        "0-6": {
+          "bytes": 1114112,
+          "readable": "1.11 MB"
+        },
+        "0-7": {
+          "bytes": 1507328,
+          "readable": "1.51 MB"
+        },
+        "0-12": {
+          "bytes": 287178752,
+          "readable": "287.18 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "b2f37ebd-58a6-4f7d-b08c-0107021cad17",
+    "title": "MRO CTX, Ismenius Cavus Mosaic",
+    "bbox": [
+      15.1635869,
+      32.1079779,
+      19.236404,
+      35.4921368
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Ismenius_Cavus_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Ismenius_Cavus_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 786432,
+          "readable": "0.79 MB"
+        },
+        "0-7": {
+          "bytes": 1310720,
+          "readable": "1.31 MB"
+        },
+        "0-12": {
+          "bytes": 324796416,
+          "readable": "324.80 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "32003f69-a6f6-4441-bb46-4c46689c42eb",
+    "title": "MRO CTX, Jezero Mosaic, Controlled",
+    "bbox": [
+      77.1604655,
+      18.2110274,
+      77.6991776,
+      18.7211945
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/JEZ_ctx_B_soc_008_orthoMosaic_6m_Eqc_latTs0_lon0/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/JEZ_ctx_B_soc_008_orthoMosaic_6m_Eqc_latTs0_lon0/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-7": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-13": {
+          "bytes": 34078720,
+          "readable": "34.08 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "afdc6b89-fc6a-4809-ab53-bf8d8251ade6",
+    "title": "MRO CTX, Jezero Mosaic, Preliminary",
+    "bbox": [
+      75.1537692,
+      15.9058484,
+      78.8717121,
+      19.4453003
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Jezero_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Jezero_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 851968,
+          "readable": "0.85 MB"
+        },
+        "0-7": {
+          "bytes": 1441792,
+          "readable": "1.44 MB"
+        },
+        "0-12": {
+          "bytes": 316211200,
+          "readable": "316.21 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "12d21699-8123-4754-8ccd-68d8ea2bb32f",
+    "title": "MRO CTX, Kasei Valles Mosaic",
+    "bbox": [
+      -74.4641069,
+      23.1079779,
+      -70.7358719,
+      26.4921368
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Kasei_Valles_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Kasei_Valles_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 655360,
+          "readable": "0.66 MB"
+        },
+        "0-7": {
+          "bytes": 1048576,
+          "readable": "1.05 MB"
+        },
+        "0-12": {
+          "bytes": 303562752,
+          "readable": "303.56 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "67a2429b-b865-4127-ae0c-3b05255396a0",
+    "title": "MRO CTX, Mawrth Vallis Mosaic",
+    "bbox": [
+      -21.0566936,
+      22.6079779,
+      -17.3433048,
+      25.9921368
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Mawrth_Valles_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Mawrth_Valles_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 524288,
+          "readable": "0.52 MB"
+        },
+        "0-7": {
+          "bytes": 917504,
+          "readable": "0.92 MB"
+        },
+        "0-12": {
+          "bytes": 296288256,
+          "readable": "296.29 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "7130e22d-188a-4f46-b97e-8aaa7225d992",
+    "title": "MRO CTX, McLaughlin Crater Mosaic",
+    "bbox": [
+      -24.223774,
+      20.2079782,
+      -20.5761806,
+      23.5921372
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/McLaughlin_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/McLaughlin_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 327680,
+          "readable": "0.33 MB"
+        },
+        "0-6": {
+          "bytes": 1114112,
+          "readable": "1.11 MB"
+        },
+        "0-7": {
+          "bytes": 1507328,
+          "readable": "1.51 MB"
+        },
+        "0-12": {
+          "bytes": 292290560,
+          "readable": "292.29 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "65f26303-ae99-48be-a962-b55e1b3e41cd",
+    "title": "MRO CTX, Meridiani Planum - Sinus Meridiani Mosaic",
+    "bbox": [
+      -8.093484,
+      -4.8925742,
+      -2.8037058,
+      -0.6078623
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/S_Meridiani_Sinus_Planium_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/S_Meridiani_Sinus_Planium_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 655360,
+          "readable": "0.66 MB"
+        },
+        "0-7": {
+          "bytes": 1441792,
+          "readable": "1.44 MB"
+        },
+        "0-12": {
+          "bytes": 546373632,
+          "readable": "546.37 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "9980c677-c061-43db-b1c8-eec17cd8ad6d",
+    "title": "MRO CTX, Mosaic InSight",
+    "bbox": [
+      133.935732,
+      3.728413,
+      137.2761299,
+      5.0696168
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/InSightCTXMosaic_112917/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/InSightCTXMosaic_112917/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 327680,
+          "readable": "0.33 MB"
+        },
+        "0-6": {
+          "bytes": 720896,
+          "readable": "0.72 MB"
+        },
+        "0-7": {
+          "bytes": 983040,
+          "readable": "0.98 MB"
+        },
+        "0-13": {
+          "bytes": 424935424,
+          "readable": "424.94 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "db96dde9-9101-4a5c-8cf5-c616d478aec8",
+    "title": "MRO CTX, Mosaic Olympus Mons",
+    "bbox": [
+      -136.0,
+      12.0,
+      -124.0,
+      24.0
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/olympus_mons.eq/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/olympus_mons.eq/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-6": {
+          "bytes": 2097152,
+          "readable": "2.10 MB"
+        },
+        "0-7": {
+          "bytes": 5373952,
+          "readable": "5.37 MB"
+        },
+        "0-13": {
+          "bytes": 13140033536,
+          "readable": "13.14 GB"
+        }
+      }
+    }
+  },
+  {
+    "id": "78e05a34-9f11-4a65-9146-18d7f04d5764",
+    "title": "MRO CTX, Newton Crater Mosaic",
+    "bbox": [
+      -162.2288716,
+      -42.2920198,
+      -157.7711517,
+      -38.9078609
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Newton_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Newton_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 655360,
+          "readable": "0.66 MB"
+        },
+        "0-7": {
+          "bytes": 1179648,
+          "readable": "1.18 MB"
+        },
+        "0-12": {
+          "bytes": 355008512,
+          "readable": "355.01 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "701936c9-e4ac-462f-a20d-57accb386c86",
+    "title": "MRO CTX, Noctis Landing Mosaic",
+    "bbox": [
+      -94.2030863,
+      -8.1920214,
+      -90.7969111,
+      -4.8078624
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Noactis_Landing_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Noactis_Landing_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-7": {
+          "bytes": 983040,
+          "readable": "0.98 MB"
+        },
+        "0-12": {
+          "bytes": 270663680,
+          "readable": "270.66 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "60c13e6d-cb0c-477d-bf33-24019cdcd275",
+    "title": "MRO CTX, Protonilus Mensae Mosaic",
+    "bbox": [
+      45.7924416,
+      40.4042625,
+      50.4234213,
+      43.94363
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Protonilus_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Protonilus_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 524288,
+          "readable": "0.52 MB"
+        },
+        "0-7": {
+          "bytes": 1048576,
+          "readable": "1.05 MB"
+        },
+        "0-12": {
+          "bytes": 380829696,
+          "readable": "380.83 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "132b2535-fcfb-42fd-be89-806eb6fd708d",
+    "title": "MRO CTX, Southern Nectaris Fossae Mosaic",
+    "bbox": [
+      -61.6328714,
+      -30.592021,
+      -57.767141,
+      -27.207862
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/S_Nectaris_Fossae_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/S_Nectaris_Fossae_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-7": {
+          "bytes": 983040,
+          "readable": "0.98 MB"
+        },
+        "0-12": {
+          "bytes": 313327616,
+          "readable": "313.33 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "0c97ce47-88a5-4098-9cc5-f146496649a3",
+    "title": "MRO CTX, Viking 1 Landing Site Mosaic",
+    "bbox": [
+      -50.1289484,
+      20.6079779,
+      -46.4710639,
+      23.9921368
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Viking_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Viking_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 327680,
+          "readable": "0.33 MB"
+        },
+        "0-6": {
+          "bytes": 720896,
+          "readable": "0.72 MB"
+        },
+        "0-7": {
+          "bytes": 1245184,
+          "readable": "1.25 MB"
+        },
+        "0-12": {
+          "bytes": 297205760,
+          "readable": "297.21 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "1f379efd-e472-4ed3-93c4-278a78bd0027",
+    "title": "MRO CTX, Viking 2 Landing Site Mosaic",
+    "bbox": [
+      133.7852899,
+      46.3960605,
+      135.0173759,
+      48.9848625
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/b16_015887_2280_xn_48n225w/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/b16_015887_2280_xn_48n225w/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 327680,
+          "readable": "0.33 MB"
+        },
+        "0-6": {
+          "bytes": 851968,
+          "readable": "0.85 MB"
+        },
+        "0-7": {
+          "bytes": 1245184,
+          "readable": "1.25 MB"
+        },
+        "0-12": {
+          "bytes": 84148224,
+          "readable": "84.15 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "723fb339-7bdf-498a-9366-4d2a6549d6cc",
+    "title": "MRO CTX, West Candor Chasma Mosaic",
+    "bbox": [
+      -77.591529,
+      -7.4890436,
+      -76.5878504,
+      -3.9755598
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/West_Candor_Chasma_longlat/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/West_Candor_Chasma_longlat/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-7": {
+          "bytes": 851968,
+          "readable": "0.85 MB"
+        },
+        "0-12": {
+          "bytes": 91815936,
+          "readable": "91.82 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "09752340-f818-4523-95ff-fef7e9a7acdb",
+    "title": "MRO CTX, Western Noachis Terra Mosaic",
+    "bbox": [
+      -11.7437774,
+      -39.0682654,
+      -7.2644644,
+      -35.3919929
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Noachis_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Noachis_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 720896,
+          "readable": "0.72 MB"
+        },
+        "0-7": {
+          "bytes": 1310720,
+          "readable": "1.31 MB"
+        },
+        "0-12": {
+          "bytes": 391512064,
+          "readable": "391.51 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "e84d278e-c4a9-402b-93c6-11968f0ddc9d",
+    "title": "MRO CTX, Zephyria Planum Mosaic",
+    "bbox": [
+      155.3902904,
+      -3.1240146,
+      158.821433,
+      0.3024043
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Zephyria_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Zephyria_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-6": {
+          "bytes": 1376256,
+          "readable": "1.38 MB"
+        },
+        "0-7": {
+          "bytes": 1900544,
+          "readable": "1.90 MB"
+        },
+        "0-12": {
+          "bytes": 288751616,
+          "readable": "288.75 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "81732cc6-36e9-4eb3-acca-6ae7c7f2437c",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Apollinaris 12S182E",
+    "bbox": [
+      177.7921683,
+      -12.9326851,
+      178.3389784,
+      -11.9697448
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S182E_24mp_P22_009609_1674/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S182E_24mp_P22_009609_1674/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-7": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-13": {
+          "bytes": 58785792,
+          "readable": "58.79 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "977f0d4a-d42e-424b-a372-7d1a2c8ed13c",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Apollinaris 13S182E",
+    "bbox": [
+      177.9674877,
+      -12.9682146,
+      178.4884857,
+      -12.2161231
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S182E_24mp_G15_024127_1673/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S182E_24mp_G15_024127_1673/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-7": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-13": {
+          "bytes": 43581440,
+          "readable": "43.58 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "32bbc89c-ebea-40ad-b172-5f4aa0c993b8",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Apollinaris 14S184E",
+    "bbox": [
+      175.5597824,
+      -14.6387082,
+      176.1214723,
+      -13.5707989
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_14S184E_24mp_B01_009886_1658/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_14S184E_24mp_B01_009886_1658/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 524288,
+          "readable": "0.52 MB"
+        },
+        "0-7": {
+          "bytes": 655360,
+          "readable": "0.66 MB"
+        },
+        "0-13": {
+          "bytes": 63569920,
+          "readable": "63.57 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "9038c005-d6a3-4f8e-9917-ad4e0a3b1b53",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Coprates 10S291E",
+    "bbox": [
+      -69.5178073,
+      -10.7688276,
+      -68.9481207,
+      -9.2947079
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_10S291E_24mp_P22_009684_1699/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_10S291E_24mp_P22_009684_1699/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-7": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-13": {
+          "bytes": 85590016,
+          "readable": "85.59 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "8914c61c-2974-45d7-ba3c-8e8003c9954d",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Coprates 11S293E",
+    "bbox": [
+      -67.6418298,
+      -11.3224197,
+      -67.1230587,
+      -10.4704204
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_11S293E_24mp_B09_013231_1696/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_11S293E_24mp_B09_013231_1696/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 1048576,
+          "readable": "1.05 MB"
+        },
+        "0-7": {
+          "bytes": 1310720,
+          "readable": "1.31 MB"
+        },
+        "0-13": {
+          "bytes": 49283072,
+          "readable": "49.28 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "f4312edc-598a-4246-a70b-0709a06b0073",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Coprates 13S293E",
+    "bbox": [
+      -66.8431753,
+      -13.9266,
+      -66.22561,
+      -12.1580207
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S293E_24mp_G07_020879_1669/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S293E_24mp_G07_020879_1669/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-7": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-13": {
+          "bytes": 111738880,
+          "readable": "111.74 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "1a074258-1aeb-46df-a0e5-6b4ae4c83a82",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Deuteronius 38N024E",
+    "bbox": [
+      23.424818,
+      36.8531446,
+      24.2871421,
+      38.7014881
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_38N024E_6mp_B17_016168_2181/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_38N024E_6mp_B17_016168_2181/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-7": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-13": {
+          "bytes": 156237824,
+          "readable": "156.24 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "356661e2-e831-4935-b449-aaa1b0c3d46e",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Deuteronius 39N024E",
+    "bbox": [
+      24.3257083,
+      38.9184103,
+      25.0835696,
+      39.8677867
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_39N024E_6mp_D15_032875_2196/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_39N024E_6mp_D15_032875_2196/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-7": {
+          "bytes": 720896,
+          "readable": "0.72 MB"
+        },
+        "0-13": {
+          "bytes": 73465856,
+          "readable": "73.47 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "99f951cd-e097-42d6-96b9-05c6da361fba",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Deuteronius 40N024E",
+    "bbox": [
+      21.5066302,
+      39.2322036,
+      22.457525,
+      41.3428175
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_40N022E_6mp_B18_016656_2206/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_40N022E_6mp_B18_016656_2206/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-7": {
+          "bytes": 786432,
+          "readable": "0.79 MB"
+        },
+        "0-13": {
+          "bytes": 199098368,
+          "readable": "199.10 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "c8c3ce41-6424-4f27-91ba-f268059b4080",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 11S291E",
+    "bbox": [
+      -69.6408952,
+      -13.5292972,
+      -68.7274532,
+      -9.2971373
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_11S291E_6mp_B19_017187_1685/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_11S291E_6mp_B19_017187_1685/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 0,
+          "readable": "0.00 MB"
+        },
+        "0-6": {
+          "bytes": 0,
+          "readable": "0.00 MB"
+        },
+        "0-7": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "7-13": {
+          "bytes": 387317760,
+          "readable": "387.32 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "75c5a3b9-ac68-41f6-834e-9747886c1343",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S289E_D01",
+    "bbox": [
+      -71.9431255,
+      -14.820607,
+      -70.8764308,
+      -9.558193
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S289E_6mp_D01_027446_1678/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S289E_6mp_D01_027446_1678/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 0,
+          "readable": "0.00 MB"
+        },
+        "0-6": {
+          "bytes": 196608,
+          "readable": "0.20 MB"
+        },
+        "0-7": {
+          "bytes": 524288,
+          "readable": "0.52 MB"
+        },
+        "6-13": {
+          "bytes": 552992768,
+          "readable": "552.99 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "a393c7af-14f4-4201-8375-a5f0a29098e3",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S289E_F18",
+    "bbox": [
+      -71.2983309,
+      -12.5671666,
+      -70.6923051,
+      -11.0912249
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S289E_6mp_F18_042927_1681/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S289E_6mp_F18_042927_1681/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 655360,
+          "readable": "0.66 MB"
+        },
+        "0-7": {
+          "bytes": 786432,
+          "readable": "0.79 MB"
+        },
+        "0-13": {
+          "bytes": 91947008,
+          "readable": "91.95 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "7ace834a-b920-4c3a-8120-cf57b4a26ae6",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S290E",
+    "bbox": [
+      -70.7376533,
+      -14.9317506,
+      -69.7923258,
+      -9.918954
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S290E_6mp_D18_034250_1676/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S290E_6mp_D18_034250_1676/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 0,
+          "readable": "0.00 MB"
+        },
+        "0-6": {
+          "bytes": 196608,
+          "readable": "0.20 MB"
+        },
+        "0-7": {
+          "bytes": 720896,
+          "readable": "0.72 MB"
+        },
+        "6-13": {
+          "bytes": 447217664,
+          "readable": "447.22 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "4edfe83c-31d2-4af1-94fe-4bf00069d958",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S291E_F14",
+    "bbox": [
+      -70.2863983,
+      -12.108826,
+      -69.7636795,
+      -11.3658446
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/F14_041292_1682_map_ba_align_6_fill500-DRG/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/F14_041292_1682_map_ba_align_6_fill500-DRG/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-7": {
+          "bytes": 524288,
+          "readable": "0.52 MB"
+        },
+        "0-13": {
+          "bytes": 41943040,
+          "readable": "41.94 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "a78223df-add3-48ca-8eba-a29f5ee77dba",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S291E_F21",
+    "bbox": [
+      -69.6680232,
+      -11.900609,
+      -69.1471264,
+      -11.1418367
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S291E_6mp_F21_043850_1684/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S291E_6mp_F21_043850_1684/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 655360,
+          "readable": "0.66 MB"
+        },
+        "0-7": {
+          "bytes": 786432,
+          "readable": "0.79 MB"
+        },
+        "0-13": {
+          "bytes": 42991616,
+          "readable": "42.99 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "83ecd5b8-af42-4ef9-9b6f-fc3359a4f2e4",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S291E_J01",
+    "bbox": [
+      -69.6857373,
+      -12.8639543,
+      -69.0909473,
+      -11.5924843
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S291E_6mp_J01_045116_1677/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S291E_6mp_J01_045116_1677/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-7": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-13": {
+          "bytes": 75300864,
+          "readable": "75.30 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "8441dc5f-a28e-439e-8ef7-a92514c91d26",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 13S289E_D10",
+    "bbox": [
+      -71.2032819,
+      -13.2719867,
+      -70.6758056,
+      -12.5100765
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S289E_6mp_D10_031125_1673/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S289E_6mp_D10_031125_1673/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 0,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 1,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 2,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 3,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 4,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 5,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 512,
+          "matrixHeight": 256
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 1024,
+          "matrixHeight": 512
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 2048,
+          "matrixHeight": 1024
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 4096,
+          "matrixHeight": 2048
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 8192,
+          "matrixHeight": 4096
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 16384,
+          "matrixHeight": 8192
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 262144,
+          "readable": "0.26 MB"
+        },
+        "0-6": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "0-7": {
+          "bytes": 589824,
+          "readable": "0.59 MB"
+        },
+        "0-13": {
+          "bytes": 43778048,
+          "readable": "43.78 MB"
+        }
+      }
+    }
+  },
+  {
+    "id": "65413810-8813-48a4-9a88-8c34e12593cb",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 16S291E",
+    "bbox": [
+      -69.576517,
+      -18.1267732,
+      -68.5489959,
+      -12.8731656
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_16S291E_6mp_D22_035951_1644/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_16S291E_6mp_D22_035951_1644/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "zoomLevels": [
+        {
+          "zoomLevel": 6,
+          "matrixWidth": 2,
+          "matrixHeight": 1
+        },
+        {
+          "zoomLevel": 7,
+          "matrixWidth": 4,
+          "matrixHeight": 2
+        },
+        {
+          "zoomLevel": 8,
+          "matrixWidth": 8,
+          "matrixHeight": 4
+        },
+        {
+          "zoomLevel": 9,
+          "matrixWidth": 16,
+          "matrixHeight": 8
+        },
+        {
+          "zoomLevel": 10,
+          "matrixWidth": 32,
+          "matrixHeight": 16
+        },
+        {
+          "zoomLevel": 11,
+          "matrixWidth": 64,
+          "matrixHeight": 32
+        },
+        {
+          "zoomLevel": 12,
+          "matrixWidth": 128,
+          "matrixHeight": 64
+        },
+        {
+          "zoomLevel": 13,
+          "matrixWidth": 256,
+          "matrixHeight": 128
+        }
+      ],
+      "sizes": {
+        "0-3": {
+          "bytes": 0,
+          "readable": "0.00 MB"
+        },
+        "0-6": {
+          "bytes": 196608,
+          "readable": "0.20 MB"
+        },
+        "0-7": {
+          "bytes": 458752,
+          "readable": "0.46 MB"
+        },
+        "6-13": {
+          "bytes": 536018944,
+          "readable": "536.02 MB"
+        }
+      }
+    }
+  }
+]

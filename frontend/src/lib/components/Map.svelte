@@ -1,86 +1,131 @@
 <script>
-  import { onMount } from 'svelte';
-  import L from 'leaflet';
-  import 'leaflet/dist/leaflet.css';
-  import 'leaflet-draw';
-  import 'leaflet-draw/dist/leaflet.draw.css';
+  import { onMount, afterUpdate, createEventDispatcher } from 'svelte';
+  import markerIcon from '$lib/assets/marker-icon.png';
+  import markerShadow from '$lib/assets/marker-shadow.png';
+  import ConfirmationModal from './ConfirmationModal.svelte';
 
-  // This `onMount` function is a Svelte lifecycle function.
-  // Code inside it only runs once the component is rendered to the screen,
-  // which guarantees that the <div id="map"> exists. This solves our old timing issues.
-  onMount(() => {
-    // Fix for default Leaflet icon issues with bundlers
+  export let dataset;
+
+  let mapContainer;
+  let map;
+  let currentLayer;
+  let drawnItems;
+  let footprintLayer;
+  let L;
+
+  let showConfirmationModal = false;
+  let selectedFootprint = null;
+
+  const dispatch = createEventDispatcher();
+  let prevDatasetId = null;
+
+  onMount(async () => {
+    L = (await import('leaflet')).default;
+    await import('leaflet-draw');
+
     const DefaultIcon = L.icon({
-        iconUrl: '/src/lib/assets/marker-icon.png', // We'll add this image next
-        shadowUrl: '/src/lib/assets/marker-shadow.png', // And this one
-        iconSize: [25, 41],
-        iconAnchor: [12, 41]
+      iconUrl: markerIcon,
+      shadowUrl: markerShadow,
+      iconSize: [25, 41],
+      iconAnchor: [12, 41]
     });
     L.Marker.prototype.options.icon = DefaultIcon;
 
-    const map = L.map('map', {
-      center: [20, 0], // Centered on the world
+    map = L.map(mapContainer, {
+      crs: L.CRS.EPSG4326,
+      center: [0, 0],
       zoom: 2,
       zoomControl: false,
+      maxZoom: 16
     });
 
     L.control.zoom({ position: 'bottomright' }).addTo(map);
 
-    // Add a base tile layer (using OpenStreetMap for now)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    const drawnItems = new L.FeatureGroup();
+    drawnItems = new L.FeatureGroup();
     map.addLayer(drawnItems);
+    footprintLayer = new L.FeatureGroup();
+    map.addLayer(footprintLayer);
 
     const drawControl = new L.Control.Draw({
-        edit: { featureGroup: drawnItems },
-        draw: {
-            polygon: true,
-            polyline: true,
-            rectangle: true,
-            circle: false,
-            marker: true,
-            circlemarker: false
-        }
+      edit: { featureGroup: drawnItems },
+      draw: { polygon: true, rectangle: true, marker: true, polyline: true, circle: false, circlemarker: false }
     });
     map.addControl(drawControl);
 
-    // TODO: Add back the event listeners for drawing, etc.
+    loadTileLayer(dataset);
+    loadFootprints();
+    prevDatasetId = dataset ? dataset.id : null;
+
+    return () => { if (map) map.remove(); };
   });
+
+  afterUpdate(() => {
+    if (map && dataset && dataset.id !== prevDatasetId) {
+      loadTileLayer(dataset);
+      prevDatasetId = dataset.id;
+    }
+  });
+
+  function loadTileLayer(ds) {
+    if (!ds || !map || !L) return;
+    if (currentLayer) map.removeLayer(currentLayer);
+
+    currentLayer = L.tileLayer(ds.tileUrl, {
+      maxZoom: ds.maxZoom,
+      noWrap: true,
+      attribution: `&copy; ${ds.name}`
+    }).addTo(map);
+
+    map.setView([0, 0], 2);
+  }
+
+  async function loadFootprints() {
+    try {
+      const response = await fetch('/ctx_footprints.json');
+      if (!response.ok) throw new Error('Footprint file not found');
+      const footprints = await response.json();
+
+      footprints.forEach((footprint) => {
+        const [west, south, east, north] = footprint.bbox;
+        const bounds = [[south, west], [north, east]];
+        const rect = L.rectangle(bounds, { color: '#ff7800', weight: 1, fillOpacity: 0.1 });
+        rect.bindTooltip(footprint.title);
+
+        rect.on('click', () => {
+          selectedFootprint = footprint;
+          showConfirmationModal = true;
+        });
+
+        footprintLayer.addLayer(rect);
+      });
+    } catch (error) {
+      console.error('Failed to load footprints:', error);
+    }
+  }
+
+  function handleIngestionConfirm(event) {
+    showConfirmationModal = false;
+    dispatch('startIngestion', {
+      datasetId: dataset.id,
+      footprint: selectedFootprint,
+      zoomRange: event.detail
+    });
+  }
 </script>
 
-<div id="map" />
+<div class="map-instance" bind:this={mapContainer}></div>
+
+{#if showConfirmationModal}
+  <ConfirmationModal 
+    footprint={selectedFootprint}
+    datasetId={dataset.id}
+    on:confirm={handleIngestionConfirm}
+    on:cancel={() => showConfirmationModal = false}
+  />
+{/if}
 
 <style>
-  #map {
-    height: 100%;
-    width: 100%;
-    border-radius: var(--radius-md);
-  }
-
-  /* --- Leaflet Control Overrides --- */
-  /* Make sure these styles are applied correctly */
-  :global(.leaflet-control-container .leaflet-control) {
-      background: rgba(10, 10, 10, 0.8);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(125, 156, 183, 0.2);
-      box-shadow: var(--shadow-lg);
-      border-radius: var(--radius-md);
-      color: var(--color-light);
-  }
-  :global(.leaflet-control-zoom a) {
-      background-color: transparent !important;
-      color: var(--color-light) !important;
-      border-bottom: 1px solid rgba(125, 156, 183, 0.2);
-      transition: var(--transition-normal);
-  }
-  :global(.leaflet-draw-toolbar a) {
-      background: transparent !important;
-  }
-  :global(.leaflet-popup-content-wrapper, .leaflet-popup-tip) {
-      background: rgba(26, 26, 26, 0.9) !important;
-      color: var(--color-light) !important;
-  }
+  @import 'leaflet/dist/leaflet.css';
+  @import 'leaflet-draw/dist/leaflet.draw.css';
+  .map-instance { height: 100%; width: 100%; }
 </style>
