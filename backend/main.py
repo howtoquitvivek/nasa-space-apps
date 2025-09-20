@@ -650,7 +650,7 @@ def find_similar_by_feature(
     
     # ... Filtering logic ...
     high_confidence_results = [res for res in initial_results if res["score"] > 0.75]
-    medium_confidence_results = [res for res in initial_results if 0.70 < res["score"] <= 0.75]
+    medium_confidence_results = [res for res in initial_results if 0.60 < res["score"] <= 0.75]
     final_results = (high_confidence_results + medium_confidence_results)[:top_k]
     
     return {
@@ -779,7 +779,7 @@ def get_dataset_bounds(dataset: str, footprint: str):
     east = MercatorProjection.tileXToLng(bounds_info["max_x"] + 1, zoom)
 
     return {
-        "zoom": zoom, 
+        # "zoom": zoom,
         "bounds": [[south, west], [north, east]],
         "available_zooms": sorted(list(zoom_levels.keys()))
     }

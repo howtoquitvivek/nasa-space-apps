@@ -1,73 +1,85 @@
 <script>
-    import { selectedDataset } from '$lib/store.js';
-    import Map from '$lib/components/Map.svelte';
-    import AnalysisControl from '$lib/components/AnalysisControl.svelte'; // Import the new component
-    import { onMount } from 'svelte';
+    import { onMount } from "svelte";
+    import "$lib/styles/landing.css";
+    import initLanding from "$lib/landing.js";
 
-    let mapInstance; // We need a reference to the map instance
-    let isLoading = false;
-    let statusMessage = '';
-
-    // This function will be called by the AnalysisControl component
-    async function handleStartIngestion(event) {
-        const payload = event.detail;
-        console.log("Starting ingestion with payload:", payload);
-        
-        isLoading = true;
-        statusMessage = 'Downloading and indexing new dataset... This may take several minutes.';
-
-        try {
-            const res = await fetch('/ingest', { // Assuming your API is on the same host or proxied
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-
-            if (!res.ok) {
-                const errorData = await res.json();
-                throw new Error(errorData.detail || 'Ingestion failed');
-            }
-
-            const result = await res.json();
-            statusMessage = `Success! New dataset '${result.dataset_id}' is ready. You can now start a new project to analyze it.`;
-
-        } catch (err) {
-            statusMessage = `Error: ${err.message}`;
-            console.error(err);
-        } finally {
-            isLoading = false;
-        }
-    }
+    onMount(() => {
+        initLanding();
+    });
 </script>
 
-{#if isLoading}
-    <div class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50">
-        <div class="text-center text-white">
-            <div class="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-blue-500 mx-auto"></div>
-            <h2 class="text-2xl font-semibold mt-4">Processing Data</h2>
-            <p class="mt-2">{statusMessage}</p>
-        </div>
-    </div>
-{/if}
+<!-- NASA Watermark -->
+<div class="nasa-watermark">NASA</div>
 
-<div class="workspace-container">
-    {#if $selectedDataset}
-        <AnalysisControl dataset={$selectedDataset} map={mapInstance} on:startIngestion={handleStartIngestion} />
-        <Map dataset={$selectedDataset} bind:map={mapInstance} />
-    {:else}
-        <div class="flex items-center justify-center h-full">
-            <div class="text-center">
-                <h2 class="text-2xl font-semibold text-gray-700">No Project Selected</h2>
-                <p class="text-gray-500 mt-2">Please go to the <a href="/home" class="text-blue-600 hover:underline">Home Dashboard</a> to start a new project.</p>
+<!-- Floating Particles -->
+<div class="particles-container" id="particles"></div>
+
+<!-- Header -->
+<header class="navbar navbar-expand-lg">
+    <div class="container-fluid px-4">
+        <div class="navbar-brand d-flex align-items-center">
+            <div class="brand-icon">
+                <i class="fas fa-rocket"></i>
+            </div>
+            <div class="ms-3">
+                <h1 class="brand-title mb-0">Anveshak</h1>
+                <p class="brand-subtitle mb-0">NASA Space Explorer</p>
             </div>
         </div>
-    {/if}
-</div>
 
-<style>
-    .workspace-container {
-        position: relative; /* Needed for the control to be positioned correctly */
-        width: 100%;
-        height: calc(100vh - 80px); /* Adjust height to fit within your layout's footer */
-    }
-</style>
+        <div class="d-flex align-items-center gap-3">
+            <button class="btn btn-outline-light">Login</button>
+            <div class="nasa-badge">NASA Space Apps  2025</div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content -->
+<main class="main-content">
+    <div class="container">
+        <div class="text-center">
+            <div class="discovery-badge mb-4">Huge Datasets at your fingertips. With AI.</div>
+
+            <h2 class="hero-title mb-4">
+                Explore Massive <span class="nasa-highlight">SPACE</span> Image Datasets
+            </h2>
+
+            <p class="hero-description mb-5">
+                Navigate billions of pixels from Mars HiRISE, Earth Landsat, and Hubble Space Telescope imagery.
+                Discover patterns with AI-powered search and collaborate in real-time with scientists worldwide.
+            </p>
+
+            <!-- Feature Cards -->
+            <div class="row g-4 mb-5">
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-search"></i></div>
+                        <h3 class="feature-title">AI-Powered Discovery</h3>
+                        <p class="feature-description">Find visually similar features across massive datasets in seconds</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-users"></i></div>
+                        <h3 class="feature-title">Real-Time Collaboration</h3>
+                        <p class="feature-description">Share discoveries with live cursors and synchronized annotations</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="feature-card">
+                        <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                        <h3 class="feature-title">High-Performance Viewing</h3>
+                        <p class="feature-description">Smooth navigation of multi-gigabyte scientific imagery</p>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn cta-button">Start Exploring <i class="fas fa-arrow-right ms-2"></i></button>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2025 Map Viewer. All Rights Reserved.</p>
+</footer>
+

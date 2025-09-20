@@ -3,6 +3,7 @@ import json
 import os
 import time
 import xml.etree.ElementTree as ET
+import math
 
 # --- CONFIGURATION ---
 CATALOG_API_URL = "https://trek.nasa.gov/mars/TrekServices/ws/index/eq/searchItems?proj=eq&start=0&rows=5000&facetKeys=instrument%7CproductCat1&facetValues=CTX%7CImagery&intersects=true"
@@ -47,43 +48,29 @@ def extract_zoom_levels(xml_root):
     # Filter to only include the zoom levels relevant for high-res imagery
     return [z for z in zoom_levels if 6 <= z["zoomLevel"] <= 13]
 
-def lonlat_to_tile(lon, lat, matrix_width, matrix_height, bbox_full):
-    """Convert lon/lat to tile indices using the correct matrix dimensions"""
-    min_lon, min_lat, max_lon, max_lat = bbox_full
-    
-    # Normalize coordinates to a [0, 1] range
-    x_norm = (lon - min_lon) / (max_lon - min_lon)
-    y_norm = (max_lat - lat) / (max_lat - min_lat)  # Y-axis is flipped in most tile systems
-    
-    # Calculate tile coordinates
-    tile_x = int(x_norm * matrix_width)
-    tile_y = int(y_norm * matrix_height)
-    
-    return tile_x, tile_y
+def deg2num(lat_deg, lon_deg, zoom):
+    """Calculates tile x, y from lat/lon using Web Mercator math"""
+    lat_rad = math.radians(lat_deg)
+    n = 2.0 ** zoom
+    xtile = int((lon_deg + 180.0) / 360.0 * n)
+    ytile = int((1.0 - math.asinh(math.tan(lat_rad)) / math.pi) / 2.0 * n)
+    return (xtile, ytile)
 
-def calculate_tiles_per_zoom(zoom_levels, bbox, bbox_full):
+def calculate_tiles_per_zoom(zoom_levels, bbox):
     """Calculate bbox-specific tile ranges and counts for each zoom level"""
     min_lon, min_lat, max_lon, max_lat = bbox
     tiles_per_zoom = {}
 
     for zoom in zoom_levels:
         zl = zoom["zoomLevel"]
-        mw = zoom["matrixWidth"]
-        mh = zoom["matrixHeight"]
+        
+        # NOTE: We no longer need matrixWidth/Height as the formula is standard
+        # tx_min, ty_max are from the bottom-left corner
+        # tx_max, ty_min are from the top-right corner
+        tx_min, ty_max = deg2num(min_lat, min_lon, zl)
+        tx_max, ty_min = deg2num(max_lat, max_lon, zl)
 
-        if mw == 0 or mh == 0:
-            continue
-
-        tx_min, ty_max_calc = lonlat_to_tile(min_lon, min_lat, mw, mh, bbox_full)
-        tx_max, ty_min_calc = lonlat_to_tile(max_lon, max_lat, mw, mh, bbox_full)
-
-        # Ensure ranges are within the valid bounds for the zoom level
-        tx_min = max(0, tx_min)
-        ty_min = max(0, ty_min_calc)
-        tx_max = min(mw - 1, tx_max)
-        ty_max = min(mh - 1, ty_max_calc)
-
-        # Ensure min is not greater than max after clamping
+        # Ensure min is not greater than max after calculation
         if tx_min > tx_max or ty_min > ty_max:
             continue
             
@@ -94,6 +81,8 @@ def calculate_tiles_per_zoom(zoom_levels, bbox, bbox_full):
             "count": tile_count
         }
     return tiles_per_zoom
+
+
 
 def fetch_and_process_footprints(limit=None):
     """Fetch CTX footprints and calculate correct tile download information"""
@@ -166,7 +155,7 @@ def fetch_and_process_footprints(limit=None):
             zoom_levels = extract_zoom_levels(xml_root)
             if zoom_levels:
                 bbox_full = [-180, -90, 180, 90]  # Mars global extent
-                tiles_per_zoom = calculate_tiles_per_zoom(zoom_levels, bbox, bbox_full)
+                tiles_per_zoom = calculate_tiles_per_zoom(zoom_levels, bbox)
                 footprint["downloadInfo"] = {"tilesPerZoom": tiles_per_zoom}
                 print(f"    - Calculated tile ranges for zoom levels: {list(tiles_per_zoom.keys())}")
             else:
@@ -187,4 +176,4 @@ def fetch_and_process_footprints(limit=None):
     print(f"\n✅ Done. Saved {len(processed)} footprints to {OUTPUT_PATH}")
 
 if __name__ == "__main__":
-    fetch_and_process_footprints(limit=2)
+    fetch_and_process_footprints(limit=10)

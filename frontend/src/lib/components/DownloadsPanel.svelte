@@ -40,8 +40,9 @@
 		{:else}
 			<ul class="footprint-list">
 				{#each footprints as footprint}
-					<li>
-						<button>{footprint.replace(/_/g, ' ')}</button>
+					<li class="list-item">
+						<span class="footprint-name">{footprint.replace(/_/g, ' ')}</span>
+						<a href="/analysis/{datasetId}/{footprint}" class="open-button"> Open </a>
 					</li>
 				{/each}
 			</ul>
@@ -89,20 +90,29 @@
 		padding: 0.5rem 0;
 		margin: 0;
 	}
-	.footprint-list button {
-		width: 100%;
-		text-align: left;
-		padding: 0.75rem 1.5rem;
-		background: none;
-		border: none;
-		cursor: pointer;
+	.list-item {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 0.75rem 1rem 0.75rem 1.5rem;
+		border-bottom: 1px solid #374151;
+	}
+	.footprint-name {
+		text-transform: capitalize;
 		font-size: 0.875rem;
 		color: #d1d5db;
-		text-transform: capitalize;
-		transition: all 0.2s ease-in-out;
 	}
-	.footprint-list button:hover {
-		background-color: #374151;
-		color: #ffffff;
+	.open-button {
+		background-color: #4f46e5;
+		color: white;
+		font-size: 0.75rem;
+		font-weight: 600;
+		padding: 0.25rem 0.75rem;
+		border-radius: 0.375rem;
+		text-decoration: none;
+		transition: background-color 0.2s;
+	}
+	.open-button:hover {
+		background-color: #4338ca;
 	}
 </style>
