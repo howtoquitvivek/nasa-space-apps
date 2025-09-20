@@ -1,6 +1,8 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+@import "bootstrap/dist/css/bootstrap.min.css";
+
 
 
 /* src/app.css */
@@ -38,52 +40,4 @@
     
     /* Transitions */
     --transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* --- 2. Base & Global Styles --- */
-*, *::before, *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: var(--font-primary);
-    background: var(--gradient-dark);
-    color: var(--color-light);
-    line-height: 1.6;
-    overflow-x: hidden;
-    min-height: 100vh;
-    -webkit-font-smoothing: antialiased;
-}
-
-/* Animated background effect */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: 
-        radial-gradient(circle at 15% 25%, rgba(125, 156, 183, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 85% 75%, rgba(33, 126, 170, 0.12) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
-    animation: backgroundShift 20s ease-in-out infinite alternate;
-}
-
-@keyframes backgroundShift {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
-}
-
-a {
-    color: var(--color-primary);
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
 }

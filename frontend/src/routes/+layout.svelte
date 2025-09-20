@@ -11,34 +11,30 @@
     }
 </script>
 
-<div class="app-container">
-    <slot></slot>
+<div>
+  <div class="app-container">
+    <main>
+      <slot />
+    </main>
+  </div>
 
-    <footer>
-        <p>© 2025 Map Viewer. All Rights Reserved.</p>
-    </footer>
+  {#if $isModalOpen}
+    <ProjectModal on:select={handleDatasetSelect} on:close={() => isModalOpen.set(false)} />
+  {/if}
 </div>
 
-{#if $isModalOpen}
-    <ProjectModal on:select={handleDatasetSelect} />
-{/if}
-
 <style>
-    /* Your styles remain the same */
-    .app-container {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
+  /* These styles ensure the app takes up the full screen 
+    without using a flexbox container that can interfere with modals.
+    You can also move the :global styles to your app.css file.
+  */
+  :global(html, body) {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
 
-    footer {
-        width: 100%;
-        text-align: center;
-        padding: 1rem;
-        margin-top: 2rem;
-        color: #94a3b8;
-        font-size: 0.9rem;
-        border-top: 1px solid rgba(125, 156, 183, 0.1);
-    }
+  .app-container {
+    min-height: 100%;
+  }
 </style>
