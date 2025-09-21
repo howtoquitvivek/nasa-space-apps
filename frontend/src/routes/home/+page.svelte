@@ -1,7 +1,6 @@
 <script>
   import { isModalOpen } from '$lib/store.js';
   import ProjectCreateModal from '$lib/components/ProjectModal.svelte';
-  // The CSS import is no longer needed here.
 
   function startNewProject() {
     isModalOpen.set(true);
@@ -49,7 +48,7 @@
 						<span class="badge bg-success-subtle text-success">Active</span>
 					</div>
 					<p class="text-muted small">Last updated: just now</p>
-					<a href="http://127.0.0.1:5174/analysis/hirise/test_data" target="_self" class="fw-semibold">
+					<a href="/analysis/hirise/test_data" target="_self" class="fw-semibold">
 						Open Project →
 					</a>
 					</div>
@@ -62,7 +61,7 @@
 						<span class="badge bg-success-subtle text-success">Active</span>
 					</div>
 					<p class="text-muted small">Last updated: two days ago</p>
-					<a href="http://127.0.0.1:5174/analysis/mars_viking_vis/mro_ctx_22n048w_mosaic" target="_self" class="fw-semibold">
+					<a href="/analysis/mars_viking_vis/mro_ctx_22n048w_mosaic" target="_self" class="fw-semibold">
 						Open Project →
 					</a>
 					</div>
