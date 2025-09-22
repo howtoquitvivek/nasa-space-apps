@@ -791,22 +791,22 @@ body::before {
     box-shadow: 0 0 6px rgba(239, 68, 68, 0.4);
 }
 
-/* Enhanced Control Buttons - Individual Style */
+/* Enhanced Control Buttons*/
 .vertical-controls {
     position: absolute;
-    top: 572px;
+    bottom: 0px;
     left: var(--space-4);
     right: auto;
-    transform: translateY(-50%);
+    transform: translateY(-42%);
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: var(--space-2);
     z-index: 1000;
 }
 
 /* Base button style matching home button */
 .vertical-controls .btn {
-    padding: var(--space-2) var(--space-4);
+    padding: var(--space-1) var(--space-4);
     border: none;
     border-radius: var(--radius-md);
     font-weight: 600;
@@ -815,10 +815,8 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: auto;
-    height: auto;
-    min-width: 48px;
-    min-height: 48px;
+    width: 54px;
+    height: 48px;
     box-shadow: var(--shadow-lg), var(--glow-ai);
     color: var(--color-light);
     position: relative;
@@ -841,24 +839,11 @@ body::before {
 }
 
 /* Specific button styles */
-.vertical-controls .btn-primary {
-    background: rgba(30, 41, 59, 0.);
-    border: 1px solid rgba(59, 130, 246, 0.3);
-}
-
-.vertical-controls .btn-primary:hover:not(:disabled) {
-    background: rgba(59, 130, 246, 0.2);
-    border-color: rgba(59, 130, 246, 0.6);
-}
-
-.vertical-controls .btn-secondary {
-    background: rgba(30, 41, 59, 0.9);
-    border: 1px solid rgba(139, 92, 246, 0.3);
-}
 
 .vertical-controls .btn-secondary:hover:not(:disabled) {
-    background: rgba(139, 92, 246, 0.2);
-    border-color: rgba(139, 92, 246, 0.6);
+    background: rgba(139, 92, 246, 0.2); /* Change background */
+    border-color: rgba(139, 92, 246, 0.6); /* Brighter border */
+    box-shadow: var(--shadow-xl), 0 0 12px rgba(139, 92, 246, 0.6); /* Stronger glow */
 }
 
 .vertical-controls .btn-danger {
@@ -870,12 +855,9 @@ body::before {
     background: rgba(239, 68, 68, 0.2);
     border-color: rgba(239, 68, 68, 0.6);
     color: var(--color-error);
+    box-shadow: var(--shadow-xl), 0 0 12px rgba(239, 68, 68, 0.6)   ;
 }
 
-/* Remove the custom effects for these buttons */
-.vertical-controls .btn-glow {
-    display: none;
-}
 
 /* Ensure icons are properly sized */
 .vertical-controls .btn i {
@@ -885,11 +867,6 @@ body::before {
     justify-content: center;
 }
 
-/* For buttons with both icons and text (if any) */
-.vertical-controls .btn span {
-    margin-left: var(--space-2);
-    font-size: 0.9rem;
-}
 
 /* Position the vertical controls to not overlap with other elements */
 @media (max-width: 768px) {
@@ -1305,7 +1282,7 @@ body::before {
 .ai-results-panel {
     position: absolute;
     bottom: var(--space-4);
-    right: 110px;
+    left: 100px;
     width: 400px;
     max-height: 300px;
     background: rgba(30, 41, 59, 0.95);
@@ -1881,36 +1858,38 @@ body::before {
 
 
 
-/* --- Leaflet Draw Controls --- */
+/* --- Leaflet Draw --- */
+/* positioning the toolbar to the left side */
 .leaflet-draw.leaflet-control {
-    top: 180px !important; /* Keep original position */
-    right: var(--space-3) !important;
-    left: 8px !important;
+    top: 193.5px !important; /* Keep original position */
+    left: 2px !important; /* Move to left side */
 }
 
 /* Toolbar links */
-.leaflet-draw-toolbar.leaflet-bar a,
-.leaflet-edit-toolbar.leaflet-bar a {
-    margin-bottom: 5px;
-    width: 3rem;       /* Increased size */
-    height: 3rem;      /* Increased size */
-    font-size: 1.1rem;   /* For Font Awesome icons */
+.leaflet-draw-toolbar.leaflet-bar a {
+    margin-bottom: 8px;
+    width: 4rem;       /* Increased size */
+    height: 2.95rem;      /* Increased size */
+    font-size: 1.04rem;   /* For Font Awesome icons */
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: var(--radius-sm);
-    background: rgba(30, 41, 59, 0.95);
-    border: 1px solid rgba(139, 92, 246, 0.3);
-    box-shadow: var(--shadow-md), var(--glow-ai);
+    background: rgba(0, 98, 255, 0);
+    border: hidden !important;
+    box-shadow: hidden !important;
     backdrop-filter: blur(10px);
     color: var(--color-light);
     transition: all 0.2s ease-in-out;
+    border: hidden !important;
+    border-radius: var(--radius-md);
 }
+
 
 /* Tooltip styling */
 .leaflet-tooltip,
 .leaflet-draw-tooltip {
-    background: rgba(30, 41, 59, 0.95);
+    background: rgba(30, 41, 59, 0.851);
     color: var(--color-light);
     font-size: 0.8rem;
     font-weight: 600;
@@ -1925,22 +1904,14 @@ body::before {
 .leaflet-draw-toolbar a,
 .leaflet-edit-toolbar a {
     font-family: "Font Awesome 6 Free";
-    font-weight: 900; /* solid icons */
-    font-size: 1.4rem; /* adjust icon size */
     background-image: none !important; /* remove default Leaflet images */
-}
-
-.leaflet-draw-toolbar a:hover {
-    color: var(--color-ai-primary);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-xl), var(--glow-neural);
-    border-color: rgba(139, 92, 246, 0.6);
+    border-radius: var(--radius-md);
 }
 
 /* Font Awesome icons per tool */
 .leaflet-draw-draw-marker::before      { content: "\f041"; } /* map-marker */
 .leaflet-draw-draw-polyline::before    { content: "\f55b"; } /* line */
-.leaflet-draw-draw-polygon::before     { content: "\f6d3"; } /* polygon */
+.leaflet-draw-draw-polygon::before     { content: "\e2c7"; } /* polygon */
 .leaflet-draw-draw-circle::before      { content: "\f111"; } /* circle */
 .leaflet-draw-draw-rectangle::before   { content: "\f0c8"; } /* rectangle */
 .leaflet-draw-draw-circlemarker::before{ content: "\f111"; } /* circle-marker */
@@ -1948,4 +1919,84 @@ body::before {
 .leaflet-draw-edit-remove::before      { content: "\f2ed"; } /* trash */
 
 
+/* Toolbar container Margin Fix */
+.leaflet-draw-toolbar.leaflet-bar.leaflet-draw-toolbar-top {
+    border:hidden !important;
+    border-radius: var(--radius-md);
+}
+.leaflet-draw-toolbar.leaflet-bar{
+    border: hidden !important;
+    border-radius: var(--radius-md);
+}
 
+/* Leaflet Button Background clip fix */
+.leaflet-touch .leaflet-bar a:first-child{
+    background-color: #10b98100;
+    border-radius: var(--radius-md);
+}
+.leaflet-touch .leaflet-bar a:last-child{
+    background-color: #10b98100;
+    border-radius: var(--radius-md);
+}
+
+/* Style the icons */
+.leaflet-draw-draw-rectangle::before, .leaflet-draw-draw-marker::before, .leaflet-draw-draw-polyline::before, .leaflet-draw-draw-polygon::before{
+    font-family: "Font Awesome 6 Free";
+    padding: var(--space-2) var(--space-4);
+    border: none;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 53px;
+    height: 48px;
+    box-shadow: var(--shadow-lg), var(--glow-ai);
+    color: var(--color-light);
+    position: relative;
+    overflow: hidden;
+    background: rgba(30, 41, 59, 0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    font-family: "Font Awesome 6 Free";
+}
+
+.leaflet-draw-edit-remove::before{
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-normal);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 53px;
+    height: 48px;
+    box-shadow: var(--shadow-lg), var(--glow-ai);
+    color: var(--color-light);
+    position: relative;
+    overflow: hidden;
+    background: rgba(30, 41, 59, 0.9);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    background: rgba(30, 41, 59, 0.9);
+    border: 1px solid rgba(239, 68, 68, 0.3); 
+}
+
+.leaflet-draw-draw-rectangle:hover::before,
+.leaflet-draw-draw-marker:hover::before,
+.leaflet-draw-draw-polyline:hover::before,
+.leaflet-draw-draw-polygon:hover::before {
+    transform: translateY(-2px);
+    background: rgba(139, 92, 246, 0.2); /* Change background */
+    border-color: rgba(139, 92, 246, 0.6); /* Brighter border */
+    box-shadow: var(--shadow-xl), 0 0 12px rgba(139, 92, 246, 0.6); /* Stronger glow */
+}
+
+.leaflet-draw-edit-remove:hover:before{
+    transform: translateY(-2px);
+    background: rgba(239, 68, 68, 0.2); /* Change background */
+    border-color: rgba(239, 68, 68, 0.6); /* Brighter border */
+    box-shadow: var(--shadow-xl), 0 0 12px rgba(239, 68, 68, 0.6); /* Stronger glow */
+}
