@@ -21,11 +21,41 @@ import uuid
 import requests
 import shutil
 from fastapi.staticfiles import StaticFiles
+import uvicorn
+
 
 app = FastAPI()
 
-# Serve frontend
-app.mount("/", StaticFiles(directory="dist", html=True), name="static")
+DIST_DIR = os.path.join(os.path.dirname(__file__), "dist")
+
+# Serve assets and js folders
+
+app.mount("/assets", StaticFiles(directory=os.path.join(DIST_DIR, "assets")), name="assets")
+app.mount("/js", StaticFiles(directory=os.path.join(DIST_DIR, "js")), name="js")
+
+# Serve each HTML page explicitly
+@app.get("/")
+def serve_landing():
+    return FileResponse(os.path.join(DIST_DIR, "landing.html"))
+
+@app.get("/home")
+def serve_home():
+    return FileResponse(os.path.join(DIST_DIR, "home.html"))
+
+@app.get("/analysis")
+def serve_analysis():
+    return FileResponse(os.path.join(DIST_DIR, "analysis.html"))
+
+@app.get("/{dataset_id}_footprints.json")
+def dataset_json(dataset_id: str):
+    path = os.path.join(DIST_DIR, f"{dataset_id}_footprints.json")
+    if not os.path.exists(path):
+        return {"error": "File not found"}
+    return FileResponse(path)
+
+@app.get("/workspace")
+def serve_workspace():
+    return FileResponse(os.path.join(DIST_DIR, "workspace.html"))
 
 # <editor-fold desc="CORS, Paths, FaissIndex, Save/Load">
 # -------------------------------
@@ -426,10 +456,6 @@ def latlng_to_tilexy(lat, lng, zoom):
          / math.pi) / 2.0 * n
     )
     return x, y
-    
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to my API 🚀"}
 
 @app.get("/favicon.ico")
 async def favicon():
@@ -802,3 +828,13 @@ def get_dataset_footprints(dataset_id: str):
             footprints.append(item)
             
     return {"footprints": sorted(footprints)}
+
+
+
+if __name__ == "__main__":
+    uvicorn.run(
+        "main:app",
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 8000)),
+        reload=False
+    )
