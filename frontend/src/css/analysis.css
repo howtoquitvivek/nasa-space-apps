@@ -797,7 +797,7 @@ body::before {
     bottom: 0px;
     left: var(--space-4);
     right: auto;
-    transform: translateY(-42%);
+    transform: translateY(-39%);
     display: flex;
     flex-direction: column;
     gap: var(--space-2);
@@ -1869,7 +1869,7 @@ body::before {
 .leaflet-draw-toolbar.leaflet-bar a {
     margin-bottom: 8px;
     width: 4rem;       /* Increased size */
-    height: 2.95rem;      /* Increased size */
+    height: 3rem;      /* Increased size */
     font-size: 1.04rem;   /* For Font Awesome icons */
     display: flex;
     align-items: center;
