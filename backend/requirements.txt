@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+torch
+timm
+faiss-cpu
+Pillow
+rasterio
+shapely
+pyproj
+requests
