@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anveshak - Analysis</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/analysis.css" />
+</head>
+<body>
+
+<div class="nasa-watermark">ANVESHAK</div>
+<div class="particles-container" id="particles"></div>
+
+<div class="page-container">
+    <a href="home.html" class="home-link-standalone">
+         Back to Home
+    </a>
+
+    <div class="top-bar">
+        <div class="zoom-info" id="zoom-info"></div>
+    </div>
+
+    <div class="vertical-controls">
+        <!-- Font Awesome icons used consistently -->
+        <button id="find-similar-btn" class="btn btn-primary" title="Find Similar">
+            <i class="fas fa-microscope"></i>
+        </button>
+        <button id="search-deeper-btn" class="btn btn-secondary" title="Search Deeper" disabled>
+            <i class="fas fa-binoculars"></i>
+        </button>
+        <button id="toggle-annotations-btn" class="btn btn-secondary" title="Show/Hide Annotations">
+            <i id="annotations-on-icon" class="fas fa-eye"></i>
+            <i id="annotations-off-icon" class="fas fa-eye-slash hidden"></i>
+        </button>
+        <button id="toggle-labels-btn" class="btn btn-secondary" title="Show/Hide Labels">
+            <i class="fas fa-font"></i>
+        </button>
+        <button id="clear-highlights-btn" class="btn btn-danger" title="Clear Results">
+            <i class="fas fa-xmark"></i>
+        </button>
+    </div>
+
+    <div id="map-container" class="map-instance"></div>
+</div>
+
+<div id="loading-overlay" class="loading-overlay hidden">
+    <div class="spinner-card">
+        <div class="spinner"></div>
+        <p id="status-message">Loading...</p>
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+<script type="module" src="./js/analysis.js"></script>
+</body>
+</html>

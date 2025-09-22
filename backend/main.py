@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Body
+from fastapi import FastAPI, HTTPException, Body, Query
 from fastapi.responses import FileResponse, Response
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -19,6 +19,7 @@ from rasterio.transform import from_bounds
 from shapely.geometry import shape, box
 import uuid 
 import requests
+import shutil
 
 app = FastAPI()
 
@@ -48,6 +49,10 @@ EMBEDDINGS_ROOT = os.path.join(BASE_DIR, "embeddings")
 os.makedirs(FAISS_INDEX_ROOT, exist_ok=True)
 os.makedirs(TILE_MAP_ROOT, exist_ok=True)
 os.makedirs(EMBEDDINGS_ROOT, exist_ok=True)
+
+
+ingestion_jobs: Dict[str, Dict] = {}
+
 
 # -------------------------------
 # Faiss Indexing
@@ -204,70 +209,61 @@ def download_tile(session, url, path):
         return False
 
 def ingest_dataset(dataset_id: str, req: IngestRequest):
-    """The main ingestion logic: download, save, and index a new dataset."""
-    print(f"Starting ingestion for new dataset: {dataset_id}/{req.footprintId}")
+    job_key = f"{dataset_id}_{req.footprintId}"
+    ingestion_jobs[job_key] = {"cancelled": False}
 
+    print(f"Starting ingestion for new dataset: {dataset_id}/{req.footprintId}")
     session = requests.Session()
     total_downloaded = 0
 
-    # Loop through the user's selected zoom range
     for z in range(req.minZoom, req.maxZoom + 1):
+        zoom_path = os.path.join(TILES_ROOT, dataset_id, req.footprintId, str(z))
+        os.makedirs(zoom_path, exist_ok=True)
+
+        if ingestion_jobs[job_key]["cancelled"]:
+            print(f"Ingestion cancelled at zoom {z}")
+            if os.path.exists(zoom_path):
+                shutil.rmtree(zoom_path)  # Delete unfinished zoom
+                print(f"Deleted unfinished zoom level {z}")
+            break
+
         zoom_str = str(z)
         if zoom_str not in req.tilesPerZoom:
             continue
-
         zoom_data = req.tilesPerZoom[zoom_str]
         x_range = zoom_data['xRange']
         y_range = zoom_data['yRange']
 
-        print(f"  Zoom {z}: Downloading {zoom_data['count']} tiles...")
-
-        # Loop through the exact tile ranges provided by the frontend
         for x in range(x_range[0], x_range[1] + 1):
             for y in range(y_range[0], y_range[1] + 1):
+                if ingestion_jobs[job_key]["cancelled"]:
+                    print(f"Ingestion cancelled at tile {z}/{x}/{y}")
+                    if os.path.exists(zoom_path):
+                        shutil.rmtree(zoom_path)  # Delete unfinished zoom
+                        print(f"Deleted unfinished zoom level {z}")
+                    break
+
                 tile_url = req.tileUrl.format(z=z, y=y, x=x)
-                # Corrected local_path to include footprintId
-                local_path = os.path.join(TILES_ROOT, dataset_id, req.footprintId, str(z), str(x), f"{y}.png")
+                local_path = os.path.join(zoom_path, str(x), f"{y}.png")
+                os.makedirs(os.path.dirname(local_path), exist_ok=True)
+                download_tile(session, tile_url, local_path)
+                total_downloaded += 1
 
-                if download_tile(session, tile_url, local_path):
-                    total_downloaded += 1
+    ingestion_jobs.pop(job_key, None)
+    print(f"Ingestion finished or cancelled for dataset: {dataset_id}/{req.footprintId}")
 
-        print(f"  Zoom {z}: Download complete.")
 
-    print(f"Total tiles downloaded: {total_downloaded}. Now building index...")
+class CancelRequest(BaseModel):
+    datasetId: str
+    footprintId: str
 
-    # The indexing logic is updated to use the new directory structure
-    for z in range(req.minZoom, req.maxZoom + 1):
-        zoom_path = os.path.join(TILES_ROOT, dataset_id, req.footprintId, str(z))
-        if not os.path.exists(zoom_path): continue
-
-        all_embeddings = []
-        all_tile_info = []
-        for x_str in os.listdir(zoom_path):
-            x_path = os.path.join(zoom_path, x_str)
-            if not os.path.isdir(x_path): continue
-            for y_file in os.listdir(x_path):
-                try:
-                    tile_path = os.path.join(x_path, y_file)
-                    img = Image.open(tile_path).convert("RGB")
-                    emb = extract_features(img)
-                    all_embeddings.append(emb)
-                    y = int(y_file.split('.')[0])
-                    x = int(x_str)
-                    all_tile_info.append((dataset_id, req.footprintId, z, x, y))
-                except Exception as e:
-                    print(f"Warning: Could not process tile {tile_path}. {e}")
-
-        if all_embeddings:
-            d = all_embeddings[0].shape[0]
-            fi = FaissIndex(d)
-            fi.build_index(all_embeddings, all_tile_info)
-            save_faiss_index(fi, f"{dataset_id}_{req.footprintId}", z)
-            faiss_indexes[(dataset_id, req.footprintId, z)] = fi
-            print(f"  Index for zoom {z} built with {len(all_embeddings)} vectors.")
-
-    print(f"✅ Ingestion complete for dataset: {dataset_id}")
-
+@app.post("/ingest/cancel")
+def cancel_ingestion(req: CancelRequest):
+    job_key = f"{req.datasetId}_{req.footprintId}"
+    if job_key in ingestion_jobs:
+        ingestion_jobs[job_key]["cancelled"] = True
+        return {"status": "cancelling", "datasetId": req.datasetId, "footprintId": req.footprintId}
+    return {"status": "no_active_job", "datasetId": req.datasetId, "footprintId": req.footprintId}
 
 @app.post("/ingest")
 def create_ingestion_job(req: IngestRequest):

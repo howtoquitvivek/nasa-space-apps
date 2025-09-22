@@ -1,0 +1,9 @@
+# Static assets (images, fonts, etc.)
+# Place your static files here
+# Files in this directory will be copied to the root of the build output
+
+# Examples:
+# - favicon.ico
+# - logo.png
+# - fonts/custom-font.woff2
+# - images/hero-bg.jpg

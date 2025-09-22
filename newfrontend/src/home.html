@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anveshak Projects - NASA Space Explorer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+<body>
+
+    <!-- Cosmic Background Elements -->
+    <div class="nasa-watermark">NASA</div>
+    <div class="particles-container" id="particles"></div>
+
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <!-- Enhanced Sidebar -->
+            <div class="col-md-3 col-lg-2 sidebar" id="sidebar">
+                <div class="sidebar-header">
+                    <div class="brand-container">
+                        <div class="brand-icon-small">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="brand-text">
+                            <h6 class="brand-title-small mb-0">Anveshak</h6>
+                            <small class="brand-subtitle-small">Space Explorer</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <nav class="nav flex-column p-3">
+                    <a class="nav-link active d-flex align-items-center" href="#" data-section="dashboard">
+                        <i class="fas fa-th-large me-3"></i>
+                        <span>Dashboard</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="#" data-section="projects">
+                        <i class="fas fa-folder me-3"></i>
+                        <span>Projects</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="#" data-section="workspace">
+                        <i class="fas fa-briefcase me-3"></i>
+                        <span>Workspace</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="#" data-section="analytics">
+                        <i class="fas fa-chart-line me-3"></i>
+                        <span>Analytics</span>
+                    </a>
+                    <a class="nav-link d-flex align-items-center" href="#" data-section="settings">
+                        <i class="fas fa-cog me-3"></i>
+                        <span>Settings</span>
+                    </a>
+                </nav>
+
+                <!-- User Profile in Sidebar -->
+                <div class="sidebar-footer">
+                    <div class="user-profile">
+                        <div class="user-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">spaceappsuser1</div>
+                            <div class="user-status">Online</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Enhanced Main Content -->
+            <div class="col-md-9 col-lg-10 main-content">
+                <!-- Header Section -->
+                <div class="main-header">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <div class="page-title-container">
+                            <h4 class="page-title mb-0">
+                                <i class="fas fa-star me-2"></i>
+                                My Dashboard
+                            </h4>
+                            <p class="page-subtitle">
+                                Hey, spaceappsuser1! Welcome to your dashboard
+                            </p>
+                        </div>
+                        <button class="btn btn-primary enhanced-btn" id="start-new-project-btn">
+                            <i class="fas fa-plus me-2"></i>
+                            Start New Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div class="section projects-section">
+                    <div class="section-header">
+                        <h5 class="section-title">
+                            <i class="fas fa-folder-open me-2"></i>
+                            Active Projects
+                        </h5>
+                        <p class="section-description">
+                            Continue your space exploration journey
+                        </p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <div class="project-icon hirise">
+                                        <i class="fas fa-microscope"></i>
+                                    </div>
+                                    <div class="project-status">
+                                        <span class="status-badge status-active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h6 class="project-title">Testing AI on HiRISE data</h6>
+                                    <p class="project-description">
+                                        Advanced machine learning analysis of Mars surface imagery
+                                    </p>
+                                    <div class="project-meta">
+                                        <span class="meta-item">
+                                            <i class="fas fa-clock"></i>
+                                            Just now
+                                        </span>
+                                        <span class="meta-item">
+                                            <i class="fas fa-database"></i>
+                                            HiRISE
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="project-footer">
+                                    <a href="/analysis?dataset=hirise&footprint=test_data" class="project-link">
+                                        Open Project
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <div class="project-icon mars">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                    <div class="project-status">
+                                        <span class="status-badge status-active">Active</span>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h6 class="project-title">Mars 22n048w_mosaic</h6>
+                                    <p class="project-description">
+                                        High-resolution mosaic analysis of Martian terrain features
+                                    </p>
+                                    <div class="project-meta">
+                                        <span class="meta-item">
+                                            <i class="fas fa-clock"></i>
+                                            2 days ago
+                                        </span>
+                                        <span class="meta-item">
+                                            <i class="fas fa-database"></i>
+                                            Viking VIS
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="project-footer">
+                                    <a href="/analysis?dataset=mars_viking_vis&footprint=mro_ctx_22n048w_mosaic" class="project-link">
+                                        Open Project
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <div class="project-icon mercury">
+                                        <i class="fas fa-satellite"></i>
+                                    </div>
+                                    <div class="project-status">
+                                        <span class="status-badge status-draft">Draft</span>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h6 class="project-title">Exploring Mercury Surface</h6>
+                                    <p class="project-description">
+                                        MESSENGER mission data analysis and surface mapping
+                                    </p>
+                                    <div class="project-meta">
+                                        <span class="meta-item">
+                                            <i class="fas fa-clock"></i>
+                                            Recently
+                                        </span>
+                                        <span class="meta-item">
+                                            <i class="fas fa-database"></i>
+                                            Messenger MDS
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="project-footer">
+                                    <a href="/workspace?datasetId=mercury_messenger_mds" class="project-link">
+                                        Open Project
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="project-card">
+                                <div class="project-header">
+                                    <div class="project-icon mars-alt">
+                                        <i class="fas fa-satellite"></i>
+                                    </div>
+                                    <div class="project-status">
+                                        <span class="status-badge status-draft">Draft</span>
+                                    </div>
+                                </div>
+                                <div class="project-content">
+                                    <h6 class="project-title">Mars Viking + CTX</h6>
+                                    <p class="project-description">
+                                        Combined orbital imagery analysis for comprehensive mapping
+                                    </p>
+                                    <div class="project-meta">
+                                        <span class="meta-item">
+                                            <i class="fas fa-clock"></i>
+                                            Recently
+                                        </span>
+                                        <span class="meta-item">
+                                            <i class="fas fa-database"></i>
+                                            Viking VIS
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="project-footer">
+                                    <a href="/workspace?datasetId=mars_viking_vis" class="project-link">
+                                        Open Project
+                                        <i class="fas fa-arrow-right ms-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="section stats-section">
+                    <div class="section-header">
+                        <h5 class="section-title">
+                            <i class="fas fa-chart-bar me-2"></i>
+                            Project Statistics
+                        </h5>
+                    </div>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number">4</div>
+                                    <div class="stat-label">Active Projects</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number">847GB</div>
+                                    <div class="stat-label">Data Analyzed</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-search"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number">1,243</div>
+                                    <div class="stat-label">Discoveries</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <div class="stat-number">127h</div>
+                                    <div class="stat-label">Research Time</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Profile Section -->
+                <div class="section profile-section">
+                    <div class="section-header">
+                        <h5 class="section-title">
+                            <i class="fas fa-user-astronaut me-2"></i>
+                            Your Profile
+                        </h5>
+                    </div>
+                    
+                    <div class="profile-card-enhanced">
+                        <div class="profile-avatar-large">
+                            <i class="fas fa-user-astronaut"></i>
+                        </div>
+                        <div class="profile-details">
+                            <div class="profile-info">
+                                <div class="profile-name">spaceappsuser1</div>
+                                <div class="profile-role">Explorer</div>
+                            </div>
+                            <div class="profile-stats-grid">
+                                <div class="profile-stat">
+                                    <span class="stat-value">spaceappsuser1@gmail.com</span>
+                                    <span class="stat-desc">Email</span>
+                                </div>
+                                <div class="profile-stat">
+                                    <span class="stat-value">4 Projects</span>
+                                    <span class="stat-desc">Total Projects</span>
+                                </div>
+                                <div class="profile-stat">
+                                    <span class="stat-value">18 September 2025</span>
+                                    <span class="stat-desc">Joined On</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Enhanced Project Modal -->
+    <div id="project-modal-container" class="modal-overlay hidden">
+        <div class="modal-content-enhanced">
+            <div class="modal-header-enhanced">
+                <div class="modal-title-container">
+                    <h2 class="modal-title-enhanced">
+                        <i class="fas fa-map-marked-alt me-2"></i>
+                        Atlas
+                    </h2>
+                    <p class="modal-subtitle-enhanced">Select fromt available dataset to begin your exploration</p>
+                </div>
+                <button class="modal-close-btn" id="close-modal-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="modal-body-enhanced">
+                <div class="dataset-grid">
+                    <div class="dataset-card">
+                        <div class="dataset-header">
+                            <div class="dataset-icon mercury-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="dataset-tags">
+                                <span class="tag explore-tag">Explore Only</span>
+                            </div>
+                        </div>
+                        <div class="dataset-content">
+                            <h3 class="dataset-title">Mercury: MESSENGER Global Mosaic</h3>
+                            <p class="dataset-description">A comprehensive view of Mercury from the MESSENGER mission with detailed surface mapping and geological analysis.</p>
+                        </div>
+                        <div class="dataset-footer">
+                            <a href="/workspace?datasetId=mercury_messenger_mds" class="btn btn-primary dataset-btn">
+                                <i class="fas fa-rocket me-2"></i>
+                                Launch Mission
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="dataset-card">
+                        <div class="dataset-header">
+                            <div class="dataset-icon mars-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="dataset-tags">
+                                <span class="tag analysis-tag">Analysis Ready</span>
+                            </div>
+                        </div>
+                        <div class="dataset-content">
+                            <h3 class="dataset-title">Mars: Viking VIS Global Color Mosaic</h3>
+                            <p class="dataset-description">A global mosaic from the Viking 1 and 2 orbiters, ideal for broad exploration and surface analysis.</p>
+                        </div>
+                        <div class="dataset-footer">
+                            <a href="/workspace?datasetId=mars_viking_vis" class="btn btn-primary dataset-btn">
+                                <i class="fas fa-rocket me-2"></i>
+                                Launch Mission
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="dataset-card">
+                        <div class="dataset-header">
+                            <div class="dataset-icon venus-icon">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="dataset-tags">
+                                <span class="tag explore-tag">Explore Only</span>
+                            </div>
+                        </div>
+                        <div class="dataset-content">
+                            <h3 class="dataset-title">Venus: Magellan Global Topography</h3>
+                            <p class="dataset-description">A topographic map from radar data gathered by the Magellan spacecraft for surface terrain analysis.</p>
+                        </div>
+                        <div class="dataset-footer">
+                            <a href="/workspace?datasetId=venus_magellan_gt" class="btn btn-primary dataset-btn">
+                                <i class="fas fa-rocket me-2"></i>
+                                Launch Mission
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anveshak Orion Workspace</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/workspace.css" />
+    <link rel="stylesheet" href="./css/confirmationmodal.css" />
+</head>
+<body>
+
+<!-- NASA Watermark -->
+<div class="nasa-watermark">NASA</div>
+
+<!-- Floating Particles -->
+<div class="particles-container" id="particles"></div>
+
+<div class="workspace-layout">
+    <div class="sidebar-container" id="sidebar-container">
+        <div class="downloads-panel">
+            <div class="panel-header">
+                <div class="brand-container">
+                    <div class="brand-icon-small">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <div>
+                        <div class="brand-title-small">Anveshak</div>
+                        <div class="brand-subtitle-small">Orion Deck</div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-content">
+                <p class="status-text">Loading analysis areas...</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <button class="toggle-btn enhanced-toggle" id="toggle-sidebar-btn">
+            <span class="toggle-icon">⏴</span>
+        </button>
+
+        <div class="workspace-header">
+            <div class="workspace-title-container">
+                <h1 class="workspace-title">Orion Ingestion Pipeline</h1>
+                <p class="workspace-subtitle">Interactive data exploration and hassle-free ingestion</p>
+            </div>
+            <!-- <div class="workspace-actions">
+                <button class="enhanced-btn action-btn">
+                    <span>📊</span> Export Data
+                </button>
+                <button class="enhanced-btn action-btn">
+                    <span>⚙️</span> Settings
+                </button>
+            </div> -->
+        </div>
+
+        <div class="map-section">
+            <div id="map-container" class="map-instance enhanced-map"></div>
+        </div>
+
+        <div id="confirmation-modal-container" class="hidden"></div>
+    </div>
+</div>
+
+<div id="loading-overlay" class="loading-overlay hidden">
+    <div class="loading-box">
+        <div class="spinner"></div>
+        <h2 class="loading-title">Processing Data</h2>
+        <p class="loading-message" id="status-message">Please wait while we process your request...</p>
+        <button id="cancel-ingestion" class="modal-close-btn"><i class="fas fa-times"></i></button>
+        
+    </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+<script type="module" src="./js/workspace.js"></script>
+</body>
+</html>
