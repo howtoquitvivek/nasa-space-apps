@@ -23,6 +23,9 @@ import shutil
 
 app = FastAPI()
 
+# Serve frontend
+app.mount("/", StaticFiles(directory="dist", html=True), name="static")
+
 # <editor-fold desc="CORS, Paths, FaissIndex, Save/Load">
 # -------------------------------
 # CORS
