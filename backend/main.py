@@ -20,6 +20,7 @@ from shapely.geometry import shape, box
 import uuid 
 import requests
 import shutil
+from fastapi.staticfiles import StaticFiles
 
 app = FastAPI()
 
