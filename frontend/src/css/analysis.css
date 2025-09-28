@@ -285,7 +285,7 @@ body::before {
     background: rgba(30, 41, 59, 0.9);
     backdrop-filter: blur(20px);
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-xl), var(--glow-ai);
+    /* box-shadow: var(--shadow-xl), var(--glow-ai); */
     border: 2px solid rgba(139, 92, 246, 0.3);
     z-index: 1000;
     transition: var(--transition-normal);
@@ -1571,37 +1571,6 @@ body::before {
 }
 
 
-/* Responsive design */
-@media (max-width: 1024px) {
-    .analysis-feed-panel {
-        width: 380px;
-    }
-}
-
-@media (max-width: 900px) {
-    .analysis-feed-panel {
-        width: 340px;
-        max-height: 250px;
-    }
-}
-
-@media (max-width: 768px) {
-    .analysis-feed-panel {
-        width: 90%;
-        left: 5%;
-        bottom: var(--space-4);
-        max-height: 200px;
-    }
-    
-    .ai-showcase-panel {
-        max-height: 50vh;
-    }
-    
-    .ai-panel-content {
-        max-height: calc(50vh - 120px) !important;
-    }
-}
-
 /* Optional: Animation for new feed items */
 .analysis-feed-panel .feed-item {
     animation: slideInFeed 0.3s ease-out;
@@ -2000,3 +1969,77 @@ body::before {
     border-color: rgba(239, 68, 68, 0.6); /* Brighter border */
     box-shadow: var(--shadow-xl), 0 0 12px rgba(239, 68, 68, 0.6); /* Stronger glow */
 }
+
+
+/* === RESPONSIVE FIX: Analysis Feed First, Then AI Showcase + Button Size Adjustments === */
+@media (max-width: 768px) {
+    .page-container {
+        display: flex;
+        flex-direction: column; /* Stack panels vertically */
+        align-items: stretch;
+    }
+
+    .workspace-panel {
+        order: 1; /* Analysis Feed first */
+        width: 100%;
+        padding: 10px;
+    }
+
+    .analysis-feed-panel {
+        width: 95%;
+        margin: 0 auto 20px auto;
+        max-height: 250px;
+        position: relative;
+        z-index: 2;
+    }
+
+    .ai-showcase-panel {
+        order: 2; /* Stellar AI panel second */
+        width: 95%;
+        margin: 0 auto 100px auto;
+        position: relative;
+        z-index: 1;
+    }
+
+    #map-container {
+        order: 3; /* Map last */
+        width: 100%;
+        height: 50vh;
+    }
+
+    .ai-panel-content {
+        max-height: calc(50vh - 120px) !important;
+        overflow-y: auto;
+    }
+
+    /* Mobile-specific button sizing */
+    .vertical-controls button {
+        width: 28px;
+        height: 28px;
+        font-size: 12px;
+        padding: 4px;
+    }
+
+    .vertical-controls {
+        bottom: 10px;
+        right: 10px;
+    }
+}
+
+/* Tablet-specific button sizing */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .vertical-controls button {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+        padding: 5px;
+    }
+
+    .vertical-controls {
+        bottom: 15px;
+        right: 15px;
+
+    }
+}
+ 
+

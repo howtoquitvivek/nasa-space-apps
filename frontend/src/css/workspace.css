@@ -667,3 +667,53 @@ body::before {
     background: rgba(239, 68, 68, 0.3);
     transform: translateX(-50%) scale(1.1); /* preserve horizontal centering on hover */
 }
+
+/* ========================= */
+/* Mobile Layout Fix         */
+/* ========================= */
+
+/* Mobile & small tablets */
+@media (max-width: 768px) {
+    .workspace-layout {
+        flex-direction: column;
+        height: auto; /* fix hidden issue */
+        overflow: visible; /* allow scroll */
+    }
+
+    /* Sidebar default hidden only when collapsed */
+    .sidebar-container {
+        width: 100%;
+        position: relative;   /* instead of absolute */
+        transform: none;      /* stop forced hiding */
+        height: auto;
+    }
+
+    /* Sidebar collapsible version */
+    .sidebar-container.collapsed {
+        display: none; /* hide only when collapsed */
+    }
+
+    /* Main content full width */
+    .main-content {
+        width: 100%;
+        padding: var(--space-4);
+        height: auto;
+    }
+
+    .map-instance {
+        height: 50vh; /* smaller map height for mobile */
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    .workspace-title {
+        font-size: 1.2rem;
+    }
+    .workspace-subtitle {
+        font-size: 0.8rem;
+    }
+    .map-instance {
+        height: 45vh;
+    }
+}

@@ -1,3 +1,4 @@
+
 // Enhanced Dashboard JavaScript for Anveshak Projects
 class AnveshakDashboard {
     constructor() {
@@ -317,3 +318,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     setInterval(() => { dashboard.regenerateParticles(); }, 45000);
 });
+
+// //  toggle
+document.addEventListener("DOMContentLoaded", () => {
+    const sidebar = document.getElementById("sidebar");
+    const toggleBtn = document.querySelector(".sidebar-toggle");
+
+    toggleBtn.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+    });
+
+    // Click outside to close sidebar
+    document.addEventListener("click", (e) => {
+        if (!sidebar.contains(e.target) && !toggleBtn.contains(e.target) && sidebar.classList.contains("active")) {
+            sidebar.classList.remove("active");
+        }
+    });
+});
+
