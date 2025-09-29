@@ -1,4 +1,5 @@
 import { openConfirmationModal } from './confirmationmodal';
+import 'https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js'
 
 document.addEventListener('DOMContentLoaded', () => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -49,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function initMap() {
         L = (await import('leaflet')).default;
-
+        
         const DefaultIcon = L.icon({
             iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
             iconSize: [25, 41],
@@ -76,6 +77,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
         await loadMapFootprints();
         await loadDownloadsPanel();
+        
+        // --- COORDINATE SEARCH ---
+        const CoordinateControl = L.Control.extend({
+            onAdd: function(map) {
+                const container = L.DomUtil.create('div', 'leaflet-bar coordinate-control');
+                const form = L.DomUtil.create('form', '', container);
+                form.innerHTML = `
+                    <input type="text" id="lat-input" placeholder="Lat" class="coordinate-input">
+                    <input type="text" id="lng-input" placeholder="Lng" class="coordinate-input">
+                    <button type="submit" class="coordinate-button">Go to</button>
+                `;
+                L.DomEvent.disableClickPropagation(container);
+
+                L.DomEvent.on(form, 'submit', (e) => {
+                    L.DomEvent.preventDefault(e);
+                    const lat = parseFloat(document.getElementById('lat-input').value);
+                    const lng = parseFloat(document.getElementById('lng-input').value);
+                    if (!isNaN(lat) && !isNaN(lng)) {
+                        map.setView([lat, lng], 7); // Set view and a default zoom
+                    } else {
+                        alert('Please enter valid coordinates.');
+                    }
+                });
+                return container;
+            },
+            onRemove: function(map) {}
+        });
+
+        new CoordinateControl({ position: 'topright' }).addTo(map);
     }
 
     async function loadMapFootprints() {

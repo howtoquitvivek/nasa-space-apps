@@ -1,0 +1,5910 @@
+[
+  {
+    "id": "b21_017819_2025_xn_22n048w",
+    "title": "MRO CTX, 22n048w Mosaic",
+    "bbox": [
+      -48.2423413,
+      21.8892236,
+      -47.6367163,
+      22.6587236
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/b21_017819_2025_xn_22n048w/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/b21_017819_2025_xn_22n048w/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            46,
+            47
+          ],
+          "yRange": [
+            23,
+            24
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            93,
+            94
+          ],
+          "yRange": [
+            47,
+            48
+          ],
+          "count": 4
+        },
+        "8": {
+          "xRange": [
+            187,
+            188
+          ],
+          "yRange": [
+            95,
+            96
+          ],
+          "count": 4
+        },
+        "9": {
+          "xRange": [
+            374,
+            376
+          ],
+          "yRange": [
+            191,
+            193
+          ],
+          "count": 9
+        },
+        "10": {
+          "xRange": [
+            749,
+            753
+          ],
+          "yRange": [
+            383,
+            387
+          ],
+          "count": 25
+        },
+        "11": {
+          "xRange": [
+            1499,
+            1506
+          ],
+          "yRange": [
+            766,
+            774
+          ],
+          "count": 72
+        },
+        "12": {
+          "xRange": [
+            2998,
+            3012
+          ],
+          "yRange": [
+            1532,
+            1549
+          ],
+          "count": 270
+        }
+      }
+    }
+  },
+  {
+    "id": "Acheron_Fossae_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Acheron Fossae Mosaic",
+    "bbox": [
+      -141.6026047,
+      38.1079779,
+      -137.1973524,
+      41.4921368
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Acheron_Fossae_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Acheron_Fossae_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            13,
+            15
+          ],
+          "yRange": [
+            17,
+            18
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            27,
+            30
+          ],
+          "yRange": [
+            34,
+            36
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            54,
+            60
+          ],
+          "yRange": [
+            68,
+            73
+          ],
+          "count": 42
+        },
+        "9": {
+          "xRange": [
+            109,
+            121
+          ],
+          "yRange": [
+            137,
+            147
+          ],
+          "count": 143
+        },
+        "10": {
+          "xRange": [
+            218,
+            243
+          ],
+          "yRange": [
+            275,
+            295
+          ],
+          "count": 546
+        },
+        "11": {
+          "xRange": [
+            436,
+            486
+          ],
+          "yRange": [
+            551,
+            590
+          ],
+          "count": 2040
+        },
+        "12": {
+          "xRange": [
+            873,
+            973
+          ],
+          "yRange": [
+            1103,
+            1180
+          ],
+          "count": 7878
+        }
+      }
+    }
+  },
+  {
+    "id": "Acidalia_Plantia_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Acidalia Plantia Mosaic",
+    "bbox": [
+      -41.800754,
+      18.3079786,
+      -38.1992173,
+      21.6921376
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Acidalia_Plantia_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Acidalia_Plantia_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            49,
+            50
+          ],
+          "yRange": [
+            24,
+            25
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            98,
+            100
+          ],
+          "yRange": [
+            48,
+            50
+          ],
+          "count": 9
+        },
+        "8": {
+          "xRange": [
+            196,
+            201
+          ],
+          "yRange": [
+            97,
+            101
+          ],
+          "count": 30
+        },
+        "9": {
+          "xRange": [
+            393,
+            403
+          ],
+          "yRange": [
+            194,
+            203
+          ],
+          "count": 110
+        },
+        "10": {
+          "xRange": [
+            786,
+            806
+          ],
+          "yRange": [
+            388,
+            407
+          ],
+          "count": 420
+        },
+        "11": {
+          "xRange": [
+            1572,
+            1613
+          ],
+          "yRange": [
+            777,
+            815
+          ],
+          "count": 1638
+        },
+        "12": {
+          "xRange": [
+            3144,
+            3226
+          ],
+          "yRange": [
+            1554,
+            1631
+          ],
+          "count": 6474
+        }
+      }
+    }
+  },
+  {
+    "id": "Arabia_Terra_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Arabia Terra Mosaic",
+    "bbox": [
+      -9.9921439,
+      -1.2920214,
+      -6.6078162,
+      2.0921376
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arabia_Terra_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arabia_Terra_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            60,
+            61
+          ],
+          "yRange": [
+            31,
+            32
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            120,
+            123
+          ],
+          "yRange": [
+            62,
+            64
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            241,
+            246
+          ],
+          "yRange": [
+            125,
+            129
+          ],
+          "count": 30
+        },
+        "9": {
+          "xRange": [
+            483,
+            493
+          ],
+          "yRange": [
+            250,
+            259
+          ],
+          "count": 110
+        },
+        "10": {
+          "xRange": [
+            967,
+            986
+          ],
+          "yRange": [
+            500,
+            519
+          ],
+          "count": 400
+        },
+        "11": {
+          "xRange": [
+            1934,
+            1972
+          ],
+          "yRange": [
+            1000,
+            1038
+          ],
+          "count": 1521
+        },
+        "12": {
+          "xRange": [
+            3868,
+            3945
+          ],
+          "yRange": [
+            2000,
+            2077
+          ],
+          "count": 6084
+        }
+      }
+    }
+  },
+  {
+    "id": "Aram_Chaos_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Aram Chaos Mosaic",
+    "bbox": [
+      -21.6935908,
+      0.7079787,
+      -18.3063952,
+      4.0921377
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Aram_Chaos_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Aram_Chaos_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            56,
+            57
+          ],
+          "yRange": [
+            30,
+            31
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            112,
+            114
+          ],
+          "yRange": [
+            61,
+            63
+          ],
+          "count": 9
+        },
+        "8": {
+          "xRange": [
+            225,
+            229
+          ],
+          "yRange": [
+            122,
+            126
+          ],
+          "count": 25
+        },
+        "9": {
+          "xRange": [
+            450,
+            459
+          ],
+          "yRange": [
+            244,
+            253
+          ],
+          "count": 100
+        },
+        "10": {
+          "xRange": [
+            900,
+            919
+          ],
+          "yRange": [
+            488,
+            507
+          ],
+          "count": 400
+        },
+        "11": {
+          "xRange": [
+            1801,
+            1839
+          ],
+          "yRange": [
+            977,
+            1015
+          ],
+          "count": 1521
+        },
+        "12": {
+          "xRange": [
+            3602,
+            3679
+          ],
+          "yRange": [
+            1954,
+            2031
+          ],
+          "count": 6084
+        }
+      }
+    }
+  },
+  {
+    "id": "Arcadia_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Arcadia Mosaic",
+    "bbox": [
+      169.6807093,
+      37.0237318,
+      174.3355609,
+      40.8666014
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arcadia_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arcadia_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            124,
+            125
+          ],
+          "yRange": [
+            17,
+            18
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            248,
+            251
+          ],
+          "yRange": [
+            34,
+            37
+          ],
+          "count": 16
+        },
+        "8": {
+          "xRange": [
+            497,
+            503
+          ],
+          "yRange": [
+            69,
+            75
+          ],
+          "count": 49
+        },
+        "9": {
+          "xRange": [
+            994,
+            1007
+          ],
+          "yRange": [
+            139,
+            150
+          ],
+          "count": 168
+        },
+        "10": {
+          "xRange": [
+            1989,
+            2015
+          ],
+          "yRange": [
+            279,
+            301
+          ],
+          "count": 621
+        },
+        "11": {
+          "xRange": [
+            3978,
+            4031
+          ],
+          "yRange": [
+            559,
+            602
+          ],
+          "count": 2376
+        },
+        "12": {
+          "xRange": [
+            7957,
+            8063
+          ],
+          "yRange": [
+            1118,
+            1205
+          ],
+          "count": 9416
+        }
+      }
+    }
+  },
+  {
+    "id": "Arcadia_Planitia_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Arcadia Planitia Mosaic",
+    "bbox": [
+      -173.645143,
+      44.5079794,
+      -168.7548608,
+      47.8921384
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arcadia_Planitia_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Arcadia_Planitia_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            2,
+            3
+          ],
+          "yRange": [
+            14,
+            16
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            4,
+            7
+          ],
+          "yRange": [
+            29,
+            32
+          ],
+          "count": 16
+        },
+        "8": {
+          "xRange": [
+            9,
+            15
+          ],
+          "yRange": [
+            59,
+            64
+          ],
+          "count": 42
+        },
+        "9": {
+          "xRange": [
+            18,
+            31
+          ],
+          "yRange": [
+            119,
+            129
+          ],
+          "count": 154
+        },
+        "10": {
+          "xRange": [
+            36,
+            63
+          ],
+          "yRange": [
+            239,
+            258
+          ],
+          "count": 560
+        },
+        "11": {
+          "xRange": [
+            72,
+            127
+          ],
+          "yRange": [
+            479,
+            517
+          ],
+          "count": 2184
+        },
+        "12": {
+          "xRange": [
+            144,
+            255
+          ],
+          "yRange": [
+            958,
+            1035
+          ],
+          "count": 8736
+        }
+      }
+    }
+  },
+  {
+    "id": "Ausonia_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Ausonia Mosaic",
+    "bbox": [
+      94.1612715,
+      -33.914489,
+      98.8963428,
+      -30.148971
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Ausonia_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Ausonia_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            97,
+            99
+          ],
+          "yRange": [
+            42,
+            44
+          ],
+          "count": 9
+        },
+        "7": {
+          "xRange": [
+            194,
+            198
+          ],
+          "yRange": [
+            85,
+            88
+          ],
+          "count": 20
+        },
+        "8": {
+          "xRange": [
+            389,
+            396
+          ],
+          "yRange": [
+            170,
+            176
+          ],
+          "count": 56
+        },
+        "9": {
+          "xRange": [
+            779,
+            793
+          ],
+          "yRange": [
+            341,
+            352
+          ],
+          "count": 180
+        },
+        "10": {
+          "xRange": [
+            1559,
+            1586
+          ],
+          "yRange": [
+            683,
+            704
+          ],
+          "count": 616
+        },
+        "11": {
+          "xRange": [
+            3119,
+            3173
+          ],
+          "yRange": [
+            1367,
+            1409
+          ],
+          "count": 2365
+        },
+        "12": {
+          "xRange": [
+            6238,
+            6346
+          ],
+          "yRange": [
+            2734,
+            2819
+          ],
+          "count": 9374
+        }
+      }
+    }
+  },
+  {
+    "id": "Cerberus_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Cerberus Mosaic",
+    "bbox": [
+      160.1914394,
+      8.2036983,
+      163.8111954,
+      11.7431501
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Cerberus_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Cerberus_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            120,
+            122
+          ],
+          "yRange": [
+            27,
+            29
+          ],
+          "count": 9
+        },
+        "7": {
+          "xRange": [
+            241,
+            244
+          ],
+          "yRange": [
+            55,
+            58
+          ],
+          "count": 16
+        },
+        "8": {
+          "xRange": [
+            483,
+            488
+          ],
+          "yRange": [
+            111,
+            116
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            967,
+            977
+          ],
+          "yRange": [
+            222,
+            232
+          ],
+          "count": 121
+        },
+        "10": {
+          "xRange": [
+            1935,
+            1955
+          ],
+          "yRange": [
+            445,
+            465
+          ],
+          "count": 441
+        },
+        "11": {
+          "xRange": [
+            3870,
+            3911
+          ],
+          "yRange": [
+            890,
+            930
+          ],
+          "count": 1722
+        },
+        "12": {
+          "xRange": [
+            7741,
+            7823
+          ],
+          "yRange": [
+            1780,
+            1861
+          ],
+          "count": 6806
+        }
+      }
+    }
+  },
+  {
+    "id": "Columbus_Crater_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Columbus Crater Mosaic",
+    "bbox": [
+      -167.9347281,
+      -30.6920214,
+      -164.0652861,
+      -27.3078624
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Columbus_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Columbus_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            4,
+            5
+          ],
+          "yRange": [
+            41,
+            42
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            8,
+            11
+          ],
+          "yRange": [
+            83,
+            85
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            17,
+            22
+          ],
+          "yRange": [
+            166,
+            171
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            34,
+            45
+          ],
+          "yRange": [
+            333,
+            343
+          ],
+          "count": 132
+        },
+        "10": {
+          "xRange": [
+            68,
+            90
+          ],
+          "yRange": [
+            667,
+            686
+          ],
+          "count": 460
+        },
+        "11": {
+          "xRange": [
+            137,
+            181
+          ],
+          "yRange": [
+            1334,
+            1373
+          ],
+          "count": 1800
+        },
+        "12": {
+          "xRange": [
+            274,
+            362
+          ],
+          "yRange": [
+            2669,
+            2746
+          ],
+          "count": 6942
+        }
+      }
+    }
+  },
+  {
+    "id": "Copernicus_Crater_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Copernicus Crater Mosaic",
+    "bbox": [
+      -171.7900514,
+      -50.8920221,
+      -166.6099322,
+      -47.5078632
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Copernicus_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Copernicus_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            2,
+            4
+          ],
+          "yRange": [
+            48,
+            50
+          ],
+          "count": 9
+        },
+        "7": {
+          "xRange": [
+            5,
+            9
+          ],
+          "yRange": [
+            97,
+            100
+          ],
+          "count": 20
+        },
+        "8": {
+          "xRange": [
+            11,
+            19
+          ],
+          "yRange": [
+            195,
+            200
+          ],
+          "count": 54
+        },
+        "9": {
+          "xRange": [
+            23,
+            38
+          ],
+          "yRange": [
+            391,
+            400
+          ],
+          "count": 160
+        },
+        "10": {
+          "xRange": [
+            46,
+            76
+          ],
+          "yRange": [
+            782,
+            801
+          ],
+          "count": 620
+        },
+        "11": {
+          "xRange": [
+            93,
+            152
+          ],
+          "yRange": [
+            1564,
+            1603
+          ],
+          "count": 2400
+        },
+        "12": {
+          "xRange": [
+            186,
+            304
+          ],
+          "yRange": [
+            3129,
+            3206
+          ],
+          "count": 9282
+        }
+      }
+    }
+  },
+  {
+    "id": "Coprates_EMelas_Chasm_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Coprates EMelas Chasm Mosaic",
+    "bbox": [
+      -71.7280511,
+      -13.3920212,
+      -64.8714999,
+      -10.0078622
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Coprates_EMelas_Chasm_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Coprates_EMelas_Chasm_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            38,
+            40
+          ],
+          "yRange": [
+            35,
+            36
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            76,
+            81
+          ],
+          "yRange": [
+            71,
+            73
+          ],
+          "count": 18
+        },
+        "8": {
+          "xRange": [
+            153,
+            163
+          ],
+          "yRange": [
+            142,
+            147
+          ],
+          "count": 66
+        },
+        "9": {
+          "xRange": [
+            307,
+            327
+          ],
+          "yRange": [
+            284,
+            294
+          ],
+          "count": 231
+        },
+        "10": {
+          "xRange": [
+            615,
+            654
+          ],
+          "yRange": [
+            568,
+            588
+          ],
+          "count": 840
+        },
+        "11": {
+          "xRange": [
+            1231,
+            1309
+          ],
+          "yRange": [
+            1137,
+            1176
+          ],
+          "count": 3160
+        },
+        "12": {
+          "xRange": [
+            2463,
+            2619
+          ],
+          "yRange": [
+            2275,
+            2352
+          ],
+          "count": 12246
+        }
+      }
+    }
+  },
+  {
+    "id": "curiosity_ctx_mosaic",
+    "title": "MRO CTX, Curiosity Roving Site Mosaic",
+    "bbox": [
+      136.2768326,
+      -7.2137273,
+      139.3864225,
+      -3.5804738
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/curiosity_ctx_mosaic/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/curiosity_ctx_mosaic/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            112,
+            113
+          ],
+          "yRange": [
+            33,
+            34
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            224,
+            227
+          ],
+          "yRange": [
+            66,
+            69
+          ],
+          "count": 16
+        },
+        "8": {
+          "xRange": [
+            449,
+            454
+          ],
+          "yRange": [
+            133,
+            138
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            899,
+            908
+          ],
+          "yRange": [
+            266,
+            276
+          ],
+          "count": 110
+        },
+        "10": {
+          "xRange": [
+            1799,
+            1816
+          ],
+          "yRange": [
+            532,
+            553
+          ],
+          "count": 396
+        }
+      }
+    }
+  },
+  {
+    "id": "Deuteronilus1_2_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Deuteronilus Mensae Mosaic",
+    "bbox": [
+      19.405687,
+      37.2289685,
+      25.7660719,
+      42.8254527
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Deuteronilus1_2_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Deuteronilus1_2_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            70,
+            73
+          ],
+          "yRange": [
+            16,
+            18
+          ],
+          "count": 12
+        },
+        "7": {
+          "xRange": [
+            141,
+            146
+          ],
+          "yRange": [
+            33,
+            37
+          ],
+          "count": 30
+        },
+        "8": {
+          "xRange": [
+            283,
+            292
+          ],
+          "yRange": [
+            67,
+            75
+          ],
+          "count": 90
+        },
+        "9": {
+          "xRange": [
+            567,
+            585
+          ],
+          "yRange": [
+            134,
+            150
+          ],
+          "count": 323
+        },
+        "10": {
+          "xRange": [
+            1134,
+            1170
+          ],
+          "yRange": [
+            268,
+            300
+          ],
+          "count": 1221
+        },
+        "11": {
+          "xRange": [
+            2268,
+            2341
+          ],
+          "yRange": [
+            536,
+            600
+          ],
+          "count": 4810
+        },
+        "12": {
+          "xRange": [
+            4537,
+            4682
+          ],
+          "yRange": [
+            1073,
+            1200
+          ],
+          "count": 18688
+        }
+      }
+    }
+  },
+  {
+    "id": "NE_Marineris_Crater_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Eastern Valles Marineris Mosaic",
+    "bbox": [
+      -36.8964858,
+      -5.7920213,
+      -33.5035541,
+      -2.4078623
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/NE_Marineris_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/NE_Marineris_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            50,
+            52
+          ],
+          "yRange": [
+            32,
+            34
+          ],
+          "count": 9
+        },
+        "7": {
+          "xRange": [
+            101,
+            104
+          ],
+          "yRange": [
+            65,
+            68
+          ],
+          "count": 16
+        },
+        "8": {
+          "xRange": [
+            203,
+            208
+          ],
+          "yRange": [
+            131,
+            136
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            407,
+            416
+          ],
+          "yRange": [
+            262,
+            272
+          ],
+          "count": 110
+        },
+        "10": {
+          "xRange": [
+            814,
+            833
+          ],
+          "yRange": [
+            525,
+            544
+          ],
+          "count": 400
+        },
+        "11": {
+          "xRange": [
+            1628,
+            1666
+          ],
+          "yRange": [
+            1051,
+            1089
+          ],
+          "count": 1521
+        },
+        "12": {
+          "xRange": [
+            3256,
+            3333
+          ],
+          "yRange": [
+            2102,
+            2179
+          ],
+          "count": 6084
+        }
+      }
+    }
+  },
+  {
+    "id": "SE_Marineris_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Equatorial Valles Marineries Mosaic",
+    "bbox": [
+      -50.9875215,
+      -20.4920206,
+      -47.4124717,
+      -17.1078616
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/SE_Marineris_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/SE_Marineris_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            45,
+            47
+          ],
+          "yRange": [
+            38,
+            39
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            91,
+            94
+          ],
+          "yRange": [
+            76,
+            78
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            183,
+            188
+          ],
+          "yRange": [
+            152,
+            157
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            366,
+            377
+          ],
+          "yRange": [
+            304,
+            314
+          ],
+          "count": 132
+        },
+        "10": {
+          "xRange": [
+            733,
+            754
+          ],
+          "yRange": [
+            609,
+            628
+          ],
+          "count": 440
+        },
+        "11": {
+          "xRange": [
+            1467,
+            1508
+          ],
+          "yRange": [
+            1218,
+            1257
+          ],
+          "count": 1680
+        },
+        "12": {
+          "xRange": [
+            2935,
+            3017
+          ],
+          "yRange": [
+            2437,
+            2514
+          ],
+          "count": 6474
+        }
+      }
+    }
+  },
+  {
+    "id": "Erebus_Montes_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Erebus Montes Mosaic",
+    "bbox": [
+      -170.0774884,
+      37.3079786,
+      -165.7225105,
+      40.6921376
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Erebus_Montes_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Erebus_Montes_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            3,
+            5
+          ],
+          "yRange": [
+            17,
+            18
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            7,
+            10
+          ],
+          "yRange": [
+            35,
+            37
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            14,
+            20
+          ],
+          "yRange": [
+            70,
+            74
+          ],
+          "count": 35
+        },
+        "9": {
+          "xRange": [
+            28,
+            40
+          ],
+          "yRange": [
+            140,
+            149
+          ],
+          "count": 130
+        },
+        "10": {
+          "xRange": [
+            56,
+            81
+          ],
+          "yRange": [
+            280,
+            299
+          ],
+          "count": 520
+        },
+        "11": {
+          "xRange": [
+            112,
+            162
+          ],
+          "yRange": [
+            561,
+            599
+          ],
+          "count": 1989
+        },
+        "12": {
+          "xRange": [
+            225,
+            324
+          ],
+          "yRange": [
+            1122,
+            1199
+          ],
+          "count": 7800
+        }
+      }
+    }
+  },
+  {
+    "id": "Gale_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Gale Crater Mosaic",
+    "bbox": [
+      135.1842593,
+      -6.5732988,
+      139.2413012,
+      -2.8077809
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Gale_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Gale_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            112,
+            113
+          ],
+          "yRange": [
+            32,
+            34
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            224,
+            227
+          ],
+          "yRange": [
+            65,
+            68
+          ],
+          "count": 16
+        },
+        "8": {
+          "xRange": [
+            448,
+            454
+          ],
+          "yRange": [
+            131,
+            137
+          ],
+          "count": 49
+        },
+        "9": {
+          "xRange": [
+            896,
+            908
+          ],
+          "yRange": [
+            263,
+            274
+          ],
+          "count": 156
+        },
+        "10": {
+          "xRange": [
+            1793,
+            1816
+          ],
+          "yRange": [
+            527,
+            549
+          ],
+          "count": 552
+        },
+        "11": {
+          "xRange": [
+            3586,
+            3632
+          ],
+          "yRange": [
+            1055,
+            1098
+          ],
+          "count": 2068
+        },
+        "12": {
+          "xRange": [
+            7172,
+            7264
+          ],
+          "yRange": [
+            2111,
+            2197
+          ],
+          "count": 8091
+        }
+      }
+    }
+  },
+  {
+    "id": "Gusev_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Gusev Crater Mosaic",
+    "bbox": [
+      173.2463549,
+      -16.2218451,
+      178.4633349,
+      -10.9930557
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Gusev_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Gusev_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            125,
+            127
+          ],
+          "yRange": [
+            35,
+            37
+          ],
+          "count": 9
+        },
+        "7": {
+          "xRange": [
+            251,
+            254
+          ],
+          "yRange": [
+            71,
+            75
+          ],
+          "count": 20
+        },
+        "8": {
+          "xRange": [
+            502,
+            509
+          ],
+          "yRange": [
+            143,
+            151
+          ],
+          "count": 72
+        },
+        "9": {
+          "xRange": [
+            1004,
+            1019
+          ],
+          "yRange": [
+            287,
+            302
+          ],
+          "count": 256
+        },
+        "10": {
+          "xRange": [
+            2009,
+            2039
+          ],
+          "yRange": [
+            574,
+            604
+          ],
+          "count": 961
+        },
+        "11": {
+          "xRange": [
+            4019,
+            4078
+          ],
+          "yRange": [
+            1149,
+            1208
+          ],
+          "count": 3600
+        },
+        "12": {
+          "xRange": [
+            8038,
+            8157
+          ],
+          "yRange": [
+            2298,
+            2417
+          ],
+          "count": 14400
+        }
+      }
+    }
+  },
+  {
+    "id": "Hadriacus_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Hadriacus Mosaic",
+    "bbox": [
+      75.5853118,
+      -28.5240883,
+      79.4329052,
+      -25.0797866
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hadriacus_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hadriacus_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            90,
+            92
+          ],
+          "yRange": [
+            40,
+            42
+          ],
+          "count": 9
+        },
+        "7": {
+          "xRange": [
+            181,
+            184
+          ],
+          "yRange": [
+            81,
+            84
+          ],
+          "count": 16
+        },
+        "8": {
+          "xRange": [
+            363,
+            368
+          ],
+          "yRange": [
+            163,
+            168
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            726,
+            737
+          ],
+          "yRange": [
+            327,
+            337
+          ],
+          "count": 132
+        },
+        "10": {
+          "xRange": [
+            1453,
+            1475
+          ],
+          "yRange": [
+            654,
+            674
+          ],
+          "count": 483
+        },
+        "11": {
+          "xRange": [
+            2907,
+            2951
+          ],
+          "yRange": [
+            1309,
+            1348
+          ],
+          "count": 1800
+        },
+        "12": {
+          "xRange": [
+            5815,
+            5903
+          ],
+          "yRange": [
+            2618,
+            2697
+          ],
+          "count": 7120
+        }
+      }
+    }
+  },
+  {
+    "id": "Hale_Crater_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Hale Crater Mosaic",
+    "bbox": [
+      -38.3864506,
+      -37.4920206,
+      -34.2135065,
+      -34.1078616
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hale_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hale_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            50,
+            51
+          ],
+          "yRange": [
+            44,
+            45
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            100,
+            103
+          ],
+          "yRange": [
+            88,
+            90
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            201,
+            207
+          ],
+          "yRange": [
+            176,
+            181
+          ],
+          "count": 42
+        },
+        "9": {
+          "xRange": [
+            402,
+            414
+          ],
+          "yRange": [
+            353,
+            362
+          ],
+          "count": 130
+        },
+        "10": {
+          "xRange": [
+            805,
+            829
+          ],
+          "yRange": [
+            706,
+            725
+          ],
+          "count": 500
+        },
+        "11": {
+          "xRange": [
+            1611,
+            1658
+          ],
+          "yRange": [
+            1412,
+            1450
+          ],
+          "count": 1872
+        },
+        "12": {
+          "xRange": [
+            3222,
+            3317
+          ],
+          "yRange": [
+            2824,
+            2901
+          ],
+          "count": 7488
+        }
+      }
+    }
+  },
+  {
+    "id": "Hebrus_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Hebrus Valles Mosaic",
+    "bbox": [
+      124.7528509,
+      18.2859829,
+      128.4529109,
+      21.8254348
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hebrus_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hebrus_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            108,
+            109
+          ],
+          "yRange": [
+            24,
+            25
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            216,
+            219
+          ],
+          "yRange": [
+            48,
+            50
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            433,
+            438
+          ],
+          "yRange": [
+            96,
+            101
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            866,
+            877
+          ],
+          "yRange": [
+            193,
+            203
+          ],
+          "count": 132
+        },
+        "10": {
+          "xRange": [
+            1733,
+            1754
+          ],
+          "yRange": [
+            387,
+            407
+          ],
+          "count": 462
+        },
+        "11": {
+          "xRange": [
+            3467,
+            3509
+          ],
+          "yRange": [
+            775,
+            815
+          ],
+          "count": 1763
+        },
+        "12": {
+          "xRange": [
+            6934,
+            7019
+          ],
+          "yRange": [
+            1551,
+            1631
+          ],
+          "count": 6966
+        }
+      }
+    }
+  },
+  {
+    "id": "Hellas_Hellas2_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Hellas Eastern Rim Mosaic",
+    "bbox": [
+      99.6625132,
+      -41.8075384,
+      106.2773911,
+      -37.3150663
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hellas_Hellas2_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hellas_Hellas2_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            99,
+            101
+          ],
+          "yRange": [
+            45,
+            46
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            198,
+            203
+          ],
+          "yRange": [
+            90,
+            93
+          ],
+          "count": 24
+        },
+        "8": {
+          "xRange": [
+            397,
+            407
+          ],
+          "yRange": [
+            181,
+            187
+          ],
+          "count": 77
+        },
+        "9": {
+          "xRange": [
+            795,
+            814
+          ],
+          "yRange": [
+            362,
+            374
+          ],
+          "count": 260
+        },
+        "10": {
+          "xRange": [
+            1590,
+            1628
+          ],
+          "yRange": [
+            724,
+            749
+          ],
+          "count": 1014
+        },
+        "11": {
+          "xRange": [
+            3181,
+            3257
+          ],
+          "yRange": [
+            1448,
+            1499
+          ],
+          "count": 4004
+        },
+        "12": {
+          "xRange": [
+            6363,
+            6514
+          ],
+          "yRange": [
+            2897,
+            2999
+          ],
+          "count": 15656
+        }
+      }
+    }
+  },
+  {
+    "id": "Hellas3_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Hellas Mesopotamia Mosaic",
+    "bbox": [
+      91.7243027,
+      -37.2541428,
+      96.2500099,
+      -33.6135517
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hellas3_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hellas3_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            96,
+            98
+          ],
+          "yRange": [
+            43,
+            45
+          ],
+          "count": 9
+        },
+        "7": {
+          "xRange": [
+            193,
+            196
+          ],
+          "yRange": [
+            87,
+            90
+          ],
+          "count": 16
+        },
+        "8": {
+          "xRange": [
+            386,
+            392
+          ],
+          "yRange": [
+            175,
+            180
+          ],
+          "count": 42
+        },
+        "9": {
+          "xRange": [
+            772,
+            785
+          ],
+          "yRange": [
+            351,
+            361
+          ],
+          "count": 154
+        },
+        "10": {
+          "xRange": [
+            1545,
+            1571
+          ],
+          "yRange": [
+            703,
+            723
+          ],
+          "count": 567
+        },
+        "11": {
+          "xRange": [
+            3091,
+            3143
+          ],
+          "yRange": [
+            1406,
+            1447
+          ],
+          "count": 2226
+        },
+        "12": {
+          "xRange": [
+            6183,
+            6286
+          ],
+          "yRange": [
+            2812,
+            2895
+          ],
+          "count": 8736
+        }
+      }
+    }
+  },
+  {
+    "id": "Huygens_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Huygens Crater Mosaic",
+    "bbox": [
+      53.7314092,
+      -15.2204292,
+      57.279212,
+      -11.7762119
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Huygens_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Huygens_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            83,
+            84
+          ],
+          "yRange": [
+            36,
+            37
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            166,
+            168
+          ],
+          "yRange": [
+            72,
+            74
+          ],
+          "count": 9
+        },
+        "8": {
+          "xRange": [
+            332,
+            337
+          ],
+          "yRange": [
+            144,
+            149
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            664,
+            674
+          ],
+          "yRange": [
+            289,
+            299
+          ],
+          "count": 121
+        },
+        "10": {
+          "xRange": [
+            1329,
+            1349
+          ],
+          "yRange": [
+            578,
+            598
+          ],
+          "count": 441
+        },
+        "11": {
+          "xRange": [
+            2659,
+            2699
+          ],
+          "yRange": [
+            1157,
+            1197
+          ],
+          "count": 1681
+        },
+        "12": {
+          "xRange": [
+            5318,
+            5399
+          ],
+          "yRange": [
+            2315,
+            2394
+          ],
+          "count": 6560
+        }
+      }
+    }
+  },
+  {
+    "id": "Hypanis_Delta_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Hypanis Delta Mosaic",
+    "bbox": [
+      -47.0279725,
+      10.0079784,
+      -43.5720291,
+      13.3921374
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hypanis_Delta_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Hypanis_Delta_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            47,
+            48
+          ],
+          "yRange": [
+            27,
+            28
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            94,
+            97
+          ],
+          "yRange": [
+            54,
+            56
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            189,
+            194
+          ],
+          "yRange": [
+            108,
+            113
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            378,
+            388
+          ],
+          "yRange": [
+            217,
+            227
+          ],
+          "count": 121
+        },
+        "10": {
+          "xRange": [
+            756,
+            776
+          ],
+          "yRange": [
+            435,
+            455
+          ],
+          "count": 441
+        },
+        "11": {
+          "xRange": [
+            1512,
+            1552
+          ],
+          "yRange": [
+            871,
+            910
+          ],
+          "count": 1640
+        },
+        "12": {
+          "xRange": [
+            3025,
+            3104
+          ],
+          "yRange": [
+            1743,
+            1820
+          ],
+          "count": 6240
+        }
+      }
+    }
+  },
+  {
+    "id": "Ismenius_Cavus_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Ismenius Cavus Mosaic",
+    "bbox": [
+      15.1635869,
+      32.1079779,
+      19.236404,
+      35.4921368
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Ismenius_Cavus_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Ismenius_Cavus_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            69,
+            70
+          ],
+          "yRange": [
+            19,
+            20
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            138,
+            141
+          ],
+          "yRange": [
+            38,
+            41
+          ],
+          "count": 16
+        },
+        "8": {
+          "xRange": [
+            277,
+            283
+          ],
+          "yRange": [
+            77,
+            82
+          ],
+          "count": 42
+        },
+        "9": {
+          "xRange": [
+            555,
+            566
+          ],
+          "yRange": [
+            155,
+            164
+          ],
+          "count": 120
+        },
+        "10": {
+          "xRange": [
+            1110,
+            1133
+          ],
+          "yRange": [
+            310,
+            329
+          ],
+          "count": 480
+        },
+        "11": {
+          "xRange": [
+            2220,
+            2266
+          ],
+          "yRange": [
+            620,
+            658
+          ],
+          "count": 1833
+        },
+        "12": {
+          "xRange": [
+            4441,
+            4533
+          ],
+          "yRange": [
+            1240,
+            1317
+          ],
+          "count": 7254
+        }
+      }
+    }
+  },
+  {
+    "id": "JEZ_ctx_B_soc_008_orthoMosaic_6m_Eqc_latTs0_lon0",
+    "title": "MRO CTX, Jezero Mosaic, Controlled",
+    "bbox": [
+      77.1604655,
+      18.2110274,
+      77.6991776,
+      18.7211945
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/JEZ_ctx_B_soc_008_orthoMosaic_6m_Eqc_latTs0_lon0/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/JEZ_ctx_B_soc_008_orthoMosaic_6m_Eqc_latTs0_lon0/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            91,
+            91
+          ],
+          "yRange": [
+            25,
+            25
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            182,
+            183
+          ],
+          "yRange": [
+            50,
+            51
+          ],
+          "count": 4
+        },
+        "8": {
+          "xRange": [
+            365,
+            366
+          ],
+          "yRange": [
+            101,
+            102
+          ],
+          "count": 4
+        },
+        "9": {
+          "xRange": [
+            731,
+            733
+          ],
+          "yRange": [
+            202,
+            204
+          ],
+          "count": 9
+        },
+        "10": {
+          "xRange": [
+            1462,
+            1466
+          ],
+          "yRange": [
+            405,
+            408
+          ],
+          "count": 20
+        },
+        "11": {
+          "xRange": [
+            2925,
+            2932
+          ],
+          "yRange": [
+            810,
+            816
+          ],
+          "count": 56
+        },
+        "12": {
+          "xRange": [
+            5851,
+            5864
+          ],
+          "yRange": [
+            1621,
+            1633
+          ],
+          "count": 182
+        }
+      }
+    }
+  },
+  {
+    "id": "Jezero_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Jezero Mosaic, Preliminary",
+    "bbox": [
+      75.1537692,
+      15.9058484,
+      78.8717121,
+      19.4453003
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Jezero_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Jezero_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            90,
+            92
+          ],
+          "yRange": [
+            25,
+            26
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            181,
+            184
+          ],
+          "yRange": [
+            50,
+            52
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            362,
+            368
+          ],
+          "yRange": [
+            100,
+            105
+          ],
+          "count": 42
+        },
+        "9": {
+          "xRange": [
+            725,
+            736
+          ],
+          "yRange": [
+            200,
+            210
+          ],
+          "count": 132
+        },
+        "10": {
+          "xRange": [
+            1451,
+            1472
+          ],
+          "yRange": [
+            401,
+            421
+          ],
+          "count": 462
+        },
+        "11": {
+          "xRange": [
+            2903,
+            2945
+          ],
+          "yRange": [
+            802,
+            843
+          ],
+          "count": 1806
+        },
+        "12": {
+          "xRange": [
+            5806,
+            5890
+          ],
+          "yRange": [
+            1605,
+            1686
+          ],
+          "count": 6970
+        }
+      }
+    }
+  },
+  {
+    "id": "Kasei_Valles_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Kasei Valles Mosaic",
+    "bbox": [
+      -74.4641069,
+      23.1079779,
+      -70.7358719,
+      26.4921368
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Kasei_Valles_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Kasei_Valles_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            37,
+            38
+          ],
+          "yRange": [
+            22,
+            23
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            75,
+            77
+          ],
+          "yRange": [
+            45,
+            47
+          ],
+          "count": 9
+        },
+        "8": {
+          "xRange": [
+            150,
+            155
+          ],
+          "yRange": [
+            90,
+            95
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            300,
+            310
+          ],
+          "yRange": [
+            180,
+            190
+          ],
+          "count": 121
+        },
+        "10": {
+          "xRange": [
+            600,
+            621
+          ],
+          "yRange": [
+            361,
+            380
+          ],
+          "count": 440
+        },
+        "11": {
+          "xRange": [
+            1200,
+            1243
+          ],
+          "yRange": [
+            722,
+            761
+          ],
+          "count": 1760
+        },
+        "12": {
+          "xRange": [
+            2401,
+            2486
+          ],
+          "yRange": [
+            1445,
+            1522
+          ],
+          "count": 6708
+        }
+      }
+    }
+  },
+  {
+    "id": "Mawrth_Valles_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Mawrth Vallis Mosaic",
+    "bbox": [
+      -21.0566936,
+      22.6079779,
+      -17.3433048,
+      25.9921368
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Mawrth_Valles_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Mawrth_Valles_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            56,
+            57
+          ],
+          "yRange": [
+            22,
+            23
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            113,
+            115
+          ],
+          "yRange": [
+            45,
+            47
+          ],
+          "count": 9
+        },
+        "8": {
+          "xRange": [
+            226,
+            231
+          ],
+          "yRange": [
+            91,
+            95
+          ],
+          "count": 30
+        },
+        "9": {
+          "xRange": [
+            452,
+            462
+          ],
+          "yRange": [
+            182,
+            191
+          ],
+          "count": 110
+        },
+        "10": {
+          "xRange": [
+            904,
+            925
+          ],
+          "yRange": [
+            364,
+            383
+          ],
+          "count": 440
+        },
+        "11": {
+          "xRange": [
+            1808,
+            1850
+          ],
+          "yRange": [
+            728,
+            766
+          ],
+          "count": 1677
+        },
+        "12": {
+          "xRange": [
+            3616,
+            3701
+          ],
+          "yRange": [
+            1456,
+            1533
+          ],
+          "count": 6708
+        }
+      }
+    }
+  },
+  {
+    "id": "McLaughlin_Crater_CTX_BlockAdj_dd",
+    "title": "MRO CTX, McLaughlin Crater Mosaic",
+    "bbox": [
+      -24.223774,
+      20.2079782,
+      -20.5761806,
+      23.5921372
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/McLaughlin_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/McLaughlin_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            55,
+            56
+          ],
+          "yRange": [
+            23,
+            24
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            110,
+            113
+          ],
+          "yRange": [
+            47,
+            49
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            221,
+            226
+          ],
+          "yRange": [
+            94,
+            99
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            443,
+            453
+          ],
+          "yRange": [
+            188,
+            198
+          ],
+          "count": 121
+        },
+        "10": {
+          "xRange": [
+            886,
+            906
+          ],
+          "yRange": [
+            377,
+            397
+          ],
+          "count": 441
+        },
+        "11": {
+          "xRange": [
+            1772,
+            1813
+          ],
+          "yRange": [
+            755,
+            794
+          ],
+          "count": 1680
+        },
+        "12": {
+          "xRange": [
+            3544,
+            3627
+          ],
+          "yRange": [
+            1511,
+            1588
+          ],
+          "count": 6552
+        }
+      }
+    }
+  },
+  {
+    "id": "S_Meridiani_Sinus_Planium_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Meridiani Planum - Sinus Meridiani Mosaic",
+    "bbox": [
+      -8.093484,
+      -4.8925742,
+      -2.8037058,
+      -0.6078623
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/S_Meridiani_Sinus_Planium_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/S_Meridiani_Sinus_Planium_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            61,
+            63
+          ],
+          "yRange": [
+            32,
+            33
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            122,
+            126
+          ],
+          "yRange": [
+            64,
+            67
+          ],
+          "count": 20
+        },
+        "8": {
+          "xRange": [
+            244,
+            252
+          ],
+          "yRange": [
+            128,
+            134
+          ],
+          "count": 63
+        },
+        "9": {
+          "xRange": [
+            488,
+            504
+          ],
+          "yRange": [
+            257,
+            269
+          ],
+          "count": 221
+        },
+        "10": {
+          "xRange": [
+            977,
+            1008
+          ],
+          "yRange": [
+            515,
+            539
+          ],
+          "count": 800
+        },
+        "11": {
+          "xRange": [
+            1955,
+            2016
+          ],
+          "yRange": [
+            1030,
+            1079
+          ],
+          "count": 3100
+        },
+        "12": {
+          "xRange": [
+            3911,
+            4032
+          ],
+          "yRange": [
+            2061,
+            2159
+          ],
+          "count": 12078
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_beta01_uncontrolled_5m_Caltech",
+    "title": "MRO CTX, Mosaic Global Uncontrolled (Caltech)",
+    "bbox": [
+      -180.0,
+      -90.0,
+      180.0,
+      90.0
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_beta01_uncontrolled_5m_Caltech/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_beta01_uncontrolled_5m_Caltech/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            0,
+            128
+          ],
+          "yRange": [
+            0,
+            64
+          ],
+          "count": 8385
+        },
+        "7": {
+          "xRange": [
+            0,
+            256
+          ],
+          "yRange": [
+            0,
+            128
+          ],
+          "count": 33153
+        },
+        "8": {
+          "xRange": [
+            0,
+            512
+          ],
+          "yRange": [
+            0,
+            256
+          ],
+          "count": 131841
+        },
+        "9": {
+          "xRange": [
+            0,
+            1024
+          ],
+          "yRange": [
+            0,
+            512
+          ],
+          "count": 525825
+        },
+        "10": {
+          "xRange": [
+            0,
+            2048
+          ],
+          "yRange": [
+            0,
+            1024
+          ],
+          "count": 2100225
+        },
+        "11": {
+          "xRange": [
+            0,
+            4096
+          ],
+          "yRange": [
+            0,
+            2048
+          ],
+          "count": 8394753
+        }
+      }
+    }
+  },
+  {
+    "id": "InSightCTXMosaic_112917",
+    "title": "MRO CTX, Mosaic InSight",
+    "bbox": [
+      133.935732,
+      3.728413,
+      137.2761299,
+      5.0696168
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/InSightCTXMosaic_112917/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/InSightCTXMosaic_112917/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            111,
+            112
+          ],
+          "yRange": [
+            30,
+            30
+          ],
+          "count": 2
+        },
+        "7": {
+          "xRange": [
+            223,
+            225
+          ],
+          "yRange": [
+            60,
+            61
+          ],
+          "count": 6
+        },
+        "8": {
+          "xRange": [
+            446,
+            451
+          ],
+          "yRange": [
+            120,
+            122
+          ],
+          "count": 18
+        },
+        "9": {
+          "xRange": [
+            892,
+            902
+          ],
+          "yRange": [
+            241,
+            245
+          ],
+          "count": 55
+        },
+        "10": {
+          "xRange": [
+            1785,
+            1804
+          ],
+          "yRange": [
+            483,
+            490
+          ],
+          "count": 160
+        },
+        "11": {
+          "xRange": [
+            3571,
+            3609
+          ],
+          "yRange": [
+            966,
+            981
+          ],
+          "count": 624
+        },
+        "12": {
+          "xRange": [
+            7143,
+            7219
+          ],
+          "yRange": [
+            1932,
+            1963
+          ],
+          "count": 2464
+        }
+      }
+    }
+  },
+  {
+    "id": "olympus_mons.eq",
+    "title": "MRO CTX, Mosaic Olympus Mons",
+    "bbox": [
+      -136.0,
+      12.0,
+      -124.0,
+      24.0
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/olympus_mons.eq/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/olympus_mons.eq/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            15,
+            19
+          ],
+          "yRange": [
+            23,
+            27
+          ],
+          "count": 25
+        },
+        "7": {
+          "xRange": [
+            31,
+            39
+          ],
+          "yRange": [
+            46,
+            55
+          ],
+          "count": 90
+        },
+        "8": {
+          "xRange": [
+            62,
+            79
+          ],
+          "yRange": [
+            93,
+            110
+          ],
+          "count": 324
+        },
+        "9": {
+          "xRange": [
+            125,
+            159
+          ],
+          "yRange": [
+            187,
+            221
+          ],
+          "count": 1225
+        },
+        "10": {
+          "xRange": [
+            250,
+            318
+          ],
+          "yRange": [
+            375,
+            443
+          ],
+          "count": 4761
+        },
+        "11": {
+          "xRange": [
+            500,
+            637
+          ],
+          "yRange": [
+            750,
+            887
+          ],
+          "count": 19044
+        },
+        "12": {
+          "xRange": [
+            1001,
+            1274
+          ],
+          "yRange": [
+            1501,
+            1774
+          ],
+          "count": 75076
+        }
+      }
+    }
+  },
+  {
+    "id": "Newton_Crater_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Newton Crater Mosaic",
+    "bbox": [
+      -162.2288716,
+      -42.2920198,
+      -157.7711517,
+      -38.9078609
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Newton_Crater_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Newton_Crater_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            6,
+            7
+          ],
+          "yRange": [
+            45,
+            47
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            12,
+            15
+          ],
+          "yRange": [
+            91,
+            94
+          ],
+          "count": 16
+        },
+        "8": {
+          "xRange": [
+            25,
+            31
+          ],
+          "yRange": [
+            183,
+            188
+          ],
+          "count": 42
+        },
+        "9": {
+          "xRange": [
+            50,
+            63
+          ],
+          "yRange": [
+            366,
+            376
+          ],
+          "count": 154
+        },
+        "10": {
+          "xRange": [
+            101,
+            126
+          ],
+          "yRange": [
+            733,
+            752
+          ],
+          "count": 520
+        },
+        "11": {
+          "xRange": [
+            202,
+            252
+          ],
+          "yRange": [
+            1466,
+            1505
+          ],
+          "count": 2040
+        },
+        "12": {
+          "xRange": [
+            404,
+            505
+          ],
+          "yRange": [
+            2933,
+            3010
+          ],
+          "count": 7956
+        }
+      }
+    }
+  },
+  {
+    "id": "Noactis_Landing_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Noctis Landing Mosaic",
+    "bbox": [
+      -94.2030863,
+      -8.1920214,
+      -90.7969111,
+      -4.8078624
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Noactis_Landing_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Noactis_Landing_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            30,
+            31
+          ],
+          "yRange": [
+            33,
+            34
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            61,
+            63
+          ],
+          "yRange": [
+            67,
+            69
+          ],
+          "count": 9
+        },
+        "8": {
+          "xRange": [
+            122,
+            126
+          ],
+          "yRange": [
+            134,
+            139
+          ],
+          "count": 30
+        },
+        "9": {
+          "xRange": [
+            244,
+            253
+          ],
+          "yRange": [
+            269,
+            279
+          ],
+          "count": 110
+        },
+        "10": {
+          "xRange": [
+            488,
+            507
+          ],
+          "yRange": [
+            539,
+            558
+          ],
+          "count": 400
+        },
+        "11": {
+          "xRange": [
+            976,
+            1014
+          ],
+          "yRange": [
+            1078,
+            1117
+          ],
+          "count": 1560
+        },
+        "12": {
+          "xRange": [
+            1952,
+            2029
+          ],
+          "yRange": [
+            2157,
+            2234
+          ],
+          "count": 6084
+        }
+      }
+    }
+  },
+  {
+    "id": "Protonilus_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Protonilus Mensae Mosaic",
+    "bbox": [
+      45.7924416,
+      40.4042625,
+      50.4234213,
+      43.94363
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Protonilus_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Protonilus_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            80,
+            81
+          ],
+          "yRange": [
+            16,
+            17
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            160,
+            163
+          ],
+          "yRange": [
+            32,
+            35
+          ],
+          "count": 16
+        },
+        "8": {
+          "xRange": [
+            321,
+            327
+          ],
+          "yRange": [
+            65,
+            70
+          ],
+          "count": 42
+        },
+        "9": {
+          "xRange": [
+            642,
+            655
+          ],
+          "yRange": [
+            131,
+            141
+          ],
+          "count": 154
+        },
+        "10": {
+          "xRange": [
+            1284,
+            1310
+          ],
+          "yRange": [
+            262,
+            282
+          ],
+          "count": 567
+        },
+        "11": {
+          "xRange": [
+            2569,
+            2621
+          ],
+          "yRange": [
+            524,
+            564
+          ],
+          "count": 2173
+        },
+        "12": {
+          "xRange": [
+            5138,
+            5243
+          ],
+          "yRange": [
+            1048,
+            1128
+          ],
+          "count": 8586
+        }
+      }
+    }
+  },
+  {
+    "id": "S_Nectaris_Fossae_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Southern Nectaris Fossae Mosaic",
+    "bbox": [
+      -61.6328714,
+      -30.592021,
+      -57.767141,
+      -27.207862
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/S_Nectaris_Fossae_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/S_Nectaris_Fossae_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            42,
+            43
+          ],
+          "yRange": [
+            41,
+            42
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            84,
+            86
+          ],
+          "yRange": [
+            83,
+            85
+          ],
+          "count": 9
+        },
+        "8": {
+          "xRange": [
+            168,
+            173
+          ],
+          "yRange": [
+            166,
+            171
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            336,
+            347
+          ],
+          "yRange": [
+            333,
+            343
+          ],
+          "count": 132
+        },
+        "10": {
+          "xRange": [
+            673,
+            695
+          ],
+          "yRange": [
+            666,
+            686
+          ],
+          "count": 483
+        },
+        "11": {
+          "xRange": [
+            1346,
+            1390
+          ],
+          "yRange": [
+            1333,
+            1372
+          ],
+          "count": 1800
+        },
+        "12": {
+          "xRange": [
+            2693,
+            2781
+          ],
+          "yRange": [
+            2667,
+            2744
+          ],
+          "count": 6942
+        }
+      }
+    }
+  },
+  {
+    "id": "Viking_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Viking 1 Landing Site Mosaic",
+    "bbox": [
+      -50.1289484,
+      20.6079779,
+      -46.4710639,
+      23.9921368
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Viking_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Viking_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            46,
+            47
+          ],
+          "yRange": [
+            23,
+            24
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            92,
+            94
+          ],
+          "yRange": [
+            46,
+            49
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            184,
+            189
+          ],
+          "yRange": [
+            93,
+            98
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            369,
+            379
+          ],
+          "yRange": [
+            187,
+            197
+          ],
+          "count": 121
+        },
+        "10": {
+          "xRange": [
+            738,
+            759
+          ],
+          "yRange": [
+            375,
+            394
+          ],
+          "count": 440
+        },
+        "11": {
+          "xRange": [
+            1477,
+            1519
+          ],
+          "yRange": [
+            751,
+            789
+          ],
+          "count": 1677
+        },
+        "12": {
+          "xRange": [
+            2955,
+            3038
+          ],
+          "yRange": [
+            1502,
+            1579
+          ],
+          "count": 6552
+        }
+      }
+    }
+  },
+  {
+    "id": "b16_015887_2280_xn_48n225w",
+    "title": "MRO CTX, Viking 2 Landing Site Mosaic",
+    "bbox": [
+      133.7852899,
+      46.3960605,
+      135.0173759,
+      48.9848625
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/b16_015887_2280_xn_48n225w/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/b16_015887_2280_xn_48n225w/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            111,
+            112
+          ],
+          "yRange": [
+            14,
+            15
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            223,
+            224
+          ],
+          "yRange": [
+            29,
+            31
+          ],
+          "count": 6
+        },
+        "8": {
+          "xRange": [
+            446,
+            448
+          ],
+          "yRange": [
+            58,
+            62
+          ],
+          "count": 15
+        },
+        "9": {
+          "xRange": [
+            892,
+            896
+          ],
+          "yRange": [
+            116,
+            124
+          ],
+          "count": 45
+        },
+        "10": {
+          "xRange": [
+            1785,
+            1792
+          ],
+          "yRange": [
+            233,
+            248
+          ],
+          "count": 128
+        },
+        "11": {
+          "xRange": [
+            3570,
+            3584
+          ],
+          "yRange": [
+            466,
+            496
+          ],
+          "count": 465
+        },
+        "12": {
+          "xRange": [
+            7140,
+            7168
+          ],
+          "yRange": [
+            933,
+            992
+          ],
+          "count": 1740
+        }
+      }
+    }
+  },
+  {
+    "id": "West_Candor_Chasma_longlat",
+    "title": "MRO CTX, West Candor Chasma Mosaic",
+    "bbox": [
+      -77.591529,
+      -7.4890436,
+      -76.5878504,
+      -3.9755598
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/West_Candor_Chasma_longlat/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/West_Candor_Chasma_longlat/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            36,
+            36
+          ],
+          "yRange": [
+            33,
+            34
+          ],
+          "count": 2
+        },
+        "7": {
+          "xRange": [
+            72,
+            73
+          ],
+          "yRange": [
+            66,
+            69
+          ],
+          "count": 8
+        },
+        "8": {
+          "xRange": [
+            145,
+            147
+          ],
+          "yRange": [
+            133,
+            138
+          ],
+          "count": 18
+        },
+        "9": {
+          "xRange": [
+            291,
+            294
+          ],
+          "yRange": [
+            267,
+            277
+          ],
+          "count": 44
+        },
+        "10": {
+          "xRange": [
+            582,
+            588
+          ],
+          "yRange": [
+            534,
+            554
+          ],
+          "count": 147
+        },
+        "11": {
+          "xRange": [
+            1165,
+            1176
+          ],
+          "yRange": [
+            1069,
+            1109
+          ],
+          "count": 492
+        },
+        "12": {
+          "xRange": [
+            2330,
+            2353
+          ],
+          "yRange": [
+            2138,
+            2218
+          ],
+          "count": 1944
+        }
+      }
+    }
+  },
+  {
+    "id": "Noachis_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Western Noachis Terra Mosaic",
+    "bbox": [
+      -11.7437774,
+      -39.0682654,
+      -7.2644644,
+      -35.3919929
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Noachis_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Noachis_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            59,
+            61
+          ],
+          "yRange": [
+            44,
+            45
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            119,
+            122
+          ],
+          "yRange": [
+            89,
+            91
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            239,
+            245
+          ],
+          "yRange": [
+            178,
+            183
+          ],
+          "count": 42
+        },
+        "9": {
+          "xRange": [
+            478,
+            491
+          ],
+          "yRange": [
+            356,
+            367
+          ],
+          "count": 168
+        },
+        "10": {
+          "xRange": [
+            957,
+            982
+          ],
+          "yRange": [
+            713,
+            734
+          ],
+          "count": 572
+        },
+        "11": {
+          "xRange": [
+            1914,
+            1965
+          ],
+          "yRange": [
+            1426,
+            1468
+          ],
+          "count": 2236
+        },
+        "12": {
+          "xRange": [
+            3828,
+            3930
+          ],
+          "yRange": [
+            2853,
+            2937
+          ],
+          "count": 8755
+        }
+      }
+    }
+  },
+  {
+    "id": "Zephyria_CTX_BlockAdj_dd",
+    "title": "MRO CTX, Zephyria Planum Mosaic",
+    "bbox": [
+      155.3902904,
+      -3.1240146,
+      158.821433,
+      0.3024043
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Zephyria_CTX_BlockAdj_dd/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/Zephyria_CTX_BlockAdj_dd/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            119,
+            120
+          ],
+          "yRange": [
+            31,
+            33
+          ],
+          "count": 6
+        },
+        "7": {
+          "xRange": [
+            238,
+            240
+          ],
+          "yRange": [
+            63,
+            66
+          ],
+          "count": 12
+        },
+        "8": {
+          "xRange": [
+            476,
+            481
+          ],
+          "yRange": [
+            127,
+            132
+          ],
+          "count": 36
+        },
+        "9": {
+          "xRange": [
+            953,
+            963
+          ],
+          "yRange": [
+            255,
+            264
+          ],
+          "count": 110
+        },
+        "10": {
+          "xRange": [
+            1907,
+            1927
+          ],
+          "yRange": [
+            510,
+            529
+          ],
+          "count": 420
+        },
+        "11": {
+          "xRange": [
+            3815,
+            3855
+          ],
+          "yRange": [
+            1020,
+            1059
+          ],
+          "count": 1640
+        },
+        "12": {
+          "xRange": [
+            7631,
+            7710
+          ],
+          "yRange": [
+            2041,
+            2119
+          ],
+          "count": 6320
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_12S182E_24mp_P22_009609_1674",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Apollinaris 12S182E",
+    "bbox": [
+      177.7921683,
+      -12.9326851,
+      178.3389784,
+      -11.9697448
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S182E_24mp_P22_009609_1674/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S182E_24mp_P22_009609_1674/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            127,
+            127
+          ],
+          "yRange": [
+            36,
+            36
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            254,
+            254
+          ],
+          "yRange": [
+            72,
+            73
+          ],
+          "count": 2
+        },
+        "8": {
+          "xRange": [
+            508,
+            509
+          ],
+          "yRange": [
+            145,
+            146
+          ],
+          "count": 4
+        },
+        "9": {
+          "xRange": [
+            1017,
+            1019
+          ],
+          "yRange": [
+            290,
+            292
+          ],
+          "count": 9
+        },
+        "10": {
+          "xRange": [
+            2035,
+            2038
+          ],
+          "yRange": [
+            580,
+            585
+          ],
+          "count": 24
+        },
+        "11": {
+          "xRange": [
+            4070,
+            4077
+          ],
+          "yRange": [
+            1160,
+            1171
+          ],
+          "count": 96
+        },
+        "12": {
+          "xRange": [
+            8141,
+            8154
+          ],
+          "yRange": [
+            2320,
+            2342
+          ],
+          "count": 322
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_13S182E_24mp_G15_024127_1673",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Apollinaris 13S182E",
+    "bbox": [
+      177.9674877,
+      -12.9682146,
+      178.4884857,
+      -12.2161231
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S182E_24mp_G15_024127_1673/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S182E_24mp_G15_024127_1673/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            127,
+            127
+          ],
+          "yRange": [
+            36,
+            36
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            254,
+            254
+          ],
+          "yRange": [
+            72,
+            73
+          ],
+          "count": 2
+        },
+        "8": {
+          "xRange": [
+            509,
+            509
+          ],
+          "yRange": [
+            145,
+            146
+          ],
+          "count": 2
+        },
+        "9": {
+          "xRange": [
+            1018,
+            1019
+          ],
+          "yRange": [
+            290,
+            292
+          ],
+          "count": 6
+        },
+        "10": {
+          "xRange": [
+            2036,
+            2039
+          ],
+          "yRange": [
+            581,
+            585
+          ],
+          "count": 20
+        },
+        "11": {
+          "xRange": [
+            4072,
+            4078
+          ],
+          "yRange": [
+            1162,
+            1171
+          ],
+          "count": 70
+        },
+        "12": {
+          "xRange": [
+            8145,
+            8157
+          ],
+          "yRange": [
+            2325,
+            2343
+          ],
+          "count": 247
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_14S184E_24mp_B01_009886_1658",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Apollinaris 14S184E",
+    "bbox": [
+      175.5597824,
+      -14.6387082,
+      176.1214723,
+      -13.5707989
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_14S184E_24mp_B01_009886_1658/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_14S184E_24mp_B01_009886_1658/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            126,
+            126
+          ],
+          "yRange": [
+            36,
+            37
+          ],
+          "count": 2
+        },
+        "7": {
+          "xRange": [
+            252,
+            253
+          ],
+          "yRange": [
+            73,
+            74
+          ],
+          "count": 4
+        },
+        "8": {
+          "xRange": [
+            505,
+            506
+          ],
+          "yRange": [
+            147,
+            148
+          ],
+          "count": 4
+        },
+        "9": {
+          "xRange": [
+            1011,
+            1012
+          ],
+          "yRange": [
+            294,
+            297
+          ],
+          "count": 8
+        },
+        "10": {
+          "xRange": [
+            2022,
+            2025
+          ],
+          "yRange": [
+            589,
+            595
+          ],
+          "count": 28
+        },
+        "11": {
+          "xRange": [
+            4045,
+            4051
+          ],
+          "yRange": [
+            1178,
+            1190
+          ],
+          "count": 91
+        },
+        "12": {
+          "xRange": [
+            8090,
+            8103
+          ],
+          "yRange": [
+            2356,
+            2381
+          ],
+          "count": 364
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_10S291E_24mp_P22_009684_1699",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Coprates 10S291E",
+    "bbox": [
+      -69.5178073,
+      -10.7688276,
+      -68.9481207,
+      -9.2947079
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_10S291E_24mp_P22_009684_1699/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_10S291E_24mp_P22_009684_1699/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            39,
+            39
+          ],
+          "yRange": [
+            35,
+            35
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            78,
+            78
+          ],
+          "yRange": [
+            70,
+            71
+          ],
+          "count": 2
+        },
+        "8": {
+          "xRange": [
+            157,
+            157
+          ],
+          "yRange": [
+            141,
+            143
+          ],
+          "count": 3
+        },
+        "9": {
+          "xRange": [
+            314,
+            315
+          ],
+          "yRange": [
+            282,
+            286
+          ],
+          "count": 10
+        },
+        "10": {
+          "xRange": [
+            628,
+            631
+          ],
+          "yRange": [
+            564,
+            573
+          ],
+          "count": 40
+        },
+        "11": {
+          "xRange": [
+            1257,
+            1263
+          ],
+          "yRange": [
+            1129,
+            1146
+          ],
+          "count": 126
+        },
+        "12": {
+          "xRange": [
+            2514,
+            2527
+          ],
+          "yRange": [
+            2259,
+            2293
+          ],
+          "count": 490
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_11S293E_24mp_B09_013231_1696",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Coprates 11S293E",
+    "bbox": [
+      -67.6418298,
+      -11.3224197,
+      -67.1230587,
+      -10.4704204
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_11S293E_24mp_B09_013231_1696/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_11S293E_24mp_B09_013231_1696/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            39,
+            40
+          ],
+          "yRange": [
+            35,
+            36
+          ],
+          "count": 4
+        },
+        "7": {
+          "xRange": [
+            79,
+            80
+          ],
+          "yRange": [
+            71,
+            72
+          ],
+          "count": 4
+        },
+        "8": {
+          "xRange": [
+            159,
+            160
+          ],
+          "yRange": [
+            142,
+            144
+          ],
+          "count": 6
+        },
+        "9": {
+          "xRange": [
+            319,
+            321
+          ],
+          "yRange": [
+            285,
+            288
+          ],
+          "count": 12
+        },
+        "10": {
+          "xRange": [
+            639,
+            642
+          ],
+          "yRange": [
+            571,
+            576
+          ],
+          "count": 24
+        },
+        "11": {
+          "xRange": [
+            1278,
+            1284
+          ],
+          "yRange": [
+            1143,
+            1152
+          ],
+          "count": 70
+        },
+        "12": {
+          "xRange": [
+            2556,
+            2568
+          ],
+          "yRange": [
+            2286,
+            2305
+          ],
+          "count": 260
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_13S293E_24mp_G07_020879_1669",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Coprates 13S293E",
+    "bbox": [
+      -66.8431753,
+      -13.9266,
+      -66.22561,
+      -12.1580207
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S293E_24mp_G07_020879_1669/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S293E_24mp_G07_020879_1669/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            40,
+            40
+          ],
+          "yRange": [
+            36,
+            36
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            80,
+            80
+          ],
+          "yRange": [
+            72,
+            73
+          ],
+          "count": 2
+        },
+        "8": {
+          "xRange": [
+            160,
+            161
+          ],
+          "yRange": [
+            145,
+            147
+          ],
+          "count": 6
+        },
+        "9": {
+          "xRange": [
+            321,
+            323
+          ],
+          "yRange": [
+            290,
+            295
+          ],
+          "count": 18
+        },
+        "10": {
+          "xRange": [
+            643,
+            647
+          ],
+          "yRange": [
+            581,
+            591
+          ],
+          "count": 55
+        },
+        "11": {
+          "xRange": [
+            1287,
+            1294
+          ],
+          "yRange": [
+            1162,
+            1182
+          ],
+          "count": 168
+        },
+        "12": {
+          "xRange": [
+            2574,
+            2588
+          ],
+          "yRange": [
+            2324,
+            2364
+          ],
+          "count": 615
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_38N024E_6mp_B17_016168_2181",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Deuteronius 38N024E",
+    "bbox": [
+      23.424818,
+      36.8531446,
+      24.2871421,
+      38.7014881
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_38N024E_6mp_B17_016168_2181/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_38N024E_6mp_B17_016168_2181/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            72,
+            72
+          ],
+          "yRange": [
+            18,
+            18
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            144,
+            145
+          ],
+          "yRange": [
+            36,
+            37
+          ],
+          "count": 4
+        },
+        "8": {
+          "xRange": [
+            289,
+            290
+          ],
+          "yRange": [
+            72,
+            75
+          ],
+          "count": 8
+        },
+        "9": {
+          "xRange": [
+            578,
+            581
+          ],
+          "yRange": [
+            145,
+            151
+          ],
+          "count": 28
+        },
+        "10": {
+          "xRange": [
+            1157,
+            1162
+          ],
+          "yRange": [
+            291,
+            302
+          ],
+          "count": 72
+        },
+        "11": {
+          "xRange": [
+            2314,
+            2324
+          ],
+          "yRange": [
+            583,
+            604
+          ],
+          "count": 242
+        },
+        "12": {
+          "xRange": [
+            4629,
+            4648
+          ],
+          "yRange": [
+            1167,
+            1209
+          ],
+          "count": 860
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_39N024E_6mp_D15_032875_2196",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Deuteronius 39N024E",
+    "bbox": [
+      24.3257083,
+      38.9184103,
+      25.0835696,
+      39.8677867
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_39N024E_6mp_D15_032875_2196/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_39N024E_6mp_D15_032875_2196/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            72,
+            72
+          ],
+          "yRange": [
+            17,
+            18
+          ],
+          "count": 2
+        },
+        "7": {
+          "xRange": [
+            145,
+            145
+          ],
+          "yRange": [
+            35,
+            36
+          ],
+          "count": 2
+        },
+        "8": {
+          "xRange": [
+            290,
+            291
+          ],
+          "yRange": [
+            71,
+            72
+          ],
+          "count": 4
+        },
+        "9": {
+          "xRange": [
+            581,
+            583
+          ],
+          "yRange": [
+            142,
+            145
+          ],
+          "count": 12
+        },
+        "10": {
+          "xRange": [
+            1162,
+            1166
+          ],
+          "yRange": [
+            285,
+            290
+          ],
+          "count": 30
+        },
+        "11": {
+          "xRange": [
+            2324,
+            2333
+          ],
+          "yRange": [
+            570,
+            581
+          ],
+          "count": 120
+        },
+        "12": {
+          "xRange": [
+            4649,
+            4666
+          ],
+          "yRange": [
+            1140,
+            1162
+          ],
+          "count": 414
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_40N022E_6mp_B18_016656_2206",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic Deuteronius 40N024E",
+    "bbox": [
+      21.5066302,
+      39.2322036,
+      22.457525,
+      41.3428175
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_40N022E_6mp_B18_016656_2206/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_40N022E_6mp_B18_016656_2206/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            71,
+            71
+          ],
+          "yRange": [
+            17,
+            18
+          ],
+          "count": 2
+        },
+        "7": {
+          "xRange": [
+            143,
+            143
+          ],
+          "yRange": [
+            34,
+            36
+          ],
+          "count": 3
+        },
+        "8": {
+          "xRange": [
+            286,
+            287
+          ],
+          "yRange": [
+            69,
+            72
+          ],
+          "count": 8
+        },
+        "9": {
+          "xRange": [
+            573,
+            575
+          ],
+          "yRange": [
+            138,
+            144
+          ],
+          "count": 21
+        },
+        "10": {
+          "xRange": [
+            1146,
+            1151
+          ],
+          "yRange": [
+            276,
+            288
+          ],
+          "count": 78
+        },
+        "11": {
+          "xRange": [
+            2292,
+            2303
+          ],
+          "yRange": [
+            553,
+            577
+          ],
+          "count": 300
+        },
+        "12": {
+          "xRange": [
+            4585,
+            4607
+          ],
+          "yRange": [
+            1107,
+            1155
+          ],
+          "count": 1127
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_11S289E_6mp_F23_044971_1685",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 11S289E",
+    "bbox": [
+      -69.8651056,
+      -11.794223,
+      -69.3170808,
+      -11.038791
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_11S289E_6mp_F23_044971_1685/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_11S289E_6mp_F23_044971_1685/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            39,
+            39
+          ],
+          "yRange": [
+            35,
+            36
+          ],
+          "count": 2
+        },
+        "7": {
+          "xRange": [
+            78,
+            78
+          ],
+          "yRange": [
+            71,
+            72
+          ],
+          "count": 2
+        },
+        "8": {
+          "xRange": [
+            156,
+            157
+          ],
+          "yRange": [
+            143,
+            144
+          ],
+          "count": 4
+        },
+        "9": {
+          "xRange": [
+            313,
+            314
+          ],
+          "yRange": [
+            287,
+            289
+          ],
+          "count": 6
+        },
+        "10": {
+          "xRange": [
+            626,
+            629
+          ],
+          "yRange": [
+            574,
+            579
+          ],
+          "count": 24
+        },
+        "11": {
+          "xRange": [
+            1253,
+            1259
+          ],
+          "yRange": [
+            1149,
+            1158
+          ],
+          "count": 70
+        },
+        "12": {
+          "xRange": [
+            2506,
+            2518
+          ],
+          "yRange": [
+            2299,
+            2316
+          ],
+          "count": 234
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_11S291E_6mp_B19_017187_1685",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 11S291E",
+    "bbox": [
+      -69.6408952,
+      -13.5292972,
+      -68.7274532,
+      -9.2971373
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_11S291E_6mp_B19_017187_1685/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_11S291E_6mp_B19_017187_1685/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "7": {
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "count": 1
+        },
+        "8": {
+          "xRange": [
+            1,
+            1
+          ],
+          "yRange": [
+            1,
+            1
+          ],
+          "count": 1
+        },
+        "9": {
+          "xRange": [
+            2,
+            2
+          ],
+          "yRange": [
+            2,
+            2
+          ],
+          "count": 1
+        },
+        "10": {
+          "xRange": [
+            4,
+            4
+          ],
+          "yRange": [
+            4,
+            4
+          ],
+          "count": 1
+        },
+        "11": {
+          "xRange": [
+            9,
+            9
+          ],
+          "yRange": [
+            8,
+            9
+          ],
+          "count": 2
+        },
+        "12": {
+          "xRange": [
+            19,
+            19
+          ],
+          "yRange": [
+            17,
+            18
+          ],
+          "count": 2
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_12S289E_6mp_D01_027446_1678",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S289E_D01",
+    "bbox": [
+      -71.9431255,
+      -14.820607,
+      -70.8764308,
+      -9.558193
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S289E_6mp_D01_027446_1678/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S289E_6mp_D01_027446_1678/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            1,
+            1
+          ],
+          "yRange": [
+            1,
+            1
+          ],
+          "count": 1
+        },
+        "8": {
+          "xRange": [
+            2,
+            2
+          ],
+          "yRange": [
+            2,
+            2
+          ],
+          "count": 1
+        },
+        "9": {
+          "xRange": [
+            4,
+            4
+          ],
+          "yRange": [
+            4,
+            4
+          ],
+          "count": 1
+        },
+        "10": {
+          "xRange": [
+            9,
+            9
+          ],
+          "yRange": [
+            8,
+            9
+          ],
+          "count": 2
+        },
+        "11": {
+          "xRange": [
+            19,
+            19
+          ],
+          "yRange": [
+            17,
+            18
+          ],
+          "count": 2
+        },
+        "12": {
+          "xRange": [
+            38,
+            38
+          ],
+          "yRange": [
+            35,
+            37
+          ],
+          "count": 3
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_12S289E_6mp_F18_042927_1681",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S289E_F18",
+    "bbox": [
+      -71.2983309,
+      -12.5671666,
+      -70.6923051,
+      -11.0912249
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S289E_6mp_F18_042927_1681/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S289E_6mp_F18_042927_1681/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            38,
+            38
+          ],
+          "yRange": [
+            35,
+            36
+          ],
+          "count": 2
+        },
+        "7": {
+          "xRange": [
+            77,
+            77
+          ],
+          "yRange": [
+            71,
+            72
+          ],
+          "count": 2
+        },
+        "8": {
+          "xRange": [
+            154,
+            155
+          ],
+          "yRange": [
+            143,
+            145
+          ],
+          "count": 6
+        },
+        "9": {
+          "xRange": [
+            309,
+            310
+          ],
+          "yRange": [
+            287,
+            291
+          ],
+          "count": 10
+        },
+        "10": {
+          "xRange": [
+            618,
+            621
+          ],
+          "yRange": [
+            575,
+            583
+          ],
+          "count": 36
+        },
+        "11": {
+          "xRange": [
+            1236,
+            1243
+          ],
+          "yRange": [
+            1150,
+            1166
+          ],
+          "count": 136
+        },
+        "12": {
+          "xRange": [
+            2473,
+            2487
+          ],
+          "yRange": [
+            2300,
+            2333
+          ],
+          "count": 510
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_12S290E_6mp_D18_034250_1676",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S290E",
+    "bbox": [
+      -70.7376533,
+      -14.9317506,
+      -69.7923258,
+      -9.918954
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S290E_6mp_D18_034250_1676/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S290E_6mp_D18_034250_1676/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            1,
+            1
+          ],
+          "yRange": [
+            1,
+            1
+          ],
+          "count": 1
+        },
+        "8": {
+          "xRange": [
+            2,
+            2
+          ],
+          "yRange": [
+            2,
+            2
+          ],
+          "count": 1
+        },
+        "9": {
+          "xRange": [
+            4,
+            4
+          ],
+          "yRange": [
+            4,
+            4
+          ],
+          "count": 1
+        },
+        "10": {
+          "xRange": [
+            9,
+            9
+          ],
+          "yRange": [
+            8,
+            9
+          ],
+          "count": 2
+        },
+        "11": {
+          "xRange": [
+            19,
+            19
+          ],
+          "yRange": [
+            17,
+            18
+          ],
+          "count": 2
+        },
+        "12": {
+          "xRange": [
+            38,
+            39
+          ],
+          "yRange": [
+            35,
+            37
+          ],
+          "count": 6
+        }
+      }
+    }
+  },
+  {
+    "id": "F14_041292_1682_map_ba_align_6_fill500-DRG",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S291E_F14",
+    "bbox": [
+      -70.2863983,
+      -12.108826,
+      -69.7636795,
+      -11.3658446
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/F14_041292_1682_map_ba_align_6_fill500-DRG/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/F14_041292_1682_map_ba_align_6_fill500-DRG/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            39,
+            39
+          ],
+          "yRange": [
+            36,
+            36
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            78,
+            78
+          ],
+          "yRange": [
+            72,
+            72
+          ],
+          "count": 1
+        },
+        "8": {
+          "xRange": [
+            156,
+            156
+          ],
+          "yRange": [
+            144,
+            145
+          ],
+          "count": 2
+        },
+        "9": {
+          "xRange": [
+            312,
+            313
+          ],
+          "yRange": [
+            288,
+            290
+          ],
+          "count": 6
+        },
+        "10": {
+          "xRange": [
+            624,
+            627
+          ],
+          "yRange": [
+            576,
+            580
+          ],
+          "count": 20
+        },
+        "11": {
+          "xRange": [
+            1248,
+            1254
+          ],
+          "yRange": [
+            1153,
+            1161
+          ],
+          "count": 63
+        },
+        "12": {
+          "xRange": [
+            2496,
+            2508
+          ],
+          "yRange": [
+            2306,
+            2323
+          ],
+          "count": 234
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_12S291E_6mp_F21_043850_1684",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S291E_F21",
+    "bbox": [
+      -69.6680232,
+      -11.900609,
+      -69.1471264,
+      -11.1418367
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S291E_6mp_F21_043850_1684/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S291E_6mp_F21_043850_1684/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            39,
+            39
+          ],
+          "yRange": [
+            35,
+            36
+          ],
+          "count": 2
+        },
+        "7": {
+          "xRange": [
+            78,
+            78
+          ],
+          "yRange": [
+            71,
+            72
+          ],
+          "count": 2
+        },
+        "8": {
+          "xRange": [
+            156,
+            157
+          ],
+          "yRange": [
+            143,
+            144
+          ],
+          "count": 4
+        },
+        "9": {
+          "xRange": [
+            313,
+            315
+          ],
+          "yRange": [
+            287,
+            289
+          ],
+          "count": 9
+        },
+        "10": {
+          "xRange": [
+            627,
+            630
+          ],
+          "yRange": [
+            575,
+            579
+          ],
+          "count": 20
+        },
+        "11": {
+          "xRange": [
+            1255,
+            1261
+          ],
+          "yRange": [
+            1150,
+            1159
+          ],
+          "count": 70
+        },
+        "12": {
+          "xRange": [
+            2510,
+            2522
+          ],
+          "yRange": [
+            2301,
+            2318
+          ],
+          "count": 234
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_12S291E_6mp_J01_045116_1677",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 12S291E_J01",
+    "bbox": [
+      -69.6857373,
+      -12.8639543,
+      -69.0909473,
+      -11.5924843
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S291E_6mp_J01_045116_1677/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_12S291E_6mp_J01_045116_1677/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            39,
+            39
+          ],
+          "yRange": [
+            36,
+            36
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            78,
+            78
+          ],
+          "yRange": [
+            72,
+            73
+          ],
+          "count": 2
+        },
+        "8": {
+          "xRange": [
+            156,
+            157
+          ],
+          "yRange": [
+            144,
+            146
+          ],
+          "count": 6
+        },
+        "9": {
+          "xRange": [
+            313,
+            315
+          ],
+          "yRange": [
+            288,
+            292
+          ],
+          "count": 15
+        },
+        "10": {
+          "xRange": [
+            627,
+            630
+          ],
+          "yRange": [
+            577,
+            585
+          ],
+          "count": 36
+        },
+        "11": {
+          "xRange": [
+            1255,
+            1261
+          ],
+          "yRange": [
+            1155,
+            1170
+          ],
+          "count": 112
+        },
+        "12": {
+          "xRange": [
+            2510,
+            2523
+          ],
+          "yRange": [
+            2311,
+            2340
+          ],
+          "count": 420
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_13S289E_6mp_D10_031125_1673",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 13S289E_D10",
+    "bbox": [
+      -71.2032819,
+      -13.2719867,
+      -70.6758056,
+      -12.5100765
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S289E_6mp_D10_031125_1673/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_13S289E_6mp_D10_031125_1673/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            38,
+            38
+          ],
+          "yRange": [
+            36,
+            36
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            77,
+            77
+          ],
+          "yRange": [
+            72,
+            73
+          ],
+          "count": 2
+        },
+        "8": {
+          "xRange": [
+            154,
+            155
+          ],
+          "yRange": [
+            145,
+            146
+          ],
+          "count": 4
+        },
+        "9": {
+          "xRange": [
+            309,
+            310
+          ],
+          "yRange": [
+            291,
+            293
+          ],
+          "count": 6
+        },
+        "10": {
+          "xRange": [
+            618,
+            621
+          ],
+          "yRange": [
+            583,
+            587
+          ],
+          "count": 20
+        },
+        "11": {
+          "xRange": [
+            1237,
+            1243
+          ],
+          "yRange": [
+            1166,
+            1175
+          ],
+          "count": 70
+        },
+        "12": {
+          "xRange": [
+            2475,
+            2487
+          ],
+          "yRange": [
+            2332,
+            2350
+          ],
+          "count": 247
+        }
+      }
+    }
+  },
+  {
+    "id": "CTX_Ortho_16S291E_6mp_D22_035951_1644",
+    "title": "Mars Reconnaissance Orbiter CTX, Mosaic East Melas 16S291E",
+    "bbox": [
+      -69.576517,
+      -18.1267732,
+      -68.5489959,
+      -12.8731656
+    ],
+    "tileUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_16S291E_6mp_D22_035951_1644/1.0.0/default/default028mm/{z}/{y}/{x}.png",
+    "capabilitiesUrl": "https://trek.nasa.gov/tiles/Mars/EQ/CTX_Ortho_16S291E_6mp_D22_035951_1644/1.0.0/WMTSCapabilities.xml",
+    "downloadInfo": {
+      "tilesPerZoom": {
+        "6": {
+          "xRange": [
+            0,
+            0
+          ],
+          "yRange": [
+            0,
+            0
+          ],
+          "count": 1
+        },
+        "7": {
+          "xRange": [
+            1,
+            1
+          ],
+          "yRange": [
+            1,
+            1
+          ],
+          "count": 1
+        },
+        "8": {
+          "xRange": [
+            2,
+            2
+          ],
+          "yRange": [
+            2,
+            2
+          ],
+          "count": 1
+        },
+        "9": {
+          "xRange": [
+            4,
+            4
+          ],
+          "yRange": [
+            4,
+            4
+          ],
+          "count": 1
+        },
+        "10": {
+          "xRange": [
+            9,
+            9
+          ],
+          "yRange": [
+            9,
+            9
+          ],
+          "count": 1
+        },
+        "11": {
+          "xRange": [
+            19,
+            19
+          ],
+          "yRange": [
+            18,
+            19
+          ],
+          "count": 2
+        },
+        "12": {
+          "xRange": [
+            39,
+            39
+          ],
+          "yRange": [
+            36,
+            38
+          ],
+          "count": 3
+        }
+      }
+    }
+  }
+]

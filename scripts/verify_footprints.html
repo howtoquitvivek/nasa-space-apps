@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NASA Trek Footprint Viewer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.css" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+        }
+        #map {
+            position: absolute;
+            top: 50px; /* To make space for the dropdown */
+            bottom: 0;
+            width: 100%;
+        }
+        #controls {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: white;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 0 1px 5px rgba(0,0,0,0.65);
+        }
+    </style>
+</head>
+<body>
+    <div id="controls">
+        <label for="dataset-select">Select Dataset:</label>
+        <select id="dataset-select">
+            <option value="">--Select a footprint--</option>
+        </select>
+    </div>
+    <div id="map"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.8.0/leaflet.js"></script>
+    <script>
+        let map = null;
+        let currentTileLayer = null;
+
+        function initializeMap() {
+            if (map === null) {
+                map = L.map('map', { crs: L.CRS.EPSG4326 }).setView([0, 0], 1);
+            }
+        }
+
+        function loadFootprint(footprint) {
+            if (currentTileLayer) {
+                map.removeLayer(currentTileLayer);
+            }
+
+            const availableZooms = Object.keys(footprint.downloadInfo.tilesPerZoom).map(Number);
+            const minZoom = Math.min(...availableZooms);
+            const maxZoom = Math.max(...availableZooms);
+
+            const newTileLayer = L.tileLayer(footprint.tileUrl, {
+                minZoom: minZoom,
+                maxZoom: maxZoom,
+                noWrap: true,
+                attribution: footprint.title,
+                getTileUrl: function (coords) {
+                    const tileRanges = footprint.downloadInfo.tilesPerZoom[coords.z];
+                    if (tileRanges &&
+                        coords.x >= tileRanges.xRange[0] && coords.x <= tileRanges.xRange[1] &&
+                        coords.y >= tileRanges.yRange[0] && coords.y <= tileRanges.yRange[1]) {
+                        return L.TileLayer.prototype.getTileUrl.call(this, coords);
+                    } else {
+                        return '';
+                    }
+                }
+            });
+            newTileLayer.addTo(map);
+            currentTileLayer = newTileLayer;
+
+            const bbox = footprint.bbox;
+            const southWest = L.latLng(bbox[1], bbox[0]);
+            const northEast = L.latLng(bbox[3], bbox[2]);
+            const bounds = L.latLngBounds(southWest, northEast);
+            map.fitBounds(bounds);
+        }
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            initializeMap();
+            const selectElement = document.getElementById('dataset-select');
+
+            try {
+                const response = await fetch('./ctx_footprints_new.json');
+                const footprintData = await response.json();
+
+                // Populate the dropdown
+                footprintData.forEach(item => {
+                    const option = document.createElement('option');
+                    option.value = item.id;
+                    option.textContent = item.title;
+                    selectElement.appendChild(option);
+                });
+
+                // Handle selection change
+                selectElement.addEventListener('change', (event) => {
+                    const selectedId = event.target.value;
+                    const selectedFootprint = footprintData.find(item => item.id === selectedId);
+                    if (selectedFootprint) {
+                        loadFootprint(selectedFootprint);
+                    }
+                });
+
+                // Load the first footprint by default if there is one
+                if (footprintData.length > 0) {
+                    selectElement.value = footprintData[0].id;
+                    loadFootprint(footprintData[0]);
+                }
+            } catch (error) {
+                console.error('Failed to load footprint data:', error);
+                const option = document.createElement('option');
+                option.textContent = 'Failed to load data.';
+                selectElement.appendChild(option);
+            }
+        });
+    </script>
+</body>
+</html>

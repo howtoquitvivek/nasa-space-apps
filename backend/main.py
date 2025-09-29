@@ -20,7 +20,7 @@ import requests
 # FastAPI App Setup
 # ===================================================================
 
-app = FastAPI(title="GeoFeature API", version="1.0.0")
+app = FastAPI(title="Anveshak API", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -326,8 +326,8 @@ def download_tile(session, url: str, path: str) -> bool:
 
 def ingest_dataset(dataset_id: str, req: IngestRequest):
     """
-    Starts the tile ingestion process.
-    - Updated to trigger indexing after successful download.
+    Starts the tile ingestion process with the corrected logic from the frontend viewer.
+    This version gracefully handles all download errors and continues.
     """
     job_key = f"{dataset_id}_{req.footprintId}"
     ingestion_jobs[job_key] = {"cancelled": False}
@@ -339,6 +339,7 @@ def ingest_dataset(dataset_id: str, req: IngestRequest):
     for z in range(req.minZoom, req.maxZoom + 1):
         zoom_path = os.path.join(TILES_ROOT, dataset_id, req.footprintId, str(z))
         os.makedirs(zoom_path, exist_ok=True)
+        
         if ingestion_jobs[job_key]["cancelled"]:
             print(f"Ingestion cancelled at zoom {z}")
             if os.path.exists(zoom_path):
@@ -347,31 +348,58 @@ def ingest_dataset(dataset_id: str, req: IngestRequest):
         
         zoom_str = str(z)
         if zoom_str not in req.tilesPerZoom:
+            print(f"No tile ranges for zoom {z}. Skipping.")
             continue
         
         zoom_data = req.tilesPerZoom[zoom_str]
         x_range = zoom_data['xRange']
         y_range = zoom_data['yRange']
-        all_tiles_downloaded = True
         
         for x in range(x_range[0], x_range[1] + 1):
             for y in range(y_range[0], y_range[1] + 1):
                 if ingestion_jobs[job_key]["cancelled"]:
-                    all_tiles_downloaded = False
                     print(f"Ingestion cancelled at tile {z}/{x}/{y}")
                     if os.path.exists(zoom_path):
                         shutil.rmtree(zoom_path)
                     break
+                
+                # --- CORRECTED LOGIC FROM THE FRONTEND VIEWER ---
+                # This logic is now a simple loop, and the error handling
+                # will gracefully skip tiles that are not found.
+                
                 tile_url = req.tileUrl.format(z=z, y=y, x=x)
                 local_path = os.path.join(zoom_path, str(x), f"{y}.png")
                 os.makedirs(os.path.dirname(local_path), exist_ok=True)
-                download_tile(session, tile_url, local_path)
-            if not all_tiles_downloaded:
+                
+                try:
+                    print(f"  Attempting to download: {tile_url}")
+                    response = session.get(tile_url, timeout=10)
+                    response.raise_for_status() # Raise an exception for bad status codes
+                    
+                    if response.content:
+                        with open(local_path, 'wb') as f:
+                            f.write(response.content)
+                        # print(f"  Successfully downloaded tile {z}/{x}/{y}")
+                    else:
+                        print(f"  Warning: Empty response for tile {z}/{x}/{y}")
+                
+                except requests.exceptions.HTTPError as e:
+                    # Log the error but do not stop the loop
+                    print(f"  Error downloading tile {z}/{x}/{y}: {e}. Continuing...")
+                except requests.exceptions.RequestException as e:
+                    # Handle other requests exceptions (e.g., timeout, connection issues) gracefully
+                    print(f"  Network error for tile {z}/{x}/{y}: {e}. Continuing...")
+                except Exception as e:
+                    print(f"  Unexpected error for tile {z}/{x}/{y}: {e}. Continuing...")
+                
+            if ingestion_jobs[job_key]["cancelled"]:
                 break
         
-        if all_tiles_downloaded:
+        if not ingestion_jobs[job_key]["cancelled"]:
             successfully_downloaded_zooms.append(z)
-
+        else:
+            break
+            
     ingestion_jobs.pop(job_key, None)
     
     if successfully_downloaded_zooms:

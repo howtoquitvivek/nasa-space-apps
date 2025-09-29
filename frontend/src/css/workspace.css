@@ -10,7 +10,7 @@
     /* Dark Space Theme */
     --color-dark: #020617;
     --color-dark-secondary: #0f172a;
-    --color-dark-tertiary: #1e293b;
+    --color-dark-tertiary: rgb(30, 41, 59);
     --color-gray: #64748b;
     --color-gray-light: #94a3b8;
     --color-white: #ffffff;
@@ -716,4 +716,44 @@ body::before {
     .map-instance {
         height: 45vh;
     }
+}
+
+
+.leaflet-container .leaflet-control.coordinate-control {
+    background: rgba(30, 41, 59, 0.837);
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    gap: 5px;
+    border: 1px var(--color-gray);
+}
+
+.coordinate-control .coordinate-input {
+    width: 80px;
+    padding: 4px;
+    border: 1px solid var(--color-gray);
+    border-radius: 3px;
+    font-size: 14px;
+    background-color: var(--color-light);
+}
+
+.coordinate-control .coordinate-button {
+    background: var(--gradient-primary);
+    color: var(--color-light);
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    transition: var(--transition-normal);
+    border: none;
+    box-shadow: var(--shadow-sm);
+    height: 31px;
+}
+
+.coordinate-control .coordinate-button:hover {
+    background: var(--gradient-accent);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md), var(--glow-primary);
 }
